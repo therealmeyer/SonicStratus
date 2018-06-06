@@ -50,7 +50,12 @@ class SessionForm extends React.Component {
     );
   }
 
+  disableButtons() {
+
+  }
+
   handleDemoUser (e) {
+    $(".session-submit").attr("disabled", true);    
     let login = this.props.login.bind(this);
     e.preventDefault();
     this.setState({ username: '', password: '' });

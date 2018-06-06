@@ -39,7 +39,7 @@
 
 .nav-logo-link {
     box-sizing: border-box;
-    background: url("cloud.png") no-repeat;
+    background: image-url("cloud.png") no-repeat;
     background-size: 48px 22px;
     display: block;
     height: 46px;
@@ -80,7 +80,7 @@
 }
 
 .nav-search-submit {
-  background: url("search.svg");
+  background: image-url("search.svg");
   position: absolute;
   width: 15px;
   height: 15px;
