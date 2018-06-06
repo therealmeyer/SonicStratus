@@ -1,0 +1,119 @@
+.landing-image {
+  // display: flex;
+  position: relative;
+  justify-content: space-between;
+  background: image-url("splash.jpg");
+  width: 1200px;
+  height: 450px;
+  background-size: cover;
+  justify-content: center;
+  margin: 0 auto;
+  border-top: 4px solid #f50;
+}
+
+.landing-image-header {
+  margin: 0 auto;
+  overflow: hidden;
+
+}
+.font-logo {
+  position: absolute;
+  background: image-url("cloud.png") no-repeat;
+  background-size: 48px 22px;
+  display: block;
+  width: 184px;
+  height: 46px;
+  font-size: 16px; 
+  left: 45px;
+  top: 28px;
+  font-family: "Interstate",
+  "Lucida Grande",
+  "Lucida Sans Unicode",
+  "Lucida Sans",
+  Garuda,
+  Verdana,
+  Tahoma,
+  sans-serif;
+  float: left;
+  color: #fff;
+  text-indent: 3.5em;
+  line-height: 150%;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.landing-list {
+  float: right;
+  display: flex;
+  font-weight: 100;
+  position: absolute;
+  right: 25px;
+  top: 20px;
+  padding: 10px;
+  overflow: hidden;
+}
+
+.sign-in {
+  margin-right: 7px;
+  height: 60px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  color: #fff;
+  transition: opacity .2s;
+  padding: 6px 15px;
+  font-family: 'Lucida Grande',
+  'Lucida Sans Unicode',
+  'Lucida Sans',
+  Garuda,
+  Verdana,
+  Tahoma,
+  sans-serif;
+  font-weight: 100;
+  font-size: 12px;
+}
+
+.create-account {
+  background-color: #f50;
+  border-color: #f50;
+  color: #fff;
+  border: 1px solid #f50;
+  padding: 6px 15px;
+  border-radius: 3px; 
+  font-family: 'Lucida Grande',
+  'Lucida Sans Unicode',
+  'Lucida Sans',
+  Garuda,
+  Verdana,
+  Tahoma,
+  sans-serif;
+  font-weight: 100;
+  font-size: 12px;
+}
+
+.landing-text {
+  position: absolute;
+  left: 300px;
+  color: #fff;
+  // margin-left: auto;
+  // margin-right: auto;
+  // width: 40%;
+  top: 130px;
+}
+
+.landing-title {
+  margin-bottom: 8px;
+  font-size: 32px;
+  font-weight: 100;
+  text-align: center;
+  font-weight: 100;
+}
+
+.landing-tagline {
+  font-size: 18px;
+  max-width: 530px;
+  text-align: center;
+  margin: 0 0 10px;
+  padding-top: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+}

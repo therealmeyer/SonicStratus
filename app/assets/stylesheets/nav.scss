@@ -1,0 +1,123 @@
+.nav {
+  background-color: #333;
+  color: #ccc;
+  margin: 0 auto;
+  font-size: 14px;
+}
+
+.nav-inner {
+  height: 46px;
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+}
+
+.nav li {
+  padding: 12px 10px;
+}
+
+.nav-left {
+  border-right: 1px solid black;
+  text-align: center;
+  display: flex;
+}
+
+.nav-left a {
+  padding: 12px;
+}
+
+.nav-logo {
+  width: 184px;
+  background: linear-gradient(#f70, #f30);
+  text-transform: uppercase;
+  font-weight: bold;
+  color: #FFFFFF;
+  text-indent: 3em;
+  line-height: 0%;
+  vertical-align: text-top;
+}
+
+.nav-logo-link {
+    box-sizing: border-box;
+    background: url("cloud.png") no-repeat;
+    background-size: 48px 22px;
+    display: block;
+    height: 46px;
+    width: 69px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    font-size: 13px;
+}
+
+.stream-link {
+  padding: 20px;
+}
+.stream:hover {
+  background: black;
+  color: #fff;
+}
+
+.nav-search-form {
+  vertical-align: baseline;
+}
+
+.nav-search-input {
+  background: #e5e5e5;
+  color: #666;
+  height: 28px;
+  width: 545px;
+  font-size: 14px;
+  border-radius: 4px;
+  padding: 3px 5px;
+  margin: -3.5px 2px;
+}
+
+.nav-search {
+  padding: 9px 10px 8px;
+  position: relative;
+  background: #333;
+}
+
+.nav-search-submit {
+  background: url("search.svg");
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  right: 20px;
+  top: 15px;
+}
+
+.nav-right-links {
+  display: flex;
+  vertical-align: middle;
+  align-items: center;
+}
+
+.nav-right li {
+  padding: 10px 20px;
+  font-weight: 200;
+  text-align: center;
+}
+
+.nav-right li:hover {
+  color: #fff;
+}
+
+.user-image-nav {
+  width: 26px;
+  height: 26px;
+  background-image: linear-gradient(135deg, #846170, #70929c);
+  border-radius: 50%;
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.current-user {
+}
+
+.upload {
+}
