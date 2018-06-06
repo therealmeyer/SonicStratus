@@ -39,15 +39,24 @@ class SessionForm extends React.Component {
   }
 
   renderErrors() {
-    return (
-      <ul className="session-errors">
-        {this.props.errors.map((error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
-    );
+    // if (this.props.errors.length < 1) {
+    //   return (
+    //     <ul className="no-errors">
+    //       <li>x</li>
+    //       <li>x</li>
+    //     </ul>
+    //   );
+    // } else {
+        return (
+          <ul className="session-errors">
+          {this.props.errors.map((error, i) => (
+            <li key={`error-${i}`}>
+              {error}
+            </li>
+          ))}
+        </ul>
+      );
+    // }
   }
 
   disableButtons() {
