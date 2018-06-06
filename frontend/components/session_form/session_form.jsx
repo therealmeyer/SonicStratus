@@ -26,14 +26,15 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     const user = Object.assign({}, this.state);
-    this.props.processForm(user).then(() => {
-      if (this.props.formType === "SignUp")
-        this.props.closeSignUpModal();
-      else {
-        this.props.closeLoginModal();
-      }
-      this.props.history.push("/stream");
-    });
+    this.props.processForm(user);
+    //.then(() => {
+      // if (this.props.formType === "SignUp")
+        // this.props.closeSignUpModal();
+      // else {
+        // this.props.closeLoginModal();
+      // }
+      //this.props.history.push("/stream");
+    //});
     
   }
 
@@ -62,14 +63,15 @@ class SessionForm extends React.Component {
         this.setState({ password: (this.state.password + password.shift()) });
       } else {
         clearTimeout(this.clearInterval);
-        login({ username: 'user', password: 'password'}).then(() => this.props.history.push("/stream"));
+        login({ username: 'user', password: 'password'});
+        //.then(() => this.props.history.push("/stream"));
       }
     }, 150);
   }
 
   render() {
     return (
-          <form onSubmit={this.handleSubmit} className="session-form">
+          <form className="session-form">
             <div className="soundcloud-logo" />
 
             <h2 className="form-header">{this.props.formType}</h2>
@@ -93,7 +95,9 @@ class SessionForm extends React.Component {
                   />
                 </label>
               </div>
-              <input className="session-submit" type="submit" value={this.props.formType} />
+              <button onClick={this.handleSubmit} className="session-submit">
+                {this.props.formType}
+              </button>
               <button onClick={this.handleDemoUser} className="session-submit">
                 Demo Login
               </button>
