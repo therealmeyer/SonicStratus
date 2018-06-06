@@ -4,9 +4,8 @@ import Nav from './nav';
 import { logout } from '../../actions/session_actions';
 
 const mapStateToProps = state => {
-  console.log(state.session.currentUser);
   return  {
-    currentUser: state.session.currentUser || {id: 22, username: "ryan"}
+    currentUser: state.session.currentUser //|| {id: 22, username: "ryan"}
   };
 };
 

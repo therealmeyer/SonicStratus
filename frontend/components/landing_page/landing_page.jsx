@@ -16,7 +16,7 @@ const modalStyle = {
     backgroundColor: "rgba(255, 255, 255, 0.75)"
   },
   content: {
-    position: "absolute",
+    position: "static",
     top: '200px',
     left: '300px',
     right: "100px",
@@ -68,19 +68,19 @@ class LandingPage extends React.Component {
             <h1 className="font-logo">SonicStratus</h1>
             <SessionButtons openSignUpModal={this.openSignUpModal} openLoginModal={this.openLoginModal} />
 
-            {/* <Modal isOpen={this.state.modalLoginOpen} 
+            <Modal isOpen={this.state.modalLoginOpen} 
               onRequestClose={this.closeLoginModal.bind(this)} 
               contentLabel="Modal" 
               style={modalStyle}>
               <LoginFormContainer closeLoginModal={this.closeLoginModal.bind(this)} />
-            </Modal> */}
+            </Modal>
 
-            {/* <Modal isOpen={this.state.modalOpen} 
-              onRequestClose={this.closeLoginModal.bind(this)} 
+            <Modal isOpen={this.state.modalSignUpOpen} 
+              onRequestClose={this.closeSignUpModal.bind(this)} 
               contentLabel="Modal" 
               style={modalStyle}>
               <SignUpFormContainer closeSignUpModal={this.closeSignUpModal.bind(this)} />
-            </Modal> */}
+            </Modal>
           </div>
           <div className="landing-text">
             <h3 className="landing-title">

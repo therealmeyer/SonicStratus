@@ -1,12 +1,13 @@
 import React from 'react';
 import NavContainer from "../nav/nav_container";
+import MainStream from './main_stream';
 
 class Stream extends React.Component {
   render () {
     return (
-      <div>
+      <div className="stream-page">
         <NavContainer />
-        <h1>Stream Page</h1>
+        <MainStream />
       </div>
     );
   }

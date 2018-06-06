@@ -13,6 +13,10 @@ class SessionForm extends React.Component {
     
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
   update(field) {
     return e => this.setState({
       [field]: e.currentTarget.value
@@ -28,6 +32,7 @@ class SessionForm extends React.Component {
       else {
         this.props.closeLoginModal();
       }
+      this.props.history.push("/stream");
     });
     
   }
@@ -45,7 +50,7 @@ class SessionForm extends React.Component {
   }
 
   handleDemoUser (e) {
-    let process = this.props.processForm.bind(this);
+    let login = this.props.login.bind(this);
     e.preventDefault();
     this.setState({ username: '', password: '' });
     let username = Array.from('user');
@@ -57,7 +62,7 @@ class SessionForm extends React.Component {
         this.setState({ password: (this.state.password + password.shift()) });
       } else {
         clearTimeout(this.clearInterval);
-        process({ username: 'user', password: 'password'});
+        login({ username: 'user', password: 'password'}).then(() => this.props.history.push("/stream"));
       }
     }, 150);
   }
@@ -75,7 +80,7 @@ class SessionForm extends React.Component {
                   Username
                   <input type="text" value={this.state.username} 
                   onChange={this.update("username")} className="input-field" 
-                  placeholder="Username"
+                  placeholder="Your Username"
                   />
                 </label>
               </div>
@@ -84,7 +89,7 @@ class SessionForm extends React.Component {
                   Password
                   <input type="password" value={this.state.password} 
                   onChange={this.update("password")} className="input-field" 
-                  placeholder="Password"
+                  placeholder="Your Password"
                   />
                 </label>
               </div>

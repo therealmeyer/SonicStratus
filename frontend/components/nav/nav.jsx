@@ -34,7 +34,7 @@ class Nav extends React.Component {
             <div className="nav-right">
               <ul className="nav-right-links">
                 <li><Link className="upload" to="/upload">Upload</Link></li>
-                <li>
+                <li className="user-link">
                   <span className="user-image-nav"></span>
                   <Link className="current-user" to={`/users/${this.props.currentUser.username}`}>
                     {this.props.currentUser.username}

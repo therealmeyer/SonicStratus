@@ -51,6 +51,7 @@
 
 .stream-link {
   padding: 20px;
+  vertical-align: middle;
 }
 .stream:hover {
   background: black;
@@ -91,6 +92,13 @@
   display: flex;
   vertical-align: middle;
   align-items: center;
+  height: 45px;
+}
+
+.user-link {
+  height: 45px;
+  display: flex;
+  align-items: center;
 }
 
 .nav-right li {
@@ -117,6 +125,7 @@
 }
 
 .current-user {
+  diplay: inline-block;
 }
 
 .upload {

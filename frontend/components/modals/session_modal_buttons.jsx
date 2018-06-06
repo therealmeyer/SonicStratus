@@ -4,14 +4,14 @@ import { Link } from 'react-router-dom';
 const SessionButtons = ({ openSignUpModal, openLoginModal }) => (
   <ul className="landing-list">
     <li>
-      <Link to="#" className="sign-in" onClick={() => openLoginModal()}>
+      <button className="sign-in" onClick={() => openLoginModal()}>
         Sign in
-      </Link>
+      </button>
     </li>
     <li>
-      <Link to="#" onClick={() => openSignUpModal()} className="create-account">
+      <button onClick={() => openSignUpModal()} className="create-account">
         Create account
-      </Link>
+      </button>
     </li>
   </ul>
 );

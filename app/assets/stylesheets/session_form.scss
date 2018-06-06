@@ -17,7 +17,7 @@
 .session-form {
   position: absolute;
   top: 100px;
-  left: 30%;
+  left: 33%;
   width: 450px;
   padding: 30px;
   border: 1px solid #ccc;
@@ -35,7 +35,7 @@
 
 .input-session > label {
   display: block;
-  font-weight: 700;
+  font-weight: 400;
   padding: 0 0 5px 0;
 }
 
@@ -46,6 +46,7 @@
   width: calc(100% - 22px);
   border-radius: 5px;
   padding: 5px;
+  font-weight: 300;
 }
 
 .modal.is-open {

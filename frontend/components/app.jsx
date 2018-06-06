@@ -8,10 +8,10 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
   <div>
-    <Route exact path="/" component={LandingPage} />
+    <AuthRoute exact path="/" component={LandingPage} />
     {/* <AuthRoute path="/login" component={LoginFormContainer} /> */}
     {/* <AuthRoute path="/signup" component={SignUpFormContainer} /> */}
-    <Route path="/stream" component={Stream} />
+    <ProtectedRoute path="/stream" component={Stream} />
   </div>
 );
 
