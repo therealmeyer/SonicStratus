@@ -3,6 +3,9 @@ import ReactDOM from 'react-dom';
 import { login, signup, logout } from './util/session_api_util';
 import configureStore from './store/store';
 import Root from './components/root';
+import { createTrack, fetchTrack, fetchAllTracks, 
+  updateTrack, deleteTrack } from './util/track_api_util';
+
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -24,5 +27,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // window.login = login;
   // window.signup = signup;
   window.logout = logout;
+
+  window.createTrack = createTrack;
+  window.fetchTrack = fetchTrack;
+  window.fetchAllTracks = fetchAllTracks;
+  window.updateTrack = updateTrack;
+  window.deleteTrack = deleteTrack;
+
   ReactDOM.render(<Root store={store} />, root);
 });

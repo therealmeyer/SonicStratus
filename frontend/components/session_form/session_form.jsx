@@ -79,11 +79,11 @@ class SessionForm extends React.Component {
           <form className="session-form">
             <div className="soundcloud-logo" />
 
-            <h2 className="form-header">{this.props.formType}</h2>
+            {/* <h2 className="form-header">{this.props.formType}</h2> */}
             {this.renderErrors()}
             <div className="login-form">
               <div className="input-session">
-                <label>
+                <label className="session-label">
                   Username
                   <input id="username" type="text" value={this.state.username} 
                   onChange={this.update("username")} className="input-field" 

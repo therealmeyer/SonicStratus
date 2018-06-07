@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180606232723) do
+ActiveRecord::Schema.define(version: 20180607182533) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,10 +20,17 @@ ActiveRecord::Schema.define(version: 20180606232723) do
     t.string "title", null: false
     t.text "description"
     t.string "genre"
-    t.string "album_image_url"
     t.integer "year"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "audio_file_name"
+    t.string "audio_content_type"
+    t.integer "audio_file_size"
+    t.datetime "audio_updated_at"
+    t.string "image_file_name"
+    t.string "image_content_type"
+    t.integer "image_file_size"
+    t.datetime "image_updated_at"
     t.index ["title"], name: "index_tracks_on_title"
     t.index ["user_id"], name: "index_tracks_on_user_id"
   end
@@ -34,6 +41,14 @@ ActiveRecord::Schema.define(version: 20180606232723) do
     t.string "session_token", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "header_image_file_name"
+    t.string "header_image_content_type"
+    t.integer "header_image_file_size"
+    t.datetime "header_image_updated_at"
+    t.string "profile_image_file_name"
+    t.string "profile_image_content_type"
+    t.integer "profile_image_file_size"
+    t.datetime "profile_image_updated_at"
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
