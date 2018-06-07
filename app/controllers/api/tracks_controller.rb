@@ -6,8 +6,12 @@ class Api::TracksController < ApplicationController
   end
 
   def destroy
-    track = Track.find(params[:id])
-    track.destroy
+    @track = Track.find(params[:id])
+    if @track.destroy
+      render :show 
+    else 
+      render json: { errors: @track.errors.full_messages }, status: 422
+    end 
   end
 
   def show
@@ -15,6 +19,12 @@ class Api::TracksController < ApplicationController
   end
 
   def update
+    @track = Track.find(params[:id])
+    if @track.update_attributes(track_params)
+      render :show
+    else
+      render json: { errors: @track.errors.full_messages }, status: 422
+    end
   end
 
   def index
