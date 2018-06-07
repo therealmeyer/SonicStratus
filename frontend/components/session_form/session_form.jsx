@@ -27,26 +27,21 @@ class SessionForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
-    //.then(() => {
-      // if (this.props.formType === "SignUp")
-        // this.props.closeSignUpModal();
-      // else {
-        // this.props.closeLoginModal();
-      // }
-      //this.props.history.push("/stream");
-    //});
-    
+  }
+
+  highlighterrors() {
+    if (this.props.errors.includes("Password is too short (minimum is 6 characters)")
+      || this.props.errors.includes("Incorrect username/password combination")) {
+        $("#password").css('border', '1px solid #f50');
+    }
+    if (this.props.errors.includes("Username can't be blank")
+      || this.props.errors.includes("Incorrect username/password combination")
+      || this.props.errors.includes("Username has already been taken")) {
+        $("#username").css("border", "1px solid #f50");
+    }
   }
 
   renderErrors() {
-    // if (this.props.errors.length < 1) {
-    //   return (
-    //     <ul className="no-errors">
-    //       <li>x</li>
-    //       <li>x</li>
-    //     </ul>
-    //   );
-    // } else {
         return (
           <ul className="session-errors">
           {this.props.errors.map((error, i) => (
@@ -57,10 +52,6 @@ class SessionForm extends React.Component {
         </ul>
       );
     // }
-  }
-
-  disableButtons() {
-
   }
 
   handleDemoUser (e) {
@@ -78,12 +69,12 @@ class SessionForm extends React.Component {
       } else {
         clearTimeout(this.clearInterval);
         login({ username: 'user', password: 'password'});
-        //.then(() => this.props.history.push("/stream"));
       }
     }, 150);
   }
 
   render() {
+    this.highlighterrors();
     return (
           <form className="session-form">
             <div className="soundcloud-logo" />
@@ -94,7 +85,7 @@ class SessionForm extends React.Component {
               <div className="input-session">
                 <label>
                   Username
-                  <input type="text" value={this.state.username} 
+                  <input id="username" type="text" value={this.state.username} 
                   onChange={this.update("username")} className="input-field" 
                   placeholder="Your Username"
                   />
@@ -103,7 +94,7 @@ class SessionForm extends React.Component {
               <div className="input-session">
                 <label>
                   Password
-                  <input type="password" value={this.state.password} 
+                  <input id="password" type="password" value={this.state.password} 
                   onChange={this.update("password")} className="input-field" 
                   placeholder="Your Password"
                   />
