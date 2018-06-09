@@ -18,10 +18,14 @@ export const removeTrack = () => ({
   type: DELETE_TRACK
 });
 
-export const createTrack = track => dispatch => (
-  TrackAPIUtil.createTrack(track)
-    .then(resTrack => dispatch(receiveTrack(resTrack)))
-);
+export const createTrack = formData => dispatch => {
+  console.log(formData);
+  return (
+    TrackAPIUtil.createTrack(formData)
+      .then(resTrack => dispatch(receiveTrack(resTrack)))
+  );
+};
+  
 
 export const fetchTrack = track => dispatch => (
   TrackAPIUtil.fetchTrack(track)
@@ -33,8 +37,8 @@ export const fetchAllTracks = tracks => dispatch => (
     .then(resTracks => dispatch(receiveTracks(resTracks)))
 );
 
-export const updateTrack = track => dispatch => (
-  TrackAPIUtil.updateTrack(track)
+export const updateTrack = formData => dispatch => (
+  TrackAPIUtil.updateTrack(formData)
     .then(resTrack => dispatch(receiveTrack(resTrack)))
 );
 

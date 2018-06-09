@@ -16,9 +16,33 @@ class Track < ApplicationRecord
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
   
 
-  belongs_to :user, optional: true
-
+  belongs_to :user
+  
+  # before_validation :convert_image_url
   # after_initialize :ensure_album_image_url
+
+  # def convert_image_url 
+  #   if self.image.url.include?("?")
+  #     idx = find_query
+  #     p idx
+  #     prepend = "https:"
+  #     mid = self.image.url[4..idx-1]
+  #     self.image.url = prepend + mid
+  #   end 
+  # end 
+
+  # private 
+
+
+  # def find_query
+  #   self.image.url.chars.each_with_index do |char, idx|
+  #     if char == "?"
+  #       return idx
+  #     else 
+  #       return nil
+  #     end 
+  #   end 
+  # end 
 
 
   # def ensure_album_image_url

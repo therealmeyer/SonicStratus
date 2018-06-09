@@ -1,0 +1,227 @@
+.header-box {
+  border-bottom: 1px solid #f2f2f2;
+  margin-bottom: 10px;
+  margin-left: -30px;
+  margin-right: -30px;
+}
+
+.upload-header {
+  font-size: 14px;
+  color: #f50;
+  border-bottom: 1px solid #f50;
+  padding: 20px 0px 10px 0px;
+  display: inline-block;
+  margin: 0px 10px 0px 30px;
+  font-weight: 500;
+}
+
+.hidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 10px;
+}
+
+.upload-button {
+  cursor: pointer;
+  margin: 0 auto;
+  outline: none;
+  display: block;
+  height: 40px;
+  padding: 10px 15px;
+  background-color: #f50;
+  border: 1px solid #f50;
+  border-radius: 3px;
+  font-size: 14px;
+  color: #fff;
+  width: 190px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.upload-form {
+  // border: 1px solid #f2f2f2;
+  // border-radius: 1px;
+  padding: 10px;
+}
+
+.form-title {
+  padding: 36px;
+  font-size: 24px;
+  line-height: 1;
+  text-align: center;
+}
+
+.ready-banner {
+  color: #666;
+  transition: min-height .3s cubic-bezier(.28, .42, .18, 1);
+  margin-left: 160px;
+  font-size: 12px;
+  padding: 0px 0px 5px 0px;
+}
+
+.color-bar {
+  margin: 0 auto;
+  
+  height: 5px;
+  width: 800px;
+  background: #06c;
+  border-right: 400px solid #f50;
+}
+
+.upload-form-box {
+  width: 800px;
+  margin: 0 auto;
+  border: 1px solid #f2f2f2;
+  padding: 25px;
+  border-radius: 2px;
+}
+
+.main-form-box {
+  display: flex;
+  margin-top: 25px;
+}
+
+.basic-info-header {
+  font-size: 24px;
+  color: #f50;
+  border-bottom: 1px solid #f50;
+  padding: 5px 0px;
+  display: inline-block;
+  // margin-left: 10px;
+  font-weight: 500;
+}
+
+.upload-form-header {
+  // margin-left: 10px;
+  // margin-right: 10px;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.image-upload-box {
+  // margin-top: 25px;
+  width: 260px;
+  height: 260px;
+  display: flex;
+  margin-right: 15px;
+  justify-content: space-between;
+}
+
+.image-upload {
+  width: 260px;
+  height: 260px;
+  background-image: linear-gradient(135deg, #846170, #70929c);
+  position: relative;
+  float: left;
+}
+
+.update-image-button {
+  text-align: center;
+  background-color: rgba(255, 255, 255, .8);
+  background-clip: padding-box;
+  transition: background-color .2s ease-in-out,
+  border-color .2s ease-in-out;
+  cursor: pointer;
+  position: absolute;
+  left: 65px;
+  bottom: 30px;
+  padding: 5px 10px;
+  border-radius: 3px;
+  font-size: 12px;
+}
+
+#camera {
+  margin-right: 8px;
+}
+
+.asterisk {
+  color: #f50;
+  margin-left: -2px;
+  margin-right: 4px;
+}
+
+
+
+.upload-form-input-title {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  display: block;
+  margin-top: 3px;
+  padding: 5px;
+  width: 470px;
+}
+
+.upload-form-input-title::placeholder {
+  color: #ccc;
+}
+
+.upload-form-input-genre {
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  display: block;
+  margin-top: 3px;
+  padding: 5px;
+  width: 230px;
+}
+
+.upload-form-input-genre::placeholder {
+  color: #ccc;
+}
+
+.upload-form-label {
+  margin-bottom: 20px;
+  display: block;
+  color: #333;
+  font-size: 12px;
+}
+
+.main-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.upload-form-textarea {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  width: 470px;
+  height: 130px;
+  margin-top: 4px;
+  padding: 5px;
+}
+
+.upload-form-textarea::placeholder {
+  color: #ccc;
+}
+
+.submitBox {
+  border-top: 1px solid #f2f2f2;
+  display: flex;
+  margin-left: -25px;
+  margin-right: -25px;
+  padding: 15px 5px 5px 15px;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  height: 40px;
+}
+
+.required {
+  margin-top: 10px;
+  float: left;
+  font-size: 12px;
+}
+
+.save-button {
+  float: right;
+  font-size: 14px;
+  border-radius: 5px;
+  padding: 6px 10px;
+  background: #f50;
+  color: white;
+  margin-right: 25px;
+  margin-top: 10px;
+}

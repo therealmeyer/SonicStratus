@@ -1,0 +1,30 @@
+.album-img {
+  width: 162px;
+  height: 162px;
+}
+
+.paused-button {
+  width: 36px;
+  height: 36px;
+  background: #f50;
+  background-image: image-url("play.svg");
+  border-radius: 100%;
+  background-size: 40%;
+  background-position: 55% 50%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+
+
+.played-button { 
+  width: 36px;
+  height: 36px;
+  background: #f50;
+  background-image: image-url("pause.svg");
+  border-radius: 100%;
+  background-size: 35%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}

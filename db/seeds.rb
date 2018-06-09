@@ -7,7 +7,20 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.destroy_all
+Track.destroy_all
 
-User.create(username: 'ryan', password: 'password')
+ryan = User.create(username: 'ryan', password: 'password')
 
-User.create(username: 'user', password: 'password')
+demo = User.create(username: 'user', password: 'password')
+
+drake = User.create(username: 'Drake', password: 'ovocrew')
+
+foster = User.create(username: 'Foster', password: 'pumpedkicks')
+
+gp = Track.create(user_id: drake.id, title: "God's Plan", 
+  image: File.open("/Users/ryan/downloads/scary_hours.jpg"), 
+  audio: File.open("/Users/ryan/downloads/gods-plan.mp3"))
+
+sit = Track.create(user_id: foster.id, title: "Sit Next to Me", 
+  image: File.open("/Users/ryan/downloads/sacred-hearts.jpg"), 
+  audio: File.open("/Users/ryan/downloads/sit-next-to-me.mp3"))

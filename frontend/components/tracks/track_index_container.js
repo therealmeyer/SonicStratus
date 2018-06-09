@@ -10,10 +10,10 @@ const mapStateToProps = (state, ownProps) => {
   };
 };
 
-const mapDispatchToprops = (dispatch, ownProps) => ({
+const mapDispatchToProps = dispatch => ({
   fetchAllTracks: () => dispatch(fetchAllTracks())
 });
 
 export default withRouter(
-  connect(mapStateToProps, mapDispatchToprops)(TrackIndex)
+  connect(mapStateToProps, mapDispatchToProps)(TrackIndex)
 );

@@ -5,6 +5,7 @@ import SignUpFormContainer from './session_form/signup_form_container';
 import Stream from './stream/stream';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import Upload from './upload/upload';
 
 const App = () => (
   <div>
@@ -13,6 +14,8 @@ const App = () => (
     {/* <AuthRoute path="/login" component={LoginFormContainer} /> */}
     {/* <AuthRoute path="/signup" component={SignUpFormContainer} /> */}
       <ProtectedRoute path="/stream" component={Stream} />
+      <ProtectedRoute path="/upload" component={Upload} />
+      <ProtectedRoute path="/tracks/:trackId/edit" component />
       <Redirect to="/" />
     </Switch>
   </div>

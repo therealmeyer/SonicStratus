@@ -6,10 +6,14 @@ import TrackIndexContainer from '../tracks/track_index_container';
 class Stream extends React.Component {
   render () {
     return (
-      <div className="stream-page">
+      <div>
         <NavContainer />
-        <MainStream />
-        {/* <TrackIndexContainer /> */}
+        <div className="main">
+          <div className="main-content">
+            <MainStream />
+            <TrackIndexContainer />
+          </div>
+        </div>
       </div>
     );
   }
