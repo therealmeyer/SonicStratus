@@ -6,6 +6,7 @@ import Stream from './stream/stream';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 import Upload from './upload/upload';
+import Edit from './edit/edit';
 
 const App = () => (
   <div>
@@ -15,7 +16,7 @@ const App = () => (
     {/* <AuthRoute path="/signup" component={SignUpFormContainer} /> */}
       <ProtectedRoute path="/stream" component={Stream} />
       <ProtectedRoute path="/upload" component={Upload} />
-      <ProtectedRoute path="/tracks/:trackId/edit" component />
+      <ProtectedRoute path="/tracks/:trackId/edit" component={Edit} />
       <Redirect to="/" />
     </Switch>
   </div>

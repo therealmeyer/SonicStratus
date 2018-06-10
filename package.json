@@ -12,6 +12,7 @@
     "react-modal": "^3.4.5",
     "react-player": "^1.6.4",
     "react-redux": "^5.0.7",
+    "react-redux-loading-bar": "^4.0.5",
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "redux": "^4.0.0",

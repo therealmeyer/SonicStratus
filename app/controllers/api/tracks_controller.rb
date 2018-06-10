@@ -1,6 +1,7 @@
 class Api::TracksController < ApplicationController
   def create
     @track = Track.new(track_params)
+    # debugger;
     if @track.save
       render :show
     else 
@@ -13,7 +14,7 @@ class Api::TracksController < ApplicationController
     if @track.destroy
       render :show 
     else 
-      render json: { errors: @track.errors.full_messages }, status: 422
+      render json: @track.errors.full_messages, status: 422
     end 
   end
 
@@ -26,7 +27,7 @@ class Api::TracksController < ApplicationController
     if @track.update_attributes(track_params)
       render :show
     else
-      render json: { errors: @track.errors.full_messages }, status: 422
+      render json: @track.errors.full_messages, status: 422
     end
   end
 

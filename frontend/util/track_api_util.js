@@ -1,13 +1,13 @@
-export const createTrack = (formData) => (
-  $.ajax({
+export const createTrack = (formData) => {
+  return ($.ajax({
     url: '/api/tracks',
     method: 'POST',
     processData: false,
     contentType: false, 
     dataType: 'json',
     data: formData
-  })
-);
+  }))
+};
 
 export const fetchTrack = trackId => (
   $.ajax({
@@ -24,13 +24,19 @@ export const fetchAllTracks = () => (
 );
 
 
-export const updateTrack = track => (
+export const updateTrack = formData => {
+  // debugger;
+  return (
   $.ajax({
-    url: `/api/tracks/${track.id}`,
-    method: 'PATCH',
-    data: { track }
+    url: `/api/tracks/${formData.values().next().value}`,
+    method: 'PATCH', 
+    processData: false,
+    contentType: false,
+    dataType: 'json',
+    data: formData
   })
 );
+};
 
 export const deleteTrack = trackId => (
   $.ajax({

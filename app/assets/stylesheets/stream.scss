@@ -1,7 +1,7 @@
 .main-content {
   background: #fff;
   width: 1200px;
-  padding: 0 30px;
+  padding: 0 15px;
   box-sizing: border-box;
   height: 100vh;
   margin: 0 auto;
@@ -18,11 +18,29 @@
 }
 
 .stream-header {
+  border-bottom: 1px solid #f2f2f2;
+  margin-left: 10px;
+  // margin-bottom: -2px;
+  // line-height: 1.6;
+  margin-right: 30px;
+}
+
+.stream-title {
   font-size: 24px;
   color: #f50;
   border-bottom: 1px solid #f50;
-  padding: 5px;
+  padding: 0px 0px 5px 0px;
   display: inline-block;
-  margin: 10px;
+  // margin: 10px 10px 0px 10px;
   font-weight: 500;
+  margin-top: 20px;
+}
+
+.track-content {
+  display: flex;
+}
+
+.sidebar-content {
+  width: 400px;
+  box-sizing: border-box;
 }

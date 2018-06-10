@@ -77,8 +77,9 @@
   width: 800px;
   margin: 0 auto;
   border: 1px solid #f2f2f2;
-  padding: 25px;
+  padding: 15px 25px 25px 25px;
   border-radius: 2px;
+  ovweflow: hidden;
 }
 
 .main-form-box {
@@ -114,8 +115,9 @@
 .image-upload {
   width: 260px;
   height: 260px;
-  background-image: linear-gradient(135deg, #846170, #70929c);
+  // background-image: linear-gradient(135deg, #846170, #70929c);
   position: relative;
+  background-size: contain;
   float: left;
 }
 
@@ -224,4 +226,18 @@
   color: white;
   margin-right: 25px;
   margin-top: 10px;
+}
+
+.upload-errors {
+  color: #f50;
+  font-size: 10px;
+  margin-bottom: 5px;
+}
+
+.loading-bar {
+  background-color: #f50;
+  position: absolute;
+  left: 260px;
+  height: 5px;
+  width: 800px;
 }

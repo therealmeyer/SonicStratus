@@ -1,13 +1,16 @@
 import React from 'react';
-
+import TrackIndexContainer from "../tracks/track_index_container";
+import SidebarContainer from '../sidebar/sidebar_container';
 class MainStream extends React.Component {
 
   render() {
     return (
       <div className="main-stream">
-        <header>
-          <h1 className="stream-header">Stream</h1>
-        </header>
+        
+        <div className="track-content"> 
+          <TrackIndexContainer />
+          <SidebarContainer />
+        </div>
       </div>
     )
   }

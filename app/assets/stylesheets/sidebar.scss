@@ -1,0 +1,53 @@
+.sidebar-header {
+  color: #999;
+  font-size: 14px;
+  border-bottom: 1px solid #f2f2f2;
+  margin-top: 8px;
+}
+
+.sidebar-suggested {
+  padding: 5px;
+  font-weight: 100;
+  margin: 0;
+}
+
+.sidebar-content {
+  width: 400px;
+  padding: 20px 25px 0px 25px;
+  border-left: 1px solid #f2f2f2;
+}
+
+.sidebar-index-list {
+  padding: 15px 0px 0px 0px;
+}
+
+.sidebar-index-item {
+  display: flex;
+  margin-bottom: 20px;  
+}
+
+.sidebar-album-img {
+  width: 66px;
+  height: 66px;
+}
+
+.sidebar-item-links {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+  padding: 5px 0px;
+}
+
+.sidebar-item-artist {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 4px;
+}
+
+.sidebar-item-title {
+  font-size: 15px;
+  color: #333;
+}
+.headphones {
+  margin-right: 5px;
+}
