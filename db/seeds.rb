@@ -72,5 +72,7 @@ painting = Track.create(user_id: emmit.id, title: "Painting Greys",
   image: File.open("/Users/ryan/downloads/prologue.jpg"), 
   audio: File.open("/Users/ryan/downloads/painting-greys.mp3"))
 
-
+sunset_lover Track.create(user_id: emmit.id, title: "Painting Greys", 
+  image: File.open("/Users/ryan/downloads/sunset-lover.jpg"), 
+  audio: File.open("/Users/ryan/downloads/sunset-lover.mp3"))
 
