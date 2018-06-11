@@ -17,9 +17,14 @@ class TrackIndex extends React.Component {
         <ul className="track-index-list">
           
           {this.props.tracks.map(track => (
-            <TrackIndexItem key={track.id} 
-            track={track} currentUser={this.props.currentUser} 
-            deleteTrack={this.props.deleteTrack}/>
+            <TrackIndexItem 
+            key={track.id} track={track} 
+            currentUser={this.props.currentUser} 
+            currentTrack={this.props.currentTrack}
+            deleteTrack={this.props.deleteTrack}
+            receiveCurrentTrack={this.props.receiveCurrentTrack}
+            pausePlayTrack={this.props.pausePlayTrack}
+            />
           ))}
         </ul>
       </div>

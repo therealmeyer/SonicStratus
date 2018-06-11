@@ -1,22 +1,24 @@
 import { 
   RECEIVE_CURRENT_TRACK, 
   PAUSE_PLAY_TRACK,
-  SET_TIME
+  SET_TIME,
+  SET_PLAYER_TO
 } from '../actions/current_track_actions';
 import merge from 'lodash/merge';
 
-let default_state = {
+let defaultState = {
   playing: false,
-  current_time: 0.00,
+  currentTime: 0.00,
   length: 0,
   track: {
-    track_id: -1,
-    image_url: null,
+    id: -1,
+    album_url: null,
     audio_url: null
-  }
-}
+  },
+  setPlayerTo: 0
+};
 
-const currentTrackReducer = (state = default_state, action) => {
+const currentTrackReducer = (state = defaultState, action) => {
   Object.freeze(state);
   let newState = merge({}, state);
   switch(action.type) {
@@ -27,7 +29,10 @@ const currentTrackReducer = (state = default_state, action) => {
       newState = merge(newState, {playing: !state.playing})
       return newState;
     case SET_TIME:
-      newState = merge(newState, {length: action.time})
+      newState = merge(newState, {currentTime: action.time})
+      return newState;
+    case SET_PLAYER_TO:
+      newState = merge(newState, {setPlayerTo: action.time});
       return newState;
     default: 
       return state;

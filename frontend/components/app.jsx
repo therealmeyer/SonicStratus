@@ -4,21 +4,34 @@ import LoginFormContainer from './session_form/login_form_container';
 import SignUpFormContainer from './session_form/signup_form_container';
 import Stream from './stream/stream';
 import { Route, Switch, Redirect } from 'react-router-dom';
-import { AuthRoute, ProtectedRoute } from '../util/route_util';
+import { AuthRoute, ProtectedRoute, UserProtectedRoute } from '../util/route_util';
 import Upload from './upload/upload';
 import Edit from './edit/edit';
+import MediaPlayerContainer from './media_player/media_player_container';
+import TrackShowContainer from './track_show/track_show_container';
+import NavContainer from './nav/nav_container';
 
 const App = () => (
   <div>
     <Switch>
       <AuthRoute exact path="/" component={LandingPage} />
-    {/* <AuthRoute path="/login" component={LoginFormContainer} /> */}
-    {/* <AuthRoute path="/signup" component={SignUpFormContainer} /> */}
+      {/* <ProtectedRoute path="/stream" component={Stream} /> */}
+      <NavContainer />
+    </Switch>
+
+    <Switch>
+      {/* <AuthRoute exact path="/" component={LandingPage} /> */}
+      {/* <AuthRoute path="/login" component={LoginFormContainer} /> */}
+      {/* <AuthRoute path="/signup" component={SignUpFormContainer} /> */}
       <ProtectedRoute path="/stream" component={Stream} />
       <ProtectedRoute path="/upload" component={Upload} />
-      <ProtectedRoute path="/tracks/:trackId/edit" component={Edit} />
+      <UserProtectedRoute path="/tracks/:trackId/edit" component={Edit} />
+      <ProtectedRoute path="/tracks/:trackId" component={TrackShowContainer} />
       <Redirect to="/" />
     </Switch>
+    <footer>
+      <MediaPlayerContainer />
+    </footer>
   </div>
 );
 

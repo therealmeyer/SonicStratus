@@ -4,10 +4,21 @@ import { Link } from 'react-router-dom';
 class Nav extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      homeClass: 'stream',
+    };
+    // this.checkPath = this.checkPath.bind(this);
   }
+
+  // checkPath() {
+  //   if (this.props.path === '/stream') {
+  //     this.setState({homeClass: 'stream-link-highlight'});
+  //   } 
+  // }
 
   render () {
     // console.log(this.props);
+    console.log(this.props);
     return <div>
         <header className="nav">
           <section className="nav-inner">
@@ -17,7 +28,7 @@ class Nav extends React.Component {
                   SoundStratus
                 </Link>
               </li>
-              <li className="stream">
+              <li className={this.props.path === "/stream" ? "stream-link-highlighted" : "stream"}>
                 <Link className="stream-link" to="/stream">Home</Link>
               </li>
             </ul>
@@ -33,7 +44,9 @@ class Nav extends React.Component {
             </div>
             <div className="nav-right">
               <ul className="nav-right-links">
-                <li><Link className="upload" to="/upload">Upload</Link></li>
+                <li className="upload-link">
+                  <Link className="upload" to="/upload">Upload</Link>
+                </li>
                 <li className="user-link">
                   <span className="user-image-nav"></span>
                   <Link className="current-user" to={`/users/${this.props.currentUser.username}`}>

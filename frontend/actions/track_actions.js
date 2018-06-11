@@ -26,8 +26,9 @@ export const receiveUploadErrors = errors => ({
   errors
 });
 
-export const removeTrack = () => ({
-  type: DELETE_TRACK
+export const removeTrack = (id) => ({
+  type: DELETE_TRACK,
+  trackId: id
 });
 
 export const createTrack = formData => dispatch => {

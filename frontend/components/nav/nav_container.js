@@ -2,10 +2,13 @@ import { connect } from 'react-redux';
 import React from 'react';
 import Nav from './nav';
 import { logout } from '../../actions/session_actions';
+import {withRouter} from 'react-router-dom';
 
-const mapStateToProps = state => {
+const mapStateToProps = (state, ownProps) => {
+  // debugger;
   return  {
-    currentUser: state.session.currentUser //|| {id: 22, username: "ryan"}
+    currentUser: state.session.currentUser,
+    path: ownProps.match.path,
   };
 };
 
@@ -13,4 +16,4 @@ const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(logout())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Nav);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Nav));

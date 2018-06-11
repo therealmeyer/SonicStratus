@@ -1,0 +1,73 @@
+.landing-page-index-list {
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  flex-wrap: wrap;
+}
+
+.lp-index-item {
+  display: flex;
+  flex-direction: column;
+  width: 168px;
+  padding: 10px;
+}
+
+.lp-album-cover {
+  width: 168px;
+  height: 168px;
+  cursor: pointer;
+}
+
+.lp-title {
+  color: #333;
+  font-weight: 300;
+  font-size: 16px;  
+  margin: 10px 0px;
+}
+
+.lp-artist {
+  color: #ccc;
+  font-size: 14px;
+  margin: 0;
+  font-weight: 300;
+}
+
+.top-button-box {
+  margin: 0 auto;
+  width: 222px;
+}
+
+.top-button {
+  background-color: #f50;
+  border-color: #f50;
+  color: #fff;
+  font-size: 16px;
+  line-height: 18px;
+  padding: 13px 23px;
+  height: 46px;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  text-align: center;
+}
+
+// .front-mobile-teaser {
+//   height: 350px;
+//   margin-top: 60px;
+//   padding: 0 70px;
+//   background: #F2F2F2;
+//   display: flex;
+// }
+
+// .mobile-teaser-box {
+// }
+
+// .mobile-teaser {
+//   background-repeat: no-repeat;
+//   background-position: bottom;
+//   background-size: 100%;
+//   position: absolute;
+//   background: image-url("mobile_devices.jpg");
+// }
+
+

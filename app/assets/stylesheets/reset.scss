@@ -41,6 +41,12 @@ button {
   -moz-appearance: none;
 }
 
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+}
+
 button,
 input[type="submit"] {
   cursor: pointer;

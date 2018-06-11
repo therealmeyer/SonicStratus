@@ -3,6 +3,10 @@
   color: #ccc;
   margin: 0 auto;
   font-size: 14px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1;
 }
 
 .nav-inner {
@@ -54,6 +58,11 @@
   vertical-align: middle;
 }
 .stream:hover {
+  background: black;
+  color: #fff;
+}
+
+.stream-link-highlighted {
   background: black;
   color: #fff;
 }

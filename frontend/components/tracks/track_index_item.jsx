@@ -14,16 +14,36 @@ class TrackIndexItem extends React.Component {
 
   }
 
-
-  
-
   togglePlay () {
-    if (this.state.playButtonClass === 'paused-button') {
-      this.setState( { playButtonClass: 'played-button'});
+    if (this.props.currentTrack.track.id === -1 || 
+      this.props.currentTrack.track.id !== this.props.track.id) {
+        this.props.receiveCurrentTrack(this.props.track);
+    }
+    if (this.props.currentTrack.track.id !== this.props.track.id && 
+      this.props.currentTrack.playing) {
     } else {
-      this.setState( { playButtonClass: 'paused-button'});
+      this.props.pausePlayTrack(!this.props.currentTrack.playing);
     }
   }
+
+  componentWillReceiveProps (newProps) {
+    // debugger;
+    if (newProps.currentTrack.track.id === newProps.track.id && 
+      newProps.currentTrack.playing) {
+      this.setState({ playing: true, playButtonClass: 'played-button' });
+      // this.setState({ playing_focused: 'playing-focus' });
+    } else {
+      this.setState({ playing: false, playButtonClass: 'paused-button' });
+      // this.setState({ playing_focused: "" });
+    }
+  }
+
+    // if (this.state.playButtonClass === 'paused-button') {
+    //   this.setState( { playButtonClass: 'played-button'});
+    // } else {
+    //   this.setState( { playButtonClass: 'paused-button'});
+    // }
+  // }
 
   deleteButton() {
     if (this.props.currentUser.username === this.props.track.user) {

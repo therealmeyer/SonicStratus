@@ -3,11 +3,12 @@ import UploadForm from '../upload/upload_form';
 import { updateTrack, fetchTrack
 } from '../../actions/track_actions';
 import {
-  withRouter
+  withRouter, Redirect
 } from 'react-router';
 import { clearUploadErrors } from '../../actions/error_actions';
 import React from 'react';
 import { showLoading, hideLoading } from 'react-redux-loading-bar';
+import { myTrack } from '../../reducers/selectors';
 
 
 class EditTrackForm extends React.Component {
@@ -17,8 +18,8 @@ class EditTrackForm extends React.Component {
     // this.props.fetchTrack(this.props.match.params.trackId);
   }
   componentWillMount() {
-    // debugger;
     this.props.fetchTrack(this.props.match.params.trackId);
+    // debugger;
   }
 
   componentWillReceiveProps(nextProps) {
@@ -30,7 +31,11 @@ class EditTrackForm extends React.Component {
   render() {
     // console.log("render");
     const { currentUser, track, formType, errors, processForm, loading, history, clearErrors } = this.props;
-    // debugger;
+    debugger;
+    if (!this.props.isMine) {
+      // <Redirect to="/stream"/>
+    }
+    if (!this.props.track) return <h1>Loading</h1>
     return (
       !loading &&
       <UploadForm
@@ -56,7 +61,8 @@ const mapStateToProps = (state, ownProps) => {
   track: state.entities.tracks[ownProps.match.params.trackId],
   formType: "Edit",
   errors: state.errors.upload,
-  loading: state.uiLoading
+  loading: state.uiLoading,
+  isMine: myTrack(state.entities.tracks[ownProps.match.params.trackId], state.session.currentUser)//create selector to check if this is my track || true
   });
 };
 

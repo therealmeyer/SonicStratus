@@ -52,8 +52,9 @@ class UploadForm extends React.Component {
   }
 
   handleSubmit(e) {
-    console.log(this.props.currentUser.id);
+    // console.log(this.props.currentUser.id);
     e.preventDefault();
+    document.getElementById("save-button").disabled = true;
     const imageFile = this.state.imageFile;
     const audioFile = this.state.audioFile;
     const formData = new FormData();
@@ -125,6 +126,7 @@ class UploadForm extends React.Component {
         ? "Upload to SonicStratus"
         : `Edit ${this.props.track.title}`;
     let description = this.state.description ? this.state.description : "";
+    let genre = this.state.genre ? this.state.genre : "";
     // debugger;
     this.highlightErrors();
     return (
@@ -187,7 +189,7 @@ class UploadForm extends React.Component {
                   <input
                     className="upload-form-input-genre"
                     onChange={this.update("genre")}
-                    value={this.state.genre}
+                    value={genre}
                     placeholder="None"
                     type="text"
                   />
@@ -210,7 +212,7 @@ class UploadForm extends React.Component {
                 <span className="asterisk">*</span>
                 Required fields
               </p>
-              <button onClick={this.handleSubmit} className="save-button">
+              <button id="save-button" onClick={this.handleSubmit} className="save-button">
                 Save
               </button>
             </div>

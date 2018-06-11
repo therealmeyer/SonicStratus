@@ -5,6 +5,7 @@ import Modal from 'react-modal';
 import SessionButtons from '../modals/session_modal_buttons';
 import LoginFormContainer from '../session_form/login_form_container';
 import SignUpFormContainer from '../session_form/signup_form_container';
+import LandingPageContainer from './landing_page_container';
 // https://github.com/reactjs/react-modal/tree/master/docs/styles
 const modalStyle = {
   overlay: {
@@ -62,7 +63,8 @@ class LandingPage extends React.Component {
   }
 
   render() {
-    return <div>
+    return <div className="main-landing">
+      <div className="main-content-landing">
         <div className="landing-image">
           <div className="landing-image-header">
             <h1 className="font-logo">SonicStratus</h1>
@@ -92,7 +94,27 @@ class LandingPage extends React.Component {
             </p>
           </div>
         </div>
-      </div>;
+        <div className="search-box" onClick={this.openLoginModal}>
+          <form className="search-box-form">
+            <input type="text" placeholder="Search for artists, bands, tracks, podcasts"
+            className="search-box-input"/>
+            <button className="search-input-submit"></button>
+          </form>
+          <h2 className="or">or</h2>
+          <button className="landing-upload-button">Upload your own</button>
+        </div>
+        <h1 className="trending-header">
+          Hear what’s trending for free in the SonicStratus community
+        </h1>
+        <LandingPageContainer />
+        
+      </div>
+      {/* <div className="front-mobile-teaser">
+        <div className="mobile-teaser-box">
+          <figure className="mobile-teaser"></figure>
+        </div>
+      </div> */}
+    </div>;
   }
 }
 

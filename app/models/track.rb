@@ -8,7 +8,7 @@ class Track < ApplicationRecord
   has_attached_file :audio
   validates_attachment_content_type :audio, content_type: /\Aaudio\/.*\Z/
   validates_attachment_presence :audio
-  has_attached_file :image, default_url: "https://s3-us-west-1.amazonaws.com/sonicstratus/album.jpg",
+  has_attached_file :image, default_url: "//s3-us-west-1.amazonaws.com/sonicstratus/album.jpg",
     styles: {
       thumb: '100x100>',
       square: '200x200#',
