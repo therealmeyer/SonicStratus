@@ -18,7 +18,9 @@ class Nav extends React.Component {
 
   render () {
     // console.log(this.props);
-    console.log(this.props);
+    if (!currentUser) {
+      return <div></div>;
+    }
     return <div>
         <header className="nav">
           <section className="nav-inner">
