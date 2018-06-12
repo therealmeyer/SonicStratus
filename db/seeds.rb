@@ -9,24 +9,24 @@
 User.destroy_all
 Track.destroy_all
 
-ryan = User.create(username: 'ryan', password: 'password')
+ryan = User.create!(username: 'ryan', password: 'password')
 
-demo = User.create(username: 'user', password: 'password')
+demo = User.create!(username: 'user', password: 'password')
 
-odesza = User.create(username: 'Odesza', password: 'inreturn')
+odesza = User.create!(username: 'Odesza', password: 'inreturn')
 
-drake = User.create(username: 'Drake', password: 'ovocrew')
+drake = User.create!(username: 'Drake', password: 'ovocrew')
 
-foster = User.create(username: 'Foster', password: 'pumpedkicks')
+foster = User.create!(username: 'Foster', password: 'pumpedkicks')
 
-flume = User.create(username: 'Flume', password: 'lockjaw')
+flume = User.create!(username: 'Flume', password: 'lockjaw')
 
-emmit = User.create(username: 'Emmit Fenn', password: 'password')
+emmit = User.create!(username: 'Emmit Fenn', password: 'password')
 
 
 whitelies = Track.create(user_id: odesza.id, title: "White Lies", 
-  image: File.open("./media_seeds/in-return.jpg"), 
-  audio: File.open("./media_seeds/white-lies.mp3"))
+  image: File.open(Rails.root.join("app", "assets", "images/media_seeds/in-return.jpg")), 
+  audio: File.open(Rails.root.join("app", "assets", "images/media_seeds/white-lies.mp3")))
 
 # how = Track.create(user_id: odesza.id, title: "How Did I Get Here", 
 #   image: File.open("./media_seeds/summers-gone.jpg"), 
