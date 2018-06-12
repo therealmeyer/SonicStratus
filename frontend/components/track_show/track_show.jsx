@@ -74,6 +74,7 @@ class TrackShow extends React.Component {
     }
     let genre = this.props.track.genre ? `# ${this.props.track.genre}` : "";
     console.log(this.props);
+    let user = this.props.users[this.props.track.user_id];
     return (
       <div> 
         <div className="main">
@@ -128,7 +129,7 @@ class TrackShow extends React.Component {
                 <div className="user-image-track">
                   <img className="circle-user-image" src={this.props.users[this.props.track.user_id].profile_img_url} />
                 </div>
-                <p className="show-user-name"> </p>
+                <Link to={`/users/${user.id}`}>{user.username}</Link>
               </div>
             </div>
           </div>
