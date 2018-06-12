@@ -44,7 +44,7 @@ class WaveForm extends React.Component {
     });
     this.wavesurfer.on('ready', () => {
       this.setState({duration: this.wavesurfer.getDuration()});
-      this.duration = this.convertedTime();
+      // this.duration = this.convertedTime();
     });
   }
 
@@ -53,8 +53,8 @@ class WaveForm extends React.Component {
     // alert(date.setSeconds(this.state.duration)
     //   .toString().slice(20, 24));
     date.setSeconds(this.state.duration);
-    return date.toString().slice(20,24);
-    // return 55;
+    // return date.toString().slice(20,24);
+    return 55;
   }
   
   render () {
@@ -65,8 +65,8 @@ class WaveForm extends React.Component {
     return (
       <div className="waveform-container" style={{width}}>
         <div id={`waveform-${this.props.track.id}`}></div>
-        <div className="waveform-time"></div>
-        <div className={lineClass}>{duration}</div>
+        <div className="waveform-time">{this.state.duration}</div>
+        <div className={lineClass}></div>
       </div>
     );
   }
