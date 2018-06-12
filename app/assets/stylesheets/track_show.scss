@@ -1,0 +1,150 @@
+
+.main-content-show {
+  background: #fff;
+  width: 1200px;
+  padding: 0px 0px 50px 0px;
+  box-sizing: border-box;
+  margin: 0 auto;
+  display: block;
+}
+
+.backgroundGradient {
+  background: linear-gradient(135deg, rgb(167, 144, 165) 0%, rgb(103, 94, 146) 100%);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 25px;
+}
+
+.show-album-img {
+  width: 340px;
+  height: 340px;
+  
+}
+
+.track-show-info {
+  display: flex;
+}
+
+
+.show-play-button {
+  width: 60px;
+  height: 60px;
+  background: #f50;
+  background-image: image-url("play.svg");
+  border-radius: 100%;
+  background-size: 38%;
+  background-position: 55% 50%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  margin-left: 15px;
+  margin-top: 5px;
+}
+
+.show-pause-button {
+  width: 60px;
+  height: 60px;
+  background: #f50;
+  background-image: image-url("pause.svg");
+  border-radius: 100%;
+  background-size: 38%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  margin-left: 15px;
+  margin-top: 5px;
+}
+
+.show-play-button:hover {
+  background-color: #ff3400;
+}
+
+.track-show-title-user {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;
+}
+
+
+.show-track-user {
+  background: black;
+  color: #ccc;
+  padding: 6px;
+  margin-bottom: 5px;
+  display: inline-block;
+}
+
+.show-track-title {
+  background: black;
+  color: white;
+  font-size: 24px;
+  padding: 8px;
+}
+
+.comments-box {
+  padding: 0px 30px;
+}
+
+.comment-form {
+  display: flex;
+  vertical-align: center;
+  
+}
+
+.form-img {
+  height: 43px;
+  width: 43px;
+}
+
+.comment-input-box {
+  background: #ccc;
+  position: relative;
+  background: #f2f2f2;
+  width: 750px;
+  height: 43px;
+}
+
+.comment-input {
+  color: #666;
+  border-radius: 4px;
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  position: absolute;
+  background: white;
+  left: 8px;
+  top: 5px;
+  width: 98%
+}
+
+.comment-input::placeholder {
+  color: rgb(155, 153, 153);
+  font-weight: 100;
+}
+
+.showBox {
+  position: relative;
+}
+
+.show-track-buttons {
+  margin-top: 5px;
+  margin-left: -3px;
+}
+
+.show-waveform-container {
+  position: absolute;
+  bottom: 45px;
+  left: 30px;
+}
+
+.waveform-show-line {
+  border-top: 1px solid #7e7099;
+  width: 780px;
+  height: 40px;
+  z-index: 5;
+  position: absolute;
+  top: 60px;
+  // background-color: rgba(255, 255, 255, 0.5);
+}
+
+
+

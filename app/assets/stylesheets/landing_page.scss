@@ -11,7 +11,7 @@
   overflow: auto;
 }
 .main-landing {
-   height: 100vh;
+   height: calc(100vh -50px);
    min-height: 100%;
    background: #f2f2f2;
    background-repeat: repeat-y;

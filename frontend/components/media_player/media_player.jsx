@@ -138,9 +138,13 @@ class MediaPlayer extends React.Component {
             <div className="volume-line-box">
               <div className="volume-line"></div>
             </div>
-            <input type="range" 
+            <input className="volume-slider" type="range" 
+              // orient="vertical"
               step="any" min="0" 
               max="1" 
+              // style={Object.assign({},{position: 'absolute'}, 
+              // {height: '90px'}, {width: '3px'}, {bottom: '35px'},
+              // {right: '105px'})}
               value={this.state.volume}
               onChange={this.changeVolume}
             />

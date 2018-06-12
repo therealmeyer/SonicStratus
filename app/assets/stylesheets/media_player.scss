@@ -102,7 +102,6 @@ input[type=range]::-webkit-slider-thumb {
 
 input[type=range]:focus {
   outline: none;
-  
 }
 
 input[type=range]::-ms-track {
@@ -173,18 +172,42 @@ input[type=range]::-webkit-slider-runnable-track {
   height: 46px;
   background: image-url("volume.svg") no-repeat;
   background-position: center;
+  cursor: pointer;
 }
 
 .volume-line-box {
   position: relative;
+  bottom: 25px;
+  left: 15px;
 }
 
 .volume-line {
   position: absolute;
   height: 1px;
-  background-color: #ccc;
-  left: 15px;
-  top: 1px;
+  width: 70px;
+  background-color: #f50;
+  bottom: 5px;
+}
+.volume-slider {
+  position: absolute;
+  height: 2px;
+  width: 90px;
+  // bottom: 35px;
+  // right: 105px;
+  bottom: 20px
+}
+
+.volume-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background: #f50;
+  cursor: pointer;
+  // margin-top: -5px;
+  position: relative;
+  z-index: 10;
+  top: 3px; // display: none;
 }
 
 .player-info-box {

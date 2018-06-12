@@ -13,7 +13,9 @@ const Auth = ({ component: Component, path, loggedIn, exact }) => (
   )} />
 );
 
-const Protected = ({ component: Component, path, loggedIn, exact }) => (
+const Protected = ({ component: Component, path, loggedIn, exact }) => {
+  // debugger;
+  return (
   <Route path={path} exact={exact} render={(props) => (
     loggedIn ? (
       <Component {...props} />
@@ -22,6 +24,7 @@ const Protected = ({ component: Component, path, loggedIn, exact }) => (
       )
   )} />
 );
+};
 
 const UserProtected = ({ component: Component, path, currentUser, loggedIn, track, exact}) => {
   // debugger;

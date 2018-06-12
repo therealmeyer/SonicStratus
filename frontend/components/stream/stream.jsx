@@ -7,7 +7,7 @@ class Stream extends React.Component {
   render () {
     return (
       <div>
-        <NavContainer />
+        {/* <NavContainer /> */}
         <div className="main">
           <div className="main-content">
             <MainStream />

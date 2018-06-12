@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
+import WaveformContainer from '../waveform/waveform_container';
 
 class TrackIndexItem extends React.Component {
 
@@ -96,7 +96,13 @@ class TrackIndexItem extends React.Component {
             <Link className="track-item-title" to={`/tracks/${track.id}`}>
               {track.title}
             </Link>
-          <div className="waveform">Waveform placeholder</div>
+          </div>
+          <div className="item-waveform">
+            <WaveformContainer 
+              track={this.props.track}
+              height={60}
+              color={"#666"}
+            />
           </div>
         </div>
           <div className="track-item-buttons">
