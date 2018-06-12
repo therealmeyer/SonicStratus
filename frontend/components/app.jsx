@@ -13,12 +13,11 @@ import NavContainer from './nav/nav_container';
 
 const App = () => (
   <div>
-    <Switch>
+    {/* <Switch>
       <AuthRoute exact path="/" component={LandingPage} />
-      {/* <ProtectedRoute path="/stream" component={Stream} /> */}
       <NavContainer />
-    </Switch>
-
+    </Switch> */}
+    <NavContainer />
     <Switch>
       {/* <AuthRoute exact path="/" component={LandingPage} /> */}
       {/* <AuthRoute path="/login" component={LoginFormContainer} /> */}
