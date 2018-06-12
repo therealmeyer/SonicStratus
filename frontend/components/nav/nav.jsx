@@ -18,7 +18,7 @@ class Nav extends React.Component {
 
   render () {
     // console.log(this.props);
-    if (!currentUser) {
+    if (!this.props.currentUser) {
       return <div></div>;
     }
     return <div>
