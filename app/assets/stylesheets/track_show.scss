@@ -180,5 +180,18 @@
   // background-color: rgba(255, 255, 255, 0.5);
 }
 
+.show-user-info {
+  display: flex;
+  flex-direction: row;
+}
+
+.user-image-track {
+  margin-top: 25px;
+}
+.circle-user-image {
+  border-radius: 50%;
+  width: 125px;
+  height: 125px;
+}
 
 

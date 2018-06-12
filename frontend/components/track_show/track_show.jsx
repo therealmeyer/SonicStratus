@@ -73,6 +73,7 @@ class TrackShow extends React.Component {
       return (<h1>Loading...</h1>)
     }
     let genre = this.props.track.genre ? `# ${this.props.track.genre}` : "";
+    console.log(this.props);
     return (
       <div> 
         <div className="main">
@@ -124,9 +125,10 @@ class TrackShow extends React.Component {
                 {this.trackButtons()}
               </div>
               <div className="show-user-info">
-                {/* <div className="user-image-track">
-                  <img className="" src={this.props.users[this.props.track.user_id].image_url}>
-                </div> */}
+                <div className="user-image-track">
+                  <img className="circle-user-image" src={this.props.users[this.props.track.user_id].profile_img_url} />
+                </div>
+                <p className="show-user-name"> </p>
               </div>
             </div>
           </div>

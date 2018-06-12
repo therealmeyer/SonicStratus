@@ -6,7 +6,7 @@ class WaveForm extends React.Component {
   constructor (props) {
     super(props);
     this.state = { duration: "" };
-    this.convertedTime = this.convertedTime.bind(this);
+    // this.convertedTime = this.convertedTime.bind(this);
   }
   
   componentWillReceiveProps(newProps) {
@@ -43,29 +43,31 @@ class WaveForm extends React.Component {
       }
     });
     this.wavesurfer.on('ready', () => {
-      this.setState({duration: this.wavesurfer.getDuration()});
+      this.setState({duration: this.convertedTime(this.wavesurfer.getDuration())});
       // this.duration = this.convertedTime();
     });
   }
 
-  convertedTime() {
+  convertedTime(seconds) {
     let date = new Date(null);
     // alert(date.setSeconds(this.state.duration)
     //   .toString().slice(20, 24));
-    date.setSeconds(this.state.duration);
-    // return date.toString().slice(20,24);
-    return 55;
+    console.log(seconds);
+    date.setSeconds(Math.floor(seconds));
+    return date.toString().slice(20,24);
+    // return 55;
   }
   
   render () {
     let width = this.props.height === 60 ? '600px' : '780px';
     let lineClass = this.props.height === 60 ? 'waveform-line' :
       'waveform-show-line';
+    let timeClass = this.props.height === 60 ? 'waveform-time-index' : 'waveform-time-show';
     let duration = this.duration ? this.duration : "";
     return (
       <div className="waveform-container" style={{width}}>
         <div id={`waveform-${this.props.track.id}`}></div>
-        <div className="waveform-time">{this.state.duration}</div>
+        <div className={timeClass}>{this.state.duration}</div>
         <div className={lineClass}></div>
       </div>
     );
