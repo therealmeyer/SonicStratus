@@ -41,13 +41,20 @@ GEM
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     arel (8.0.0)
-    aws-sdk (2.11.66)
-      aws-sdk-resources (= 2.11.66)
-    aws-sdk-core (2.11.66)
+    aws-eventstream (1.0.0)
+    aws-partitions (1.91.0)
+    aws-sdk-core (3.21.2)
+      aws-eventstream (~> 1.0)
+      aws-partitions (~> 1.0)
       aws-sigv4 (~> 1.0)
       jmespath (~> 1.0)
-    aws-sdk-resources (2.11.66)
-      aws-sdk-core (= 2.11.66)
+    aws-sdk-kms (1.5.0)
+      aws-sdk-core (~> 3)
+      aws-sigv4 (~> 1.0)
+    aws-sdk-s3 (1.13.0)
+      aws-sdk-core (~> 3, >= 3.21.2)
+      aws-sdk-kms (~> 1)
+      aws-sigv4 (~> 1.0)
     aws-sigv4 (1.0.2)
     bcrypt (3.1.12)
     better_errors (2.4.0)
@@ -219,7 +226,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aws-sdk (< 3.0)
+  aws-sdk-s3
   bcrypt (~> 3.1.7)
   better_errors
   binding_of_caller

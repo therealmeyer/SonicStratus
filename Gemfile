@@ -32,7 +32,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'jquery-rails'
 
 gem 'paperclip'
-gem 'aws-sdk', '< 3.0'
+gem 'aws-sdk-s3'
+# gem 'aws-sdk-s3'
 # https://github.com/laserlemon/figaro
 gem 'figaro'
 # Use Capistrano for deployment
