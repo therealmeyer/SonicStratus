@@ -53,7 +53,7 @@ class WaveForm extends React.Component {
     // alert(date.setSeconds(this.state.duration)
     //   .toString().slice(20, 24));
     date.setSeconds(this.state.duration);
-    return date.toString.slice(20,24);
+    return date.toString().slice(20,24);
     // return 55;
   }
   

@@ -19,7 +19,7 @@ const App = () => (
     </Switch> */}
     <NavContainer />
     <Switch>
-      {/* <AuthRoute exact path="/" component={LandingPage} /> */}
+      <AuthRoute exact path="/" component={LandingPage} />
       {/* <AuthRoute path="/login" component={LoginFormContainer} /> */}
       {/* <AuthRoute path="/signup" component={SignUpFormContainer} /> */}
       <ProtectedRoute path="/stream" component={Stream} />
