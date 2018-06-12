@@ -8,7 +8,7 @@ class MediaPlayer extends React.Component {
       url: "",
       played: 0,
       playButtonClass: 'media-play-button',
-      volume: 1,
+      volume: 0.75,
       lengthTrack: 0,
       inSeek: false
     };
@@ -92,6 +92,7 @@ class MediaPlayer extends React.Component {
             ref={this.ref}
             onProgress={this.onProgress}
             onDuration={this.onDuration}
+            volume={this.state.volume}
             width="0px"
             height="0px"
           />
@@ -134,20 +135,34 @@ class MediaPlayer extends React.Component {
             </div>
           </div>
           <div className="volume-wrapper">
-            <div className="volume-icon"></div>
-            <div className="volume-line-box">
-              <div className="volume-line"></div>
+            <div className="volume-modal">
+              <div className="volume-icon"></div>
+              <p className="pointer"></p>
+              <div className="volume-content">
+                <div className="volume-line-box">
+                  <div className="volume-line"></div>
+                </div>
+                <input className="volume-slider" type="range" 
+                  // orient="vertical"
+                  step="any" min="0" 
+                  max="1" 
+                  
+                  // orient="vertical"
+                  // style={Object.assign({}, { position: 'absolute' },
+                  // {height: '90px'},
+                  // {width: '3px'},
+                  // {bottom: '30px'},
+                  // {right: '12px'})}
+                  //
+                  style={Object.assign({}, { position: 'absolute' },
+                  {bottom: '45px'},
+                  {right: '-24px'},
+                  {width:'92px'})}
+                  value={this.state.volume}
+                  onChange={this.changeVolume}
+                />
+              </div>
             </div>
-            <input className="volume-slider" type="range" 
-              // orient="vertical"
-              step="any" min="0" 
-              max="1" 
-              // style={Object.assign({},{position: 'absolute'}, 
-              // {height: '90px'}, {width: '3px'}, {bottom: '35px'},
-              // {right: '105px'})}
-              value={this.state.volume}
-              onChange={this.changeVolume}
-            />
           </div>
           <div className="player-info-box">
             <div >

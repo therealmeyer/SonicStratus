@@ -137,6 +137,8 @@ input[type=range]::-webkit-slider-runnable-track {
   cursor: pointer;
 }
 
+
+
 .playback-slider-track {
   background-color: #ccc;
   height: 1px;
@@ -167,6 +169,37 @@ input[type=range]::-webkit-slider-runnable-track {
   justify-content: center;
 }
 
+.volume-modal {
+  position: relative;
+  width: 30px;
+}
+
+.volume-modal:hover .volume-content {
+  display: block;
+}
+
+.volume-content {
+  background-color: #f2f2f2;
+  position: absolute;
+  z-index: 1;
+  width: 30px;
+  height: 90px;
+  bottom: 190px;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 2px -2px grey;
+  left: -6px;
+  display: none;
+}
+.pointer { 
+  background:white;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  width:250px;
+  height:150px
+
+}
+
 .volume-icon {
   width: 24px;
   height: 46px;
@@ -177,16 +210,32 @@ input[type=range]::-webkit-slider-runnable-track {
 
 .volume-line-box {
   position: relative;
-  bottom: 25px;
-  left: 15px;
+  
+
 }
 
 .volume-line {
+  // horizontal
   position: absolute;
   height: 1px;
   width: 70px;
   background-color: #f50;
-  bottom: 5px;
+  right: -20px;
+  transform: rotate(270deg);
+  top: 42px;
+
+  // position: absolute;
+  // height: 1px;
+  // width: 70px;
+  // background-color: #f50;
+  // right: 10px;
+  // transform:rotate(270deg);
+  // position: absolute;
+  // height: 70px;
+  // width: 1px;
+  // background-color: #f50;
+  // right: 40px;
+  // bottom: 20px;
 }
 .volume-slider {
   position: absolute;
@@ -194,7 +243,8 @@ input[type=range]::-webkit-slider-runnable-track {
   width: 90px;
   // bottom: 35px;
   // right: 105px;
-  bottom: 20px
+  bottom: 20px;
+  transform: rotate(270deg);
 }
 
 .volume-slider::-webkit-slider-thumb {
@@ -209,6 +259,26 @@ input[type=range]::-webkit-slider-runnable-track {
   z-index: 10;
   top: 3px; // display: none;
 }
+
+
+
+// .volume-wrapper input[type=range][orient=vertical] {
+//   -webkit-appearance: slider-vertical;
+//   writing-mode: bt-lr;
+//   opacity:0.01;
+// }
+// .volume-wrapper input[type=range][orient=vertical]::-webkit-slider-thumb {
+//   -webkit-appearance: none;
+//   height: 40px;
+//   width: 40px;
+//   border-radius: 50%;
+//   background: #f50;
+//   cursor: pointer;
+//   // margin-top: -5px;
+//   position: relative;
+//   z-index: 10;
+// }
+
 
 .player-info-box {
   margin-left: 20px;

@@ -2,6 +2,12 @@ import React from 'react';
 import WaveSurfer from 'wavesurfer.js';
 
 class WaveForm extends React.Component {
+
+  constructor (props) {
+    super(props);
+    this.state = { duration: "" };
+    this.convertedTime = this.convertedTime.bind(this);
+  }
   
   componentWillReceiveProps(newProps) {
     if (newProps.playing && newProps.currentTrack.id === newProps.track.id) {
@@ -37,8 +43,16 @@ class WaveForm extends React.Component {
       }
     });
     this.wavesurfer.on('ready', () => {
-      // alert(this.wavesurfer.getDuration());
+      this.setState({duration: this.wavesurfer.getDuration()});
     });
+  }
+
+  convertedTime() {
+    let date = new Date(null);
+    // alert(date.setSeconds(this.state.duration)
+    //   .toString().slice(20, 24));
+    return date.setSeconds(this.state.duration)
+      .toString().slice(20,24);
   }
   
   render () {
@@ -49,7 +63,7 @@ class WaveForm extends React.Component {
       <div className="waveform-container" style={{width}}>
         <div id={`waveform-${this.props.track.id}`}></div>
         <div className="waveform-time"></div>
-        <div className={lineClass}>{this.duration}</div>
+        <div className={lineClass}>{this.convertedTime()}</div>
       </div>
     );
   }
