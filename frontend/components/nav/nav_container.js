@@ -8,7 +8,7 @@ const mapStateToProps = (state, ownProps) => {
   // debugger;
   return  {
     currentUser: state.session.currentUser,
-    path: ownProps.match.path,
+    path: ownProps.location.pathname,
   };
 };
 

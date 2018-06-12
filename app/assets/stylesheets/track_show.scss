@@ -9,7 +9,8 @@
 }
 
 .backgroundGradient {
-  background: linear-gradient(135deg, rgb(167, 144, 165) 0%, rgb(103, 94, 146) 100%);
+  // background: linear-gradient(135deg, rgb(167, 144, 165) 0%, rgb(103, 94, 146) 100%);
+  background: linear-gradient(135deg, #846170, #70929c);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -81,8 +82,40 @@
   padding: 8px;
 }
 
+.show-genre-year {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  right: 400px;
+  align-items: flex-end;
+  margin-top: 10px;
+}
+
+.show-track-genre {
+  padding: 2px 8px;
+  background: #999;
+  font-size: 16px;
+  color: white;
+  border-radius: 20px;
+  // right: 40px;
+  // bottom: 125px;
+  height: 22px;
+  
+}
+
+.show-track-year {
+  margin-bottom: 20px;
+  color: #e2e2e2;
+  font-size: 16px;
+}
+
 .comments-box {
-  padding: 0px 30px;
+  padding: 30px 30px;
+}
+
+.comment-form-box {
+  border-bottom: 1px solid #e2e2e2;
+  padding-bottom: 10px;
 }
 
 .comment-form {
@@ -137,8 +170,9 @@
 }
 
 .waveform-show-line {
-  border-top: 1px solid #7e7099;
-  width: 780px;
+  // border-top: 1px solid #7e7099;
+  border-top: 1px solid #787a86;
+  width: 765px;
   height: 40px;
   z-index: 5;
   position: absolute;

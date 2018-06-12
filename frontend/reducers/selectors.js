@@ -14,7 +14,7 @@ export const firstTwelveTracks = (tracks) => {
 };
 
 export const myTrack = (track, currentUser) => {
-  debugger;
+  // debugger;
   if (!track) {
     return false;
   }

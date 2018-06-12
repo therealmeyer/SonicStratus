@@ -7,20 +7,14 @@ class Nav extends React.Component {
     this.state = {
       homeClass: 'stream',
     };
-    // this.checkPath = this.checkPath.bind(this);
   }
-
-  // checkPath() {
-  //   if (this.props.path === '/stream') {
-  //     this.setState({homeClass: 'stream-link-highlight'});
-  //   } 
-  // }
 
   render () {
     // console.log(this.props);
     if (!this.props.currentUser) {
       return <div></div>;
     }
+    console.log("navprops", this.props);
     return <div>
         <header className="nav">
           <section className="nav-inner">

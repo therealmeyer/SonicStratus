@@ -31,7 +31,7 @@ class EditTrackForm extends React.Component {
   render() {
     // console.log("render");
     const { currentUser, track, formType, errors, processForm, loading, history, clearErrors } = this.props;
-    debugger;
+    // debugger;
     if (!this.props.isMine) {
       // <Redirect to="/stream"/>
     }

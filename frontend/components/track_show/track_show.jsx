@@ -47,6 +47,14 @@ class TrackShow extends React.Component {
 
   }
 
+  genre() {
+    if (this.props.track.genre) {
+      return <div className="show-track-genre"># {this.props.track.genre}</div>;
+    } else {
+      return <div></div>;
+    }
+  }
+
   togglePlay () {
     if (this.props.currentTrack.track.id === -1 ||
       this.props.currentTrack.track.id !== this.props.track.id) {
@@ -64,7 +72,7 @@ class TrackShow extends React.Component {
     if (!this.props.track || !this.props.users[this.props.track.user_id]) {
       return (<h1>Loading...</h1>)
     }
-
+    let genre = this.props.track.genre ? `# ${this.props.track.genre}` : "";
     return (
       <div> 
         <div className="main">
@@ -76,14 +84,20 @@ class TrackShow extends React.Component {
                   <div onClick={this.togglePlay} className={this.state.playButtonClass}></div>
                   <div className="track-show-title-user">
                     <div className="wrapper">
-                    <div className="show-track-user">
-                      {this.props.track.user}
-                    </div>
+                      <div className="show-track-user">
+                        {this.props.track.user}
+                      </div>
                     </div>
                     <div className="show-track-title">
                       {this.props.track.title}
                     </div>
                   </div>
+                </div>
+                <div className="show-genre-year">
+                  <div className="show-track-year">
+                    2 years ago
+                  </div>
+                  {this.genre()}
                 </div>
                 <div className="show-album-img">
                   <img src={this.props.track.album_url} />
@@ -108,6 +122,11 @@ class TrackShow extends React.Component {
                   </div>
                 </div>
                 {this.trackButtons()}
+              </div>
+              <div className="show-user-info">
+                {/* <div className="user-image-track">
+                  <img className="" src={this.props.users[this.props.track.user_id].image_url}>
+                </div> */}
               </div>
             </div>
           </div>

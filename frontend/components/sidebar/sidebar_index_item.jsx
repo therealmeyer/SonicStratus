@@ -8,7 +8,7 @@ class SidebarIndexItem extends React.Component {
     return (
       <li className="sidebar-index-item">
         <div className="sidebar-album-link">
-          <Link to="#" >
+          <Link to={`/tracks/${track.id}`} >
             <img className="sidebar-album-img" src={track.album_url} alt="album-cover" />
           </Link>
         </div>
