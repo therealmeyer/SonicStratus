@@ -53,6 +53,11 @@ export const fetchAllTracks = tracks => dispatch => (
     .then(resTracks => dispatch(receiveTracks(resTracks)))
 );
 
+export const fetchUserTracks = userId => dispatch => (
+  TrackAPIUtil.fetchUserTracks(userId)
+  .then(resTracks => dispatch(receiveTracks(resTracks)))
+);
+
 export const updateTrack = formData => dispatch => (
   TrackAPIUtil.updateTrack(formData)
     .then(resTrack => (dispatch(receiveTrack(resTrack))

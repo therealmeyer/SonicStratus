@@ -31,10 +31,10 @@ class TrackIndexItem extends React.Component {
     if (newProps.currentTrack.track.id === newProps.track.id && 
       newProps.currentTrack.playing) {
       this.setState({ playing: true, playButtonClass: 'played-button' });
-      // this.setState({ playing_focused: 'playing-focus' });
+      
     } else {
       this.setState({ playing: false, playButtonClass: 'paused-button' });
-      // this.setState({ playing_focused: "" });
+      
     }
   }
 

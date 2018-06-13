@@ -20,7 +20,9 @@ class TrackShow extends React.Component {
   }
 
   componentWillReceiveProps (newProps) {
-    if (newProps.currentTrack.playing) {
+    // debugger;
+    if (newProps.currentTrack.playing &&  
+      newProps.currentTrack.track.id === this.props.track.id) {
       this.setState({ playButtonClass: 'show-pause-button' });
     } else {
       this.setState({playButtonClass: 'show-play-button'});
@@ -75,15 +77,14 @@ class TrackShow extends React.Component {
     let genre = this.props.track.genre ? `# ${this.props.track.genre}` : "";
     console.log(this.props);
     let user = this.props.users[this.props.track.user_id];
-    return (
-      <div> 
+    return <div>
         <div className="main">
           <div className="main-content-show">
-            <h1></h1>
+            {/* <h1 /> */}
             <div className="showBox">
               <div className="backgroundGradient">
                 <div className="track-show-info">
-                  <div onClick={this.togglePlay} className={this.state.playButtonClass}></div>
+                  <div onClick={this.togglePlay} className={this.state.playButtonClass} />
                   <div className="track-show-title-user">
                     <div className="wrapper">
                       <div className="show-track-user">
@@ -96,9 +97,7 @@ class TrackShow extends React.Component {
                   </div>
                 </div>
                 <div className="show-genre-year">
-                  <div className="show-track-year">
-                    2 years ago
-                  </div>
+                  <div className="show-track-year">2 years ago</div>
                   {this.genre()}
                 </div>
                 <div className="show-album-img">
@@ -106,40 +105,45 @@ class TrackShow extends React.Component {
                 </div>
               </div>
               <div className="show-waveform-container">
-                <WaveFormContainer height={110}
-                  track={this.props.track}
-                  color={'#fff'}
-                />
+                <WaveFormContainer height={110} track={this.props.track} color={"#fff"} />
               </div>
             </div>
             <div className="comments-box">
               <div className="comment-form-box">
                 <div className="comment-form">
-                  <img className="form-img"
-                    src={this.props.currentUser.profile_img_url} />
+                  <img className="form-img" src={this.props.currentUser.profile_img_url} />
                   <div className="comment-input-box">
                     <form onSubmit={this.handleSubmit}>
-                      <input className="comment-input"type="text" placeholder="Write a comment" />
+                      <input className="comment-input" type="text" placeholder="Write a comment" />
                     </form>
                   </div>
                 </div>
                 {this.trackButtons()}
               </div>
-              <div className="show-user-info">
-                <div className="user-image-track">
-                  <img className="circle-user-image" src={this.props.users[this.props.track.user_id].profile_img_url} />
+              <div className="flex-box">
+                <div className="info-description-box">
+                  <div className="show-user-info">
+                    <div className="user-image-track">
+                      <img className="circle-user-image" src={this.props.users[this.props.track.user_id].profile_img_url} />
+                    </div>
+                    <div className="star-wrapper">
+                      <Link className="user-circle-link" to={`/users/${user.id}`}>
+                        {user.username}
+                      </Link>
+                      <div className="star-img"></div>
+                    </div>
+                  </div>
+                  <div className="description-box"> 
+                    <p className="track-description">{this.props.track.description}</p>
+                  </div>
                 </div>
-                <Link className="user-circle-link" to={`/users/${user.id}`}>
-                  {user.username}
-                </Link>
-                <div>
-                </div> 
+                <div className="sidebar-flex">
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    );
+      </div>;
   }
 
 }

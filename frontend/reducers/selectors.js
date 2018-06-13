@@ -20,3 +20,15 @@ export const myTrack = (track, currentUser) => {
   }
   return track.user_id === currentUser.id ? true : false;
 };
+
+export const selectUserTracks = (tracks, userId) => {
+  // debugger;
+  let myTracks = [];
+  tracks.forEach(track => {
+    if (track.user_id === parseInt(userId)) {
+      myTracks.push(track);
+      // debugger;
+    }
+  });
+  return myTracks;
+}

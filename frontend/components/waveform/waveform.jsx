@@ -18,10 +18,11 @@ class WaveForm extends React.Component {
     if (newProps.setWaveformTo !== this.props.setWaveformTo 
     && newProps.currentTrack.id === newProps.track.id) {
       let seekTime = newProps.setWaveformTo;
-      if (newProps.setWaveformTo > 1.0) {
-        seekTime = seekTime/this.wavesurfer.getDuration();
-      }
-      this.wavesurfer.seekTo(seekTime);
+      // if (newProps.setWaveformTo > 1.0) {
+      //   seekTime = seekTime/this.wavesurfer.getDuration();
+      // }
+      console.log(Math.round(seekTime * 10000) / 10000);
+      this.wavesurfer.seekTo(Math.round(seekTime*100000)/100000);
     }
   }
 
@@ -44,15 +45,27 @@ class WaveForm extends React.Component {
     });
     this.wavesurfer.on('ready', () => {
       this.setState({duration: this.convertedTime(this.wavesurfer.getDuration())});
+      if (this.props.currentTrack.id === this.props.track.id) {
+        let seekTime = this.props.setWaveformTo;
+        console.log(this.props.currentTime.played);
+        this.wavesurfer.seekTo(Math.round((this.props.currentTime.played + 0.001) * 1000000) / 1000000);
+      }
       // this.duration = this.convertedTime();
     });
   }
+
+  // componentWillUnmount () {
+  //   const time = this.wavesurfer.getCurrentTime();
+  //   const duration = this.wavesurfer.getDuration();
+  //   this.props.setWaveform(time/duration);
+  // }
+
 
   convertedTime(seconds) {
     let date = new Date(null);
     // alert(date.setSeconds(this.state.duration)
     //   .toString().slice(20, 24));
-    console.log(seconds);
+    // console.log(seconds);
     date.setSeconds(Math.floor(seconds));
     return date.toString().slice(20,24);
     // return 55;

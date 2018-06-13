@@ -183,6 +183,7 @@
 .show-user-info {
   display: flex;
   flex-direction: column;
+  // position: relative;
 }
 
 .user-image-track {
@@ -196,8 +197,16 @@
 
 .user-circle-link {
   margin-top: 10px;
-  margin-left: 25px;
-  padding: 5px;
+  margin-left: 20px;
+  padding: 5px, 2px 5px 5px;
+  position: relative;
+  // display: inline-block;
+}
+
+.star-wrapper {
+  display: flex;
+  flex-direction: row;
+  margin-left: 10px;
 }
 
 .star-img {
@@ -205,4 +214,30 @@
   height: 20px;
   background: image-url("star.png") no-repeat;
   background-size: 19px 19px;
+  margin-top: 4px;
+  margin-left: 2px;
+  // position: absolute;
+}
+.flex-box {
+  display: flex;
+}
+
+.info-description-box {
+  display: flex;
+}
+.description-box {
+  margin: 30px;
+  width: 600px;
+  height: 500px;
+}
+
+.track-description {
+  font-size: 14px;
+}
+
+.sidebar-flex {
+  width: 1000px;
+  height: 300px;
+  border-left: 1px solid #e2e2e2;
+  margin-top: 30px;
 }

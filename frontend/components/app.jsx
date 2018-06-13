@@ -10,7 +10,7 @@ import Edit from './edit/edit';
 import MediaPlayerContainer from './media_player/media_player_container';
 import TrackShowContainer from './track_show/track_show_container';
 import NavContainer from './nav/nav_container';
-
+import UserShowContainer from './user_show/user_show_container';
 const App = () => (
   <div>
     {/* <Switch>
@@ -26,6 +26,7 @@ const App = () => (
       <ProtectedRoute path="/upload" component={Upload} />
       <UserProtectedRoute path="/tracks/:trackId/edit" component={Edit} />
       <ProtectedRoute path="/tracks/:trackId" component={TrackShowContainer} />
+      <ProtectedRoute path="/users/:userId" component={UserShowContainer} />
       <Redirect to="/" />
     </Switch>
     <footer>

@@ -21,6 +21,7 @@ class MediaPlayer extends React.Component {
     this.seekChange = this.seekChange.bind(this);
     this.formatTime = this.formatTime.bind(this);
     this.onDuration = this.onDuration.bind(this);
+    this.onEnded = this.onEnded.bind(this);
   }
   componentWillReceiveProps(newProps) {
     if (this.props.track.id !== newProps.track.id) {
@@ -47,7 +48,10 @@ class MediaPlayer extends React.Component {
   }
 
   onProgress(state) {
-    if (!this.state.inSeek) this.setState(state);
+    if (!this.state.inSeek) {
+      this.setState(state);
+      this.props.setTime(state);
+    }
   }
 
   changeVolume(e) {
@@ -66,6 +70,7 @@ class MediaPlayer extends React.Component {
 
   seekChange(e) {
     this.setState({played: parseFloat(e.target.value)});
+    this.props.setWaveform(e.target.value);
     //waveform handle
   }
 
@@ -81,6 +86,9 @@ class MediaPlayer extends React.Component {
     this.setState({lengthTrack: duration})
   }
 
+  onEnded() {
+    this.props.endCurrentTrack();
+  }
 
   render () {
     return (
@@ -95,6 +103,7 @@ class MediaPlayer extends React.Component {
             volume={this.state.volume}
             width="0px"
             height="0px"
+            onEnded={this.onEnded}
           />
           <div className="media-player-buttons">
             {/* <i className="fas fa-step-backward backward"></i> */}

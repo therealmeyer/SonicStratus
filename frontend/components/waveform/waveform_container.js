@@ -1,6 +1,6 @@
 import Waveform from './waveform';
 import { connect } from 'react-redux';
-import { setPlayerTo } from '../../actions/current_track_actions';
+import { setPlayerTo, setWaveformTo } from '../../actions/current_track_actions';
 
 const mapStateToProps = state => ({
   currentTrack: state.currentTrack.track,
@@ -10,7 +10,8 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  setPlayerTo: time => dispatch(setPlayerTo(time))
+  setPlayerTo: time => dispatch(setPlayerTo(time)),
+  setWaveform: time => dispatch(setWaveformTo(time))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Waveform);

@@ -23,6 +23,12 @@ export const fetchAllTracks = () => (
   })
 );
 
+export const fetchUserTracks = (userId) => (
+  $.ajax({
+    url: `/api/users/${userId}/tracksby`,
+    method: 'GET'
+  })
+)
 
 export const updateTrack = formData => {
   // debugger;

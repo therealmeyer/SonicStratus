@@ -3,6 +3,7 @@ export const PAUSE_PLAY_TRACK = 'PAUSE_PLAY_TRACK';
 export const SET_TIME = 'SET_TIME';
 export const SET_PLAYER_TO = 'SET_PLAYER_TO';
 export const SET_WAVEFORM_TO = 'SET_WAVEFORM_TO';
+export const END_CURRENT_TRACK = 'END_CURRENT_TRACK';
 
 export const receiveCurrentTrack = track => ({
   type: RECEIVE_CURRENT_TRACK,
@@ -27,4 +28,9 @@ export const setWaveformTo = time => ({
 export const setTime = time => ({
   type: SET_TIME,
   time
+});
+
+export const endCurrentTrack = trackId => ({
+  type: END_CURRENT_TRACK,
+  trackId
 });

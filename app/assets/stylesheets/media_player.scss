@@ -87,7 +87,6 @@
 .track-slider {
   width: 512px;
   position: relative;
-  margin: 0px 20px;
 }
 
 input[type=range] {
@@ -117,13 +116,13 @@ input[type=range]::-ms-track:hover {
 }
 
 .track-slider:hover input[type=range]::-webkit-slider-thumb {
- -webkit-appearance: none;
+  -webkit-appearance: none;
+  border-radius: 50%;
   height: 8px;
   width: 8px;
-  border-radius: 50%;
+  margin-top: -5px;
   background: #f50;
   cursor: pointer;
-  margin-top: -5px;
   position: relative;
   z-index: 10;
   top: 3px;
@@ -131,8 +130,8 @@ input[type=range]::-ms-track:hover {
 }
 
 input[type=range]::-webkit-slider-runnable-track {
-  padding: 10px;
   width: 512px;
+  padding: 10px;
   height: 1px;
   cursor: pointer;
 }
@@ -281,7 +280,6 @@ input[type=range]::-webkit-slider-runnable-track {
 
 
 .player-info-box {
-  margin-left: 20px;
   display: flex;
   flex-direction: row;
   align-items: center;

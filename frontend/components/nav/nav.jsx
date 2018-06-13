@@ -45,7 +45,7 @@ class Nav extends React.Component {
                 </li>
                 <li className="user-link">
                   <span className="user-image-nav"></span>
-                  <Link className="current-user" to={`/users/${this.props.currentUser.username}`}>
+                  <Link className="current-user" to={`/users/${this.props.currentUser.id}`}>
                     {this.props.currentUser.username}
                   </Link>
                 </li>

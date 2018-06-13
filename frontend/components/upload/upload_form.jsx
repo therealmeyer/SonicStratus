@@ -206,7 +206,7 @@ class UploadForm extends React.Component {
                 </label>
               </div>
             </div>
-            <LoadingBar updateTime={300} maxProgress={55} className="loading-bar"/>
+            <LoadingBar updateTime={900} maxProgress={55} className="loading-bar"/>
             <div className="submitBox">
               <p className="required">
                 <span className="asterisk">*</span>

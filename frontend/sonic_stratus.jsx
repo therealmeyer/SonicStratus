@@ -4,7 +4,7 @@ import { login, signup, logout } from './util/session_api_util';
 import configureStore from './store/store';
 import Root from './components/root';
 import { createTrack, fetchTrack, fetchAllTracks, 
-  updateTrack, deleteTrack } from './util/track_api_util';
+  updateTrack, deleteTrack, fetchUserTracks } from './util/track_api_util';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.logout = logout;
 
   window.createTrack = createTrack;
-  window.fetchTrack = fetchTrack;
+  window.fetchUserTracks = fetchUserTracks;
   window.fetchAllTracks = fetchAllTracks;
   window.updateTrack = updateTrack;
   window.deleteTrack = deleteTrack;

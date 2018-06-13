@@ -3,7 +3,8 @@ import {
   PAUSE_PLAY_TRACK,
   SET_TIME,
   SET_PLAYER_TO,
-  SET_WAVEFORM_TO
+  SET_WAVEFORM_TO,
+  END_CURRENT_TRACK
 } from '../actions/current_track_actions';
 import merge from 'lodash/merge';
 
@@ -37,7 +38,14 @@ const currentTrackReducer = (state = defaultState, action) => {
       newState = merge(newState, {setPlayerTo: action.time});
       return newState;
     case SET_WAVEFORM_TO:
-      newState = merge(newState, {setWaveformTo: action.time})
+      newState = merge(newState, {setWaveformTo: action.time});
+      return newState;
+    case END_CURRENT_TRACK:
+      newState = merge(newState, { 
+        playing: false, setWaveformTo: 0,
+        setPlayerTo: 0 });
+      newState.track.id = -1;
+      return newState;
     default: 
       return state;
   }
