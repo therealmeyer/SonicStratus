@@ -5,9 +5,9 @@ class Track < ApplicationRecord
   # https://rubyplus.com/articles/3821-File-Uploads-using-Paperclip-in-Rails-5
   attr_reader :audio_remote_url, :image_remote_url
 
-  has_attached_file :audio
+  has_attached_file :audio, validate_media_type: false 
   # validates_attachment_content_type :audio, content_type: /\Aaudio\/.*\Z/
-  do_not_validate_attachment_file_type :audio
+  # do_not_validate_attachment_file_type :audio
   #[ 'audio/mpeg', 'audio/x-mpeg', 'audio/mp3', 'audio/x-mp3', 'audio/mpeg3', 'audio/x-mpeg3', 'audio/mpg', 'audio/x-mpg', 'audio/x-mpegaudio' ]
   #, content_type: /\Aaudio\/.*\Z/
   validates_attachment_presence :audio
