@@ -129,7 +129,11 @@ class TrackShow extends React.Component {
                 <div className="user-image-track">
                   <img className="circle-user-image" src={this.props.users[this.props.track.user_id].profile_img_url} />
                 </div>
-                <Link to={`/users/${user.id}`}>{user.username}</Link>
+                <Link className="user-circle-link" to={`/users/${user.id}`}>
+                  {user.username}
+                </Link>
+                <div>
+                </div> 
               </div>
             </div>
           </div>

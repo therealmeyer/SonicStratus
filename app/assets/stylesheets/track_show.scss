@@ -182,7 +182,7 @@
 
 .show-user-info {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 
 .user-image-track {
@@ -194,4 +194,15 @@
   height: 125px;
 }
 
+.user-circle-link {
+  margin-top: 10px;
+  margin-left: 25px;
+  padding: 5px;
+}
 
+.star-img {
+  width: 20px;
+  height: 20px;
+  background: image-url("star.png") no-repeat;
+  background-size: 19px 19px;
+}

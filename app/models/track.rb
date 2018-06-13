@@ -6,7 +6,8 @@ class Track < ApplicationRecord
   attr_reader :audio_remote_url, :image_remote_url
 
   has_attached_file :audio
-  validates_attachment_content_type :audio, :content_type => [ 'audio/mpeg', 'audio/x-mpeg', 'audio/mp3', 'audio/x-mp3', 'audio/mpeg3', 'audio/x-mpeg3', 'audio/mpg', 'audio/x-mpg', 'audio/x-mpegaudio' ]
+  validates_attachment_content_type :audio, content_type: "audio/*"
+  #[ 'audio/mpeg', 'audio/x-mpeg', 'audio/mp3', 'audio/x-mp3', 'audio/mpeg3', 'audio/x-mpeg3', 'audio/mpg', 'audio/x-mpg', 'audio/x-mpegaudio' ]
   #, content_type: /\Aaudio\/.*\Z/
   validates_attachment_presence :audio
   has_attached_file :image, default_url: "//s3-us-west-1.amazonaws.com/sonicstratus/album.jpg",
