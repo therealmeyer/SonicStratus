@@ -29,7 +29,7 @@ class UserShow extends React.Component {
     let backgroundProfile = nextProps.user.profile_img_url === "/profile_images/original/missing.png" ?
       null :`url(${nextProps.user.profile_img_url}` ;
     let backgroundHeader = nextProps.user.header_img_url === "/header_images/original/missing.png"?
-      `url(${nextProps.user.header_img_url}` : null;
+      null: `url(${nextProps.user.header_img_url}`;
 
     this.setState({
       profileUrl: nextProps.user.header_img_url, 

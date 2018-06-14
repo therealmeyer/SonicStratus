@@ -106,7 +106,7 @@ class LandingPage extends React.Component {
         <h1 className="trending-header">
           Hear what’s trending for free in the SonicStratus community
         </h1>
-        <LandingPageContainer />
+        <LandingPageContainer openModal={this.openLoginModal}/>
         
       </div>
       {/* <div className="front-mobile-teaser">

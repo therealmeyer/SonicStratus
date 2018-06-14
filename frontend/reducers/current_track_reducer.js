@@ -44,7 +44,7 @@ const currentTrackReducer = (state = defaultState, action) => {
       newState = merge(newState, { 
         playing: false, setWaveformTo: 0,
         setPlayerTo: 0 });
-      newState.track.id = -1;
+      // newState.track.id = -1;
       return newState;
     default: 
       return state;

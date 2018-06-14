@@ -88,11 +88,12 @@ class MediaPlayer extends React.Component {
 
   onEnded() {
     this.props.endCurrentTrack();
+    // this.props.setWaveformTo(0);
   }
 
   albumImage() {
     if (this.props.track.id === -1) {
-      return <div className="player-album-placeholder"></div>
+      return <div className="player-album-placeholder"></div>;
     } else {
       return <img className="player-album" src={this.props.track.album_url} />;
     }

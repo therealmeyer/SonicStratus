@@ -109,7 +109,11 @@ class TrackIndexItem extends React.Component {
             {this.editLink()}
             {this.deleteButton()}
           </div>
-            {this.genre()}
+          {this.genre()}
+        <div className="num-comments">
+          <i className="fas fa-comment-alt comment-icon"></i>
+          {this.props.track.comment_count}
+        </div>
           
       </li>
     );

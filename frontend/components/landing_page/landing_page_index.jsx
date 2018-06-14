@@ -21,7 +21,7 @@ class LandingPageIndex extends React.Component {
           ))}
         </ul>
       <div className="top-button-box">
-        <button className="top-button">Explore our top 50</button>
+        <button className="top-button" onClick={this.props.openModal}>Explore our top 50</button>
       </div>
       </div>
     );

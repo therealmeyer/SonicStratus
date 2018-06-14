@@ -128,3 +128,16 @@
 .track-item-genre:hover {
   background: #666;
 }
+
+.num-comments {
+  font-size: 12px;
+  color: #999;
+  position: absolute;
+  right: 40px;
+  bottom: 10px;
+}
+
+.comment-icon {
+  margin-right: 7px;
+  // position: absolute;
+}

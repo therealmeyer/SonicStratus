@@ -20,7 +20,8 @@ const mapDispatchToProps = (dispatch) => ({
   playPause: () => dispatch(pausePlayTrack()),
   setWaveform: time => dispatch(setWaveformTo(time)),
   endCurrentTrack: () => dispatch(endCurrentTrack()),
-  setTime: time => dispatch(setTime(time))
+  setTime: time => dispatch(setTime(time)),
+  // setWaveformTo: time => dispatch(setWaveformTo(time))
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(MediaPlayer);

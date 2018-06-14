@@ -5,7 +5,7 @@ class WaveForm extends React.Component {
 
   constructor (props) {
     super(props);
-    this.state = { duration: "" };
+    this.state = { duration: null };
     // this.convertedTime = this.convertedTime.bind(this);
   }
   
@@ -25,6 +25,7 @@ class WaveForm extends React.Component {
       console.log(Math.round(seekTime * 10000) / 10000);
       this.wavesurfer.seekTo(Math.round(seekTime*100000)/100000);
     }
+    this.setState({duration: this.props.track.duration});
   }
 
   componentDidMount () {
@@ -50,13 +51,26 @@ class WaveForm extends React.Component {
       }
     });
     this.wavesurfer.on('ready', () => {
-      this.setState({duration: this.convertedTime(this.wavesurfer.getDuration())});
-
+      this.setState({ duration: this.convertedTime(this.wavesurfer.getDuration()) });
+      // let state = this.state.duration;
+      // debugger;
+      // if (!this.track.duration) {
+      //   this.setState({duration: this.convertedTime(this.wavesurfer.getDuration())});
+      //   const formData = new FormData();
+      //   formData.append("track[id]", this.props.track.id);
+      //   formData.append("track[duration]", this.state.duration);
+      //   this.props.updateTrack(formData).then(payload => {
+      //     // debugger;
+      //     this.setState({ duration: payload.track.duration });
+      //   });
+      // }
+      // debugger;
       if (this.props.track.peaks.length < 1) {
-        const peaks = this.wavesurfer.exportPCM();
+        const peaks = this.wavesurfer.exportPCM(1024,1000000,false,0);
         const formData = new FormData();
         formData.append("track[id]", this.props.track.id);
         formData.append("track[peaks]", peaks);
+        
         this.props.updateTrack(formData);
       }
 
@@ -87,15 +101,16 @@ class WaveForm extends React.Component {
   }
   
   render () {
+    // debugger;
     let width = this.props.height === 60 ? '600px' : '780px';
     let lineClass = this.props.height === 60 ? 'waveform-line' :
       'waveform-show-line';
     let timeClass = this.props.height === 60 ? 'waveform-time-index' : 'waveform-time-show';
-    let duration = this.duration ? this.duration : "";
+    let duration = this.state.duration ? this.state.duration : "";
     return (
       <div className="waveform-container" style={{width}}>
         <div id={`waveform-${this.props.track.id}`} ></div>
-        <div className={timeClass}>{this.state.duration}</div>
+        <div className={timeClass}>{duration}</div>
         <div className={lineClass}></div>
       </div>
     );

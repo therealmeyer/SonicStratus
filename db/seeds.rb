@@ -34,45 +34,45 @@ emmit = User.create(username: 'Emmit Fenn', password: 'password',
   header_image: File.open(Rails.root.join("app", "assets", "images/media_seeds/emitt-fenn-cover.jpg")))
 
 
-whitelies = Track.create(user_id: odesza.id, title: "White Lies", 
+whitelies = Track.create(user_id: odesza.id, title: "White Lies", genre: 'Electronic',
   description: "From the album 'In Return', out now on Counter-Records.\n
   Download 'In Return' on iTunes. \nOrder 'In Return' in 2xLP Vinyl, 24-bit WAV, 16-bit WAV, and MP3.", 
   year: 2015,
   image: File.open(Rails.root.join("app", "assets", "images/media_seeds/in-return.jpg")), 
   audio: File.open(Rails.root.join("app", "assets", "images/media_seeds/white-lies.mp3")))
 
-how = Track.create(user_id: odesza.id, title: "How Did I Get Here", year: 2013,
+how = Track.create(user_id: odesza.id, title: "How Did I Get Here", year: 2013, genre: 'Chill',
   description: "Stream and Download Summer's Gone \n \nDownload our official app",
   image: File.open(Rails.root.join("app", "assets", "images/media_seeds/summers-gone.jpg")), 
   audio: File.open(Rails.root.join("app", "assets", "images/media_seeds/how-did-i.mp3")))
 
-meridian = Track.create(user_id: odesza.id, title: "Meridian", year: 2017,
+meridian = Track.create(user_id: odesza.id, title: "Meridian", year: 2017, genre: 'Electronic',
   description: " Imaginary circle in a plane perpendicular to the planes of the celestial equator and horizon\n\n
   An imaginary arc on the Earth's surface from the North Pole to the South Pole",
   image: File.open(Rails.root.join("app", "assets", "images/media_seeds/moment-apart.jpg")), 
   audio: File.open(Rails.root.join("app", "assets", "images/media_seeds/meridian.mp3")))
 
-boy = Track.create(user_id: odesza.id, title: "Boy", year: 2017,
+boy = Track.create(user_id: odesza.id, title: "Boy", year: 2017, genre: 'Chill',
   description: "A boy is a young male human, usually a child or adolescent. \n When he becomes an adult, he is described as a man.",
   image: File.open(Rails.root.join("app", "assets", "images/media_seeds/moment-apart.jpg")), 
   audio: File.open(Rails.root.join("app", "assets", "images/media_seeds/boy.mp3")))
 
-gp = Track.create(user_id: drake.id, title: "God's Plan", year: 2018,
+gp = Track.create(user_id: drake.id, title: "God's Plan", year: 2018, genre: 'Hip Hop',
   description: "God's plan, or the Will of God. \n The saving of a soul from sin and its consequences",
   image: File.open(Rails.root.join("app", "assets", "images/media_seeds/scary_hours.jpg")), 
   audio: File.open(Rails.root.join("app", "assets", "images/media_seeds/gods-plan.mp3")))
 
-sit = Track.create(user_id: foster.id, title: "Sit Next to Me", year: 2018,
+sit = Track.create(user_id: foster.id, title: "Sit Next to Me", year: 2018, genre: 'Alternative',
   description: "Released by:\nColumbia\n\nRelease date:\n21 July 2017\n\nP-line:\n
 ℗ 2017 (P) 2017 Columbia Records, a Division of Sony Music Entertainment",
   image: File.open(Rails.root.join("app", "assets", "images/media_seeds/sacred-hearts.jpg")), 
   audio: File.open(Rails.root.join("app", "assets", "images/media_seeds/sit-next-to-me.mp3")))
 
-pumpedkicks = Track.create(user_id: foster.id, title: "Pumped Up Kicks", year: 2010,
+pumpedkicks = Track.create(user_id: foster.id, title: "Pumped Up Kicks", year: 2010, genre: 'Alternative',
   image: File.open(Rails.root.join("app", "assets", "images/media_seeds/torches.jpg")), 
   audio: File.open(Rails.root.join("app", "assets", "images/media_seeds/pumpedup-kicks.mp3")))
   
-never = Track.create(user_id: flume.id, title: "Never Be Like You", 
+never = Track.create(user_id: flume.id, title: "Never Be Like You", genre: 'Flume step',
   image: File.open(Rails.root.join("app", "assets", "images/media_seeds/skin.jpg")), 
   audio: File.open(Rails.root.join("app", "assets", "images/media_seeds/never-be-like.mp3")))
 
@@ -80,15 +80,15 @@ thisong =  Track.create(user_id: flume.id, title: "This Song is Not About a Girl
   image: File.open(Rails.root.join("app", "assets", "images/media_seeds/lockjaw.jpg")), 
   audio: File.open(Rails.root.join("app", "assets", "images/media_seeds/this_song_is.mp3")))
 
-insane = Track.create(user_id: flume.id, title: "Insane", 
+insane = Track.create(user_id: flume.id, title: "Insane", genre: 'Flume step',
   image: File.open(Rails.root.join("app", "assets", "images/media_seeds/flume.jpg")), 
   audio: File.open(Rails.root.join("app", "assets", "images/media_seeds/insane.mp3")))
 
-modern_flame =  Track.create(user_id: emmit.id, title: "Modern Flame", 
+modern_flame =  Track.create(user_id: emmit.id, title: "Modern Flame", genre: 'Electronic',
   image: File.open(Rails.root.join("app", "assets", "images/media_seeds/prologue2.jpg")), 
   audio: File.open(Rails.root.join("app", "assets", "images/media_seeds/modern-flame.mp3")))
 
-sunset_lover = Track.create(user_id: demo.id, title: "Sunset Lover", 
+sunset_lover = Track.create(user_id: demo.id, title: "Sunset Lover", genre: 'Chill',
   image: File.open(Rails.root.join("app", "assets", "images/media_seeds/sunset-lover.jpg")), 
   audio: File.open(Rails.root.join("app", "assets", "images/media_seeds/sunset-lover.mp3")))
 
