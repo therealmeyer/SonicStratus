@@ -60,11 +60,11 @@ class WaveForm extends React.Component {
         this.props.updateTrack(formData);
       }
 
-      if (this.props.currentTrack.id === this.props.track.id) {
-        let seekTime = this.props.setWaveformTo;
-        console.log(this.props.currentTime.played);
-        this.wavesurfer.seekTo(Math.round((this.props.currentTime.played + 0.001) * 1000000) / 1000000);
-      }
+      // if (this.props.currentTrack.id === this.props.track.id) {
+      //   let seekTime = this.props.setWaveformTo;
+      //   console.log(this.props.currentTime.played);
+      //   this.wavesurfer.seekTo(Math.round((this.props.currentTime.played + 0.001) * 1000000) / 1000000);
+      // }
       // this.duration = this.convertedTime();
     });
   }
