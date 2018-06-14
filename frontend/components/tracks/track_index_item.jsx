@@ -33,10 +33,29 @@ class TrackIndexItem extends React.Component {
       this.setState({ playing: true, playButtonClass: 'played-button' });
       
     } else {
-      this.setState({ playing: false, playButtonClass: 'paused-button' });
-      
+      this.setState({ playing: false, playButtonClass: 'paused-button' }); 
     }
+    // let mp3Duration = require("mp3-duration");
+
+    // mp3Duration(this.props.track.audio_url, function(err, duration) {
+    //   if (err) return console.log(err.message);
+    //   console.log("Your file is " + duration + " seconds long");
+    // });
   }
+
+  componentDidMount () {
+    
+
+    // jsmediatags.read(this.props.track.audio_url, {
+    //   onSuccess: function (tag) {
+    //     console.log(tag);
+    //   },
+    //   onError: function (error) {
+    //     console.log(error);
+    //   }
+    // });
+  }
+
 
     // if (this.state.playButtonClass === 'paused-button') {
     //   this.setState( { playButtonClass: 'played-button'});

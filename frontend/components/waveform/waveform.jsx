@@ -13,6 +13,7 @@ class WaveForm extends React.Component {
     // debugger;
     if (newProps.playing && newProps.currentTrack.id === newProps.track.id) {
       this.wavesurfer.play();
+      // this.wavesurfer.skip(newProps.currentTime.played);
     } else {
       this.wavesurfer.pause();
     }
@@ -22,6 +23,7 @@ class WaveForm extends React.Component {
       // if (newProps.setWaveformTo > 1.0) {
       //   seekTime = seekTime/this.wavesurfer.getDuration();
       // }
+      console.log(seekTime);
       console.log(Math.round(seekTime * 10000) / 10000);
       this.wavesurfer.seekTo(Math.round(seekTime*100000)/100000);
     }
@@ -45,7 +47,7 @@ class WaveForm extends React.Component {
       waveColor: this.props.color
     });
     
-
+    //Loading waveform
     this.wavesurfer.load(this.props.track.audio_url);
 
     // if (this.props.track.peaks.length < 1) {
@@ -53,7 +55,17 @@ class WaveForm extends React.Component {
     // } else {
     //   this.wavesurfer.load(this.props.track.audio_url, this.props.track.peaks);
     // }
+
+
     this.wavesurfer.setMute(true);
+    // seek to correct time on mount
+    if (this.props.currentTrack.id === this.props.track.id) {
+      // console.log(this.props.currentTime.played * this.wavesurfer.getDuration());
+      
+      // this.wavesurfer.skip(25);
+      // this.wavesurfer.skip(Math.round((this.props.currentTime.played + 0.001) * 1000000) / 1000000);
+      // console.log(Math.round((this.props.currentTime.played + 0.001) * 1000000) / 1000000);
+    }
     this.wavesurfer.on('seek', e => {
       if (this.props.track.id === this.props.currentTrack.id) {
         this.props.setPlayerTo(e);
@@ -61,6 +73,12 @@ class WaveForm extends React.Component {
     });
     this.wavesurfer.on('ready', () => {
       this.setState({ duration: this.convertedTime(this.wavesurfer.getDuration()) });
+      // let currentTime = this.props.currentTime.played;
+      // if (this.props.currentTrack.id === this.props.track.id) {
+      //   console.log("duration", this.state.duration);
+      //   console.log("current*duration", currentTime * this.state.duration);
+      //   this.wavesurfer.setCurrentTime(this.props.currentTime.played * this.state.duration);
+      // }
       // let state = this.state.duration;
       // debugger;
       // if (!this.track.duration) {
@@ -82,12 +100,7 @@ class WaveForm extends React.Component {
         
       //   this.props.updateTrack(formData);
       // }
-
-      // if (this.props.currentTrack.id === this.props.track.id) {
-      //   let seekTime = this.props.setWaveformTo;
-      //   console.log(this.props.currentTime.played);
-      //   this.wavesurfer.seekTo(Math.round((this.props.currentTime.played + 0.001) * 1000000) / 1000000);
-      // }
+      
       // this.duration = this.convertedTime();
     });
   }

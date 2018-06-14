@@ -23,21 +23,47 @@ class UserShow extends React.Component {
     this.props.fetchUser(this.props.match.params.userId);
     window.scrollTo(0,0);
   }
-
-  componentWillReceiveProps(nextProps) {
+  
+  // componentWillMount () {
     // debugger;
-    let backgroundProfile = nextProps.user.profile_img_url === "/profile_images/original/missing.png" ?
-      null :`url(${nextProps.user.profile_img_url}` ;
-    let backgroundHeader = nextProps.user.header_img_url === "/header_images/original/missing.png"?
-      null: `url(${nextProps.user.header_img_url}`;
+  // }
+  
+  componentWillReceiveProps(nextProps) {
+    
+    // debugger;
+    // if (nextProps.user) {
+    debugger;
+    if (this.props.match.params.userId !== nextProps.match.params.userId) {
+      this.props.fetchUser(nextProps.match.params.userId);
+        // let backgroundProfile = nextProps.user.profile_img_url === "/profile_images/original/missing.png" ?
+        //   null :`url(${nextProps.user.profile_img_url}` ;
+        // let backgroundHeader = nextProps.user.header_img_url === "/header_images/original/missing.png"?
+        //   null: `url(${nextProps.user.header_img_url}`;
 
-    this.setState({
-      profileUrl: nextProps.user.header_img_url, 
-      headerUrl: nextProps.user.header_img_url,
-      backgroundProfileImg: backgroundProfile || "linear-gradient(135deg, #846170, #70929c)",
-      backgroundHeaderImg: backgroundHeader || "linear-gradient(315deg, rgb(132, 97, 112) 0%, rgb(112, 146, 156) 100%)"
-    });
+        //   this.setState({
+        //     profileUrl: nextProps.user.header_img_url, 
+        //     headerUrl: nextProps.user.header_img_url,
+        //     backgroundProfileImg: backgroundProfile || "linear-gradient(135deg, #846170, #70929c)",
+        //     backgroundHeaderImg: backgroundHeader || "linear-gradient(315deg, rgb(132, 97, 112) 0%, rgb(112, 146, 156) 100%)"
+        //   });
+        // });
+    } else { 
+      let backgroundProfile = nextProps.user.profile_img_url === "/profile_images/original/missing.png" ?
+        null : `url(${nextProps.user.profile_img_url}`;
+      let backgroundHeader = nextProps.user.header_img_url === "/header_images/original/missing.png" ?
+        null : `url(${nextProps.user.header_img_url}`;
+
+      this.setState({
+        profileUrl: nextProps.user.header_img_url,
+        headerUrl: nextProps.user.header_img_url,
+        backgroundProfileImg: backgroundProfile || "linear-gradient(135deg, #846170, #70929c)",
+        backgroundHeaderImg: backgroundHeader || "linear-gradient(315deg, rgb(132, 97, 112) 0%, rgb(112, 146, 156) 100%)"
+      });
+    }
   }
+  
+
+
 
   updateHeaderImage () {
     if (this.props.user.id === this.props.currentUser.id) {
