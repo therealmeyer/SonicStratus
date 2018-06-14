@@ -19,19 +19,19 @@ odesza = User.create(username: 'Odesza', password: 'inreturn',
 
 drake = User.create(username: 'Drake', password: 'ovocrew', 
   profile_image: File.open(Rails.root.join("app", "assets", "images/media_seeds/ovo.jpg")), 
-  header_image: File.open(Rails.root.join("app", "assets", "images/media_seeds/drake-banner.jpg"))))
+  header_image: File.open(Rails.root.join("app", "assets", "images/media_seeds/drake-banner.jpg")))
 
 foster = User.create(username: 'Foster', password: 'pumpedkicks',
   profile_image: File.open(Rails.root.join("app", "assets", "images/media_seeds/foster-user.jpg")), 
-  header_image: File.open(Rails.root.join("app", "assets", "images/media_seeds/foster-cover.jpg"))))
+  header_image: File.open(Rails.root.join("app", "assets", "images/media_seeds/foster-cover.png")))
 
 flume = User.create(username: 'Flume', password: 'lockjaw', 
-  profile_image: File.open(Rails.root.join("app", "assets", "images/media_seeds/flume-user.jpg")), 
-  header_image: File.open(Rails.root.join("app", "assets", "images/media_seeds/flume-cover.jpg"))))
+  profile_image: File.open(Rails.root.join("app", "assets", "images/media_seeds/flume-user.jpeg")), 
+  header_image: File.open(Rails.root.join("app", "assets", "images/media_seeds/flume-cover.jpg")))
 
 emmit = User.create(username: 'Emmit Fenn', password: 'password', 
   profile_image: File.open(Rails.root.join("app", "assets", "images/media_seeds/emmit-fenn-user.jpg")), 
-  header_image: File.open(Rails.root.join("app", "assets", "images/media_seeds/emitt-fenn-cover.jpg"))))
+  header_image: File.open(Rails.root.join("app", "assets", "images/media_seeds/emitt-fenn-cover.jpg")))
 
 
 whitelies = Track.create(user_id: odesza.id, title: "White Lies", 
@@ -103,3 +103,15 @@ Comment.create(user_id: demo.id, track_id: how.id, body: 'Sweet!')
 Comment.create(user_id: flume.id, track_id: how.id, body: 'Vibes')
 Comment.create(user_id: flume.id, track_id: how.id, body: 'Nice :) but way too short')
 Comment.create(user_id: emmit.id, track_id: how.id, body: 'My fav track! ')
+
+Comment.create(user_id: ryan.id, track_id: modern_flame.id, body: 'So under-rated')
+Comment.create(user_id: foster.id, track_id: modern_flame.id, body: 'Great song!')
+Comment.create(user_id: odesza.id, track_id: modern_flame.id, body: 'Chills...')
+Comment.create(user_id: odesza.id, track_id: modern_flame.id, body: 'Yassssss')
+
+Comment.create(user_id: drake.id, track_id: pumpedkicks.id, body: 'hohooohoo')
+Comment.create(user_id: odesza.id, track_id: pumpedkicks.id, body: 'Yesyesyes')
+Comment.create(user_id: demo.id, track_id: pumpedkicks.id, body: 'Totally! ')
+Comment.create(user_id: demo.id, track_id: pumpedkicks.id, body: 'My Jam!')
+
+

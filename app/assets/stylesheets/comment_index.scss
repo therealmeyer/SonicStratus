@@ -35,8 +35,9 @@
 
 .comment-user-image {
   border-radius: 50%;
-  width: 40px;
+  width: 100px;
   height: 40px;
+  background-size: contain;
 }
 
 .comment-username {

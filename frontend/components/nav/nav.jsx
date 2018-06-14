@@ -15,8 +15,9 @@ class Nav extends React.Component {
       return <div></div>;
     }
     // console.log("navprops", this.props);
-    let profileImg = this.props.currentUser.profile_img_url ? 
-      `url(${this.props.currentUser.profile_img_url})` : 'linear-gradient(135deg, #846170, #70929c)';
+    // debugger;
+    let profileImg = this.props.currentUser.profile_img_url === "/profile_images/original/missing.png" ?
+      'linear-gradient(135deg, #846170, #70929c)' : `url(${this.props.currentUser.profile_img_url})`;
     return <div>
         <header className="nav">
           <section className="nav-inner">

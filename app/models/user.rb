@@ -8,7 +8,7 @@ class User < ApplicationRecord
 
   before_validation :ensure_session_token
 
-  has_attached_file :profile_image #, default_url: "https://s3-us-west-1.amazonaws.com/sonicstratus/profile_img_url.png",
+  has_attached_file :profile_image, default_url: "https://s3-us-west-1.amazonaws.com/sonicstratus/user-default.png",
     styles: {
       thumb: '100x100>',
       square: '200x200#',
@@ -17,7 +17,7 @@ class User < ApplicationRecord
     }
   validates_attachment_content_type :profile_image, content_type: /\Aimage\/.*\z/
   
-  has_attached_file :header_image #, default_url: "https://s3-us-west-1.amazonaws.com/sonicstratus/header_img.jpg"
+  has_attached_file :header_image, default_url: "https://s3-us-west-1.amazonaws.com/sonicstratus/cover-default.png"
   validates_attachment_content_type :header_image, content_type: /\Aimage\/.*\z/
 
 
