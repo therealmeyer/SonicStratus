@@ -65,14 +65,14 @@ class WaveForm extends React.Component {
       //   });
       // }
       // debugger;
-      if (this.props.track.peaks.length < 1) {
-        const peaks = this.wavesurfer.exportPCM(1024,1000000,false,0);
-        const formData = new FormData();
-        formData.append("track[id]", this.props.track.id);
-        formData.append("track[peaks]", peaks);
+      // if (this.props.track.peaks.length < 1) {
+      //   const peaks = this.wavesurfer.exportPCM(1024,1000000,false,0);
+      //   const formData = new FormData();
+      //   formData.append("track[id]", this.props.track.id);
+      //   formData.append("track[peaks]", peaks);
         
-        this.props.updateTrack(formData);
-      }
+      //   this.props.updateTrack(formData);
+      // }
 
       // if (this.props.currentTrack.id === this.props.track.id) {
       //   let seekTime = this.props.setWaveformTo;
