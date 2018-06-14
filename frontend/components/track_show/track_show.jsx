@@ -2,21 +2,25 @@ import React from 'react';
 import NavContainer from '../nav/nav_container';
 import {Link} from 'react-router-dom';
 import WaveFormContainer from '../waveform/waveform_container';
+import CommentIndexContainer from '../comments/comment_index_container';
 
 class TrackShow extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      playButtonClass: 'show-play-button'
+      playButtonClass: 'show-play-button',
+      body: ""
     };
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleSubmitComment = this.handleSubmitComment.bind(this);
     this.trackButtons = this.trackButtons.bind(this);
     this.togglePlay = this.togglePlay.bind(this);
+    this.updateComment = this.updateComment.bind(this);
   }
 
   componentDidMount() {
     this.props.fetchTrack(this.props.match.params.trackId)
       .then((track) =>this.props.fetchUser(this.props.track.user_id));
+    window.scrollTo(0, 0);
   }
 
   componentWillReceiveProps (newProps) {
@@ -45,8 +49,21 @@ class TrackShow extends React.Component {
     }
   }
 
-  handleSubmit () {
+  handleSubmitComment(e) {
+    // e.preventDefault();
+    if (e.key === 'Enter') {
+      this.props.createComment(
+        { body: this.state.body,
+          track_id: this.props.track.id,
+          user_id: this.props.currentUser.id
+        }
+      );
+      this.setState({body: ""});
+    }
+  }
 
+  updateComment(e) {
+    this.setState({ body: e.currentTarget.value});
   }
 
   genre() {
@@ -75,7 +92,7 @@ class TrackShow extends React.Component {
       return (<h1>Loading...</h1>)
     }
     let genre = this.props.track.genre ? `# ${this.props.track.genre}` : "";
-    console.log(this.props);
+    // console.log(this.props);
     let user = this.props.users[this.props.track.user_id];
     return <div>
         <div className="main">
@@ -114,28 +131,38 @@ class TrackShow extends React.Component {
                   <img className="form-img" src={this.props.currentUser.profile_img_url} />
                   <div className="comment-input-box">
                     <form onSubmit={this.handleSubmit}>
-                      <input className="comment-input" type="text" placeholder="Write a comment" />
+                      <input 
+                        className="comment-input" 
+                        type="text" 
+                        value={this.state.body}
+                        onChange={this.updateComment}
+                        placeholder="Write a comment" 
+                        onKeyPress={this.handleSubmitComment}
+                      />
                     </form>
                   </div>
                 </div>
                 {this.trackButtons()}
               </div>
               <div className="flex-box">
-                <div className="info-description-box">
-                  <div className="show-user-info">
-                    <div className="user-image-track">
-                      <img className="circle-user-image" src={this.props.users[this.props.track.user_id].profile_img_url} />
+                <div className="flex-comments-info">
+                  <div className="info-description-box">
+                    <div className="show-user-info">
+                      <div className="user-image-track">
+                        <img className="circle-user-image" src={this.props.users[this.props.track.user_id].profile_img_url} />
+                      </div>
+                      <div className="star-wrapper">
+                        <Link className="user-circle-link" to={`/users/${user.id}`}>
+                          {user.username}
+                        </Link>
+                        <div className="star-img"></div>
+                      </div>
                     </div>
-                    <div className="star-wrapper">
-                      <Link className="user-circle-link" to={`/users/${user.id}`}>
-                        {user.username}
-                      </Link>
-                      <div className="star-img"></div>
+                    <div className="description-box"> 
+                      <p className="track-description">{this.props.track.description}</p>
                     </div>
                   </div>
-                  <div className="description-box"> 
-                    <p className="track-description">{this.props.track.description}</p>
-                  </div>
+                  <CommentIndexContainer />
                 </div>
                 <div className="sidebar-flex">
                 </div>

@@ -9,26 +9,32 @@
 User.destroy_all
 Track.destroy_all
 
-ryan = User.create!(username: 'ryan', password: 'password')
+ryan = User.create(username: 'ryan', password: 'password')
 
-demo = User.create!(username: 'user', password: 'password')
+demo = User.create(username: 'user', password: 'password')
 
-odesza = User.create!(username: 'Odesza', password: 'inreturn')
+odesza = User.create(username: 'Odesza', password: 'inreturn', 
+  profile_image: File.open(Rails.root.join("app", "assets", "images/media_seeds/odesza.jpg")), 
+  header_image: File.open(Rails.root.join("app", "assets", "images/media_seeds/moment_apart_tour.jpg")))
 
-drake = User.create!(username: 'Drake', password: 'ovocrew')
+drake = User.create(username: 'Drake', password: 'ovocrew')
 
-foster = User.create!(username: 'Foster', password: 'pumpedkicks')
+foster = User.create(username: 'Foster', password: 'pumpedkicks')
 
-flume = User.create!(username: 'Flume', password: 'lockjaw')
+flume = User.create(username: 'Flume', password: 'lockjaw')
 
-emmit = User.create!(username: 'Emmit Fenn', password: 'password')
+emmit = User.create(username: 'Emmit Fenn', password: 'password')
 
 
 whitelies = Track.create(user_id: odesza.id, title: "White Lies", 
+  description: "From the album 'In Return', out now on Counter-Records.
+  Download 'In Return' on iTunes. Order 'In Return' in 2xLP Vinyl, 24-bit WAV, 16-bit WAV, and MP3.", 
+  year: 2015,
   image: File.open(Rails.root.join("app", "assets", "images/media_seeds/in-return.jpg")), 
   audio: File.open(Rails.root.join("app", "assets", "images/media_seeds/white-lies.mp3")))
 
-how = Track.create(user_id: odesza.id, title: "How Did I Get Here", 
+how = Track.create(user_id: odesza.id, title: "How Did I Get Here", year: 2013,
+  description: "Stream and Download Summer's Gone Download our official app",
   image: File.open(Rails.root.join("app", "assets", "images/media_seeds/summers-gone.jpg")), 
   audio: File.open(Rails.root.join("app", "assets", "images/media_seeds/how-did-i.mp3")))
 
@@ -71,3 +77,15 @@ modern_flame =  Track.create(user_id: emmit.id, title: "Modern Flame",
 sunset_lover = Track.create(user_id: demo.id, title: "Sunset Lover", 
   image: File.open(Rails.root.join("app", "assets", "images/media_seeds/sunset-lover.jpg")), 
   audio: File.open(Rails.root.join("app", "assets", "images/media_seeds/sunset-lover.mp3")))
+
+
+Comment.create(user_id: demo.id, track_id: whitelies.id, body: 'Sweet!')
+Comment.create(user_id: flume.id, track_id: whitelies.id, body: 'Dope beats')
+Comment.create(user_id: flume.id, track_id: whitelies.id, body: 'Nice :)')
+Comment.create(user_id: drake.id, track_id: whitelies.id, body: 'OVO Sound')
+
+
+Comment.create(user_id: demo.id, track_id: how.id, body: 'Sweet!')
+Comment.create(user_id: flume.id, track_id: how.id, body: 'Vibes')
+Comment.create(user_id: flume.id, track_id: how.id, body: 'Nice :) but way too short')
+Comment.create(user_id: emmit.id, track_id: how.id, body: 'My fav track! ')

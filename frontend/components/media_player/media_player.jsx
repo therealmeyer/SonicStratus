@@ -90,6 +90,14 @@ class MediaPlayer extends React.Component {
     this.props.endCurrentTrack();
   }
 
+  albumImage() {
+    if (this.props.track.id === -1) {
+      return <div className="player-album-placeholder"></div>
+    } else {
+      return <img className="player-album" src={this.props.track.album_url} />;
+    }
+  }
+
   render () {
     return (
       <div className="media-player-box">
@@ -175,7 +183,7 @@ class MediaPlayer extends React.Component {
           </div>
           <div className="player-info-box">
             <div >
-              <img className="player-album" src={this.props.track.album_url}></img>
+              {this.albumImage()}
             </div>
             <div className="player-title-user">
               <h4 className="player-user">

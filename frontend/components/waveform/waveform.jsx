@@ -1,6 +1,6 @@
 import React from 'react';
 import WaveSurfer from 'wavesurfer.js';
-
+import {sampleData} from './waveform_const';
 class WaveForm extends React.Component {
 
   constructor (props) {
@@ -10,6 +10,7 @@ class WaveForm extends React.Component {
   }
   
   componentWillReceiveProps(newProps) {
+    // debugger;
     if (newProps.playing && newProps.currentTrack.id === newProps.track.id) {
       this.wavesurfer.play();
     } else {
@@ -36,7 +37,12 @@ class WaveForm extends React.Component {
       barWidth: 2,
       waveColor: this.props.color
     });
-    this.wavesurfer.load(this.props.track.audio_url);
+    
+    // if (this.props.track.peaks.length < 1) {
+      this.wavesurfer.load(this.props.track.audio_url);
+    // } else {
+    //   this.wavesurfer.load(this.props.track.audio_url, this.props.track.peaks);
+    // }
     this.wavesurfer.setMute(true);
     this.wavesurfer.on('seek', e => {
       if (this.props.track.id === this.props.currentTrack.id) {
@@ -45,6 +51,15 @@ class WaveForm extends React.Component {
     });
     this.wavesurfer.on('ready', () => {
       this.setState({duration: this.convertedTime(this.wavesurfer.getDuration())});
+
+      if (this.props.track.peaks.length < 1) {
+        const peaks = this.wavesurfer.exportPCM();
+        const formData = new FormData();
+        formData.append("track[id]", this.props.track.id);
+        formData.append("track[peaks]", peaks);
+        this.props.updateTrack(formData);
+      }
+
       if (this.props.currentTrack.id === this.props.track.id) {
         let seekTime = this.props.setWaveformTo;
         console.log(this.props.currentTime.played);
@@ -79,7 +94,7 @@ class WaveForm extends React.Component {
     let duration = this.duration ? this.duration : "";
     return (
       <div className="waveform-container" style={{width}}>
-        <div id={`waveform-${this.props.track.id}`}></div>
+        <div id={`waveform-${this.props.track.id}`} ></div>
         <div className={timeClass}>{this.state.duration}</div>
         <div className={lineClass}></div>
       </div>

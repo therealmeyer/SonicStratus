@@ -20,7 +20,9 @@ class Track < ApplicationRecord
   validates_attachment_content_type :image, content_type: /\Aimage\/.*\z/
 
   belongs_to :user
-  
+
+  has_many :comments, dependent: :destroy
+
   def audio_remote_url=(url_value)
     self.audio = URI.parse(url_value)
     @audio_remote_url = url_value

@@ -16,9 +16,10 @@ export const receiveTracks = tracks => ({
   tracks
 });
 
-export const receiveTrack = track => ({
+export const receiveTrack = ({track, comments}) => ({
   type: RECEIVE_TRACK,
-  track
+  track, 
+  comments
 });
 
 export const receiveUploadErrors = errors => ({
@@ -45,7 +46,7 @@ export const createTrack = formData => dispatch => {
 
 export const fetchTrack = trackId => dispatch => (
   TrackAPIUtil.fetchTrack(trackId)
-    .then(resTrack => dispatch(receiveTrack(resTrack)))
+    .then(payload => dispatch(receiveTrack(payload)))
 );
 
 export const fetchAllTracks = tracks => dispatch => (
@@ -60,7 +61,7 @@ export const fetchUserTracks = userId => dispatch => (
 
 export const updateTrack = formData => dispatch => (
   TrackAPIUtil.updateTrack(formData)
-    .then(resTrack => (dispatch(receiveTrack(resTrack))
+    .then(payload => (dispatch(receiveTrack(payload))
   ), err => (
     dispatch(receiveUploadErrors(err.responseJSON))
     ))
@@ -68,5 +69,5 @@ export const updateTrack = formData => dispatch => (
 
 
 export const deleteTrack = trackId => dispatch => (
-  TrackAPIUtil.deleteTrack(trackId).then(resTrack => dispatch(removeTrack(resTrack.id)))
+  TrackAPIUtil.deleteTrack(trackId).then(payload => dispatch(removeTrack(payload.track.id)))
 );

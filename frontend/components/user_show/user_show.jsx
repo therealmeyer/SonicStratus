@@ -1,18 +1,16 @@
 import React from 'react';
 import UserIndexContainer from './user_index_container';
-
+import SidebarContainer from '../sidebar/sidebar_container';
 class UserShow extends React.Component {
   constructor(props) {
     super(props);
-    let backgroundProfile = this.props.user.profile_img_url ? 
-      `url(${this.props.user.profile_img_url}` : null;
-    let backgroundHeader = this.props.user.header_img_url ? 
-      `url(${this.props.user.header_img_url}` : null;
+    
+  
     this.state = {
-      profileUrl: this.props.user.profile_img_url,
-      headerUrl: this.props.user.header_img_url,
-      backgroundProfileImg: backgroundProfile || "linear-gradient(135deg, #846170, #70929c)",
-      backgroundHeaderImg: backgroundHeader || "linear-gradient(315deg, rgb(132, 97, 112) 0%, rgb(112, 146, 156) 100%)",
+      profileUrl: '', //this.props.user.profile_img_url,
+      headerUrl: '', //this.props.user.header_img_url,
+      backgroundProfileImg: '', //backgroundProfile || "linear-gradient(135deg, #846170, #70929c)",
+      backgroundHeaderImg: '', // backgroundHeader || "linear-gradient(315deg, rgb(132, 97, 112) 0%, rgb(112, 146, 156) 100%)",
       profileImgFile: null,
       headerImgFile: null
     };
@@ -23,6 +21,22 @@ class UserShow extends React.Component {
   componentDidMount() {
     // debugger;
     this.props.fetchUser(this.props.match.params.userId);
+    window.scrollTo(0,0);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    // debugger;
+    let backgroundProfile = nextProps.user.profile_img_url ?
+      `url(${nextProps.user.profile_img_url}` : null;
+    let backgroundHeader = nextProps.user.header_img_url ?
+      `url(${nextProps.user.header_img_url}` : null;
+
+    this.setState({
+      profileUrl: nextProps.user.header_img_url, 
+      headerUrl: nextProps.user.header_img_url,
+      backgroundProfileImg: backgroundProfile || "linear-gradient(135deg, #846170, #70929c)",
+      backgroundHeaderImg: backgroundHeader || "linear-gradient(315deg, rgb(132, 97, 112) 0%, rgb(112, 146, 156) 100%)"
+    });
   }
 
   updateHeaderImage () {
@@ -131,7 +145,10 @@ class UserShow extends React.Component {
               </div>
               {this.updateHeaderImage()}
             </div>
+          </div>
+          <div className="display-flex">
             <UserIndexContainer />
+            <SidebarContainer />
           </div>
         </div>
       </div>

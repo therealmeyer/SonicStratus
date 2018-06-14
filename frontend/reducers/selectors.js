@@ -31,4 +31,16 @@ export const selectUserTracks = (tracks, userId) => {
     }
   });
   return myTracks;
-}
+};
+
+export const selectTrackComments = (comments, trackId) => {
+  let myComments = [];
+  comments.forEach(comment => {
+    if (comment.track_id === trackId) {
+      myComments.push(comment);
+    }
+  });
+  // debugger;
+  return myComments.reverse();
+};
+

@@ -6,6 +6,7 @@ from '../../actions/current_track_actions';
 import { fetchTrack, deleteTrack } from '../../actions/track_actions';
 import {fetchUser} from '../../actions/user_actions';
 import TrackShow from './track_show';
+import { createComment } from '../../actions/comment_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return ({
@@ -22,7 +23,8 @@ const mapDispatchToProps = dispatch => ({
   deleteTrack: id => dispatch(deleteTrack(id)),
   pausePlayTrack: () => dispatch(pausePlayTrack()),
   receiveCurrentTrack: track => dispatch(receiveCurrentTrack(track)),
-  fetchUser: id => dispatch(fetchUser(id))
+  fetchUser: id => dispatch(fetchUser(id)),
+  createComment: comment => dispatch(createComment(comment))
 });
 
 export default withRouter(

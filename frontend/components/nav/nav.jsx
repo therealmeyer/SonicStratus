@@ -14,7 +14,9 @@ class Nav extends React.Component {
     if (!this.props.currentUser) {
       return <div></div>;
     }
-    console.log("navprops", this.props);
+    // console.log("navprops", this.props);
+    let profileImg = this.props.currentUser.profile_img_url ? 
+      `url(${this.props.currentUser.profile_img_url})` : 'linear-gradient(135deg, #846170, #70929c)';
     return <div>
         <header className="nav">
           <section className="nav-inner">
@@ -44,7 +46,7 @@ class Nav extends React.Component {
                   <Link className="upload" to="/upload">Upload</Link>
                 </li>
                 <li className="user-link">
-                  <span className="user-image-nav"></span>
+                  <span className="user-image-nav" style={{backgroundImage: profileImg}}></span>
                   <Link className="current-user" to={`/users/${this.props.currentUser.id}`}>
                     {this.props.currentUser.username}
                   </Link>

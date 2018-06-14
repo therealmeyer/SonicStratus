@@ -207,6 +207,7 @@ GEM
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
+    time_ago_in_words (0.1.1)
     tzinfo (1.2.5)
       thread_safe (~> 0.1)
     uglifier (4.1.10)
@@ -247,6 +248,7 @@ DEPENDENCIES
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
+  time_ago_in_words
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console (>= 3.3.0)
