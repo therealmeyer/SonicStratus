@@ -76,7 +76,7 @@
   justify-content: center;
   align-items: center;
   margin: 0px 10px;
-  margin-left: 60px;
+  margin-left: 20px;
 }
 
 .track-current-time {
@@ -207,6 +207,15 @@ input[type=range]::-webkit-slider-runnable-track {
   cursor: pointer;
 }
 
+.muted-icon {
+  width: 24px;
+  height: 46px;
+  background: image-url("mute.svg") no-repeat;
+  background-position: center;
+  cursor: pointer;
+  background-size: 18px;
+}
+
 .volume-line-box {
   position: relative;
   
@@ -286,7 +295,7 @@ input[type=range]::-webkit-slider-runnable-track {
   position: absolute;
   left: 930px;
   white-space: nowrap;
-  margin-left: -40px;
+  margin-left: -80px;
 }
 
 .player-album {

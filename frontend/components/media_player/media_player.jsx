@@ -8,9 +8,11 @@ class MediaPlayer extends React.Component {
       url: "",
       played: 0,
       playButtonClass: 'media-play-button',
+      volumeClass: 'volume-icon',
       volume: 0.75,
       lengthTrack: 0,
-      inSeek: false
+      inSeek: false,
+      muted: false
     };
     this.pausePlay = this.pausePlay.bind(this);
     this.ref = this.ref.bind(this);
@@ -22,6 +24,7 @@ class MediaPlayer extends React.Component {
     this.formatTime = this.formatTime.bind(this);
     this.onDuration = this.onDuration.bind(this);
     this.onEnded = this.onEnded.bind(this);
+    this.toggleMute = this.toggleMute.bind(this);
   }
   componentWillReceiveProps(newProps) {
     if (this.props.track.id !== newProps.track.id) {
@@ -99,6 +102,16 @@ class MediaPlayer extends React.Component {
     }
   }
 
+  toggleMute() {
+    if (this.state.muted) {
+      this.setState({volumeClass: 'volume-icon'});
+      this.setState({volume: 0.75});
+    } else {
+      this.setState({ volumeClass: 'muted-icon' });
+      this.setState({volume: 0});
+    }
+    this.setState({muted: !this.state.muted});
+  }
   render () {
     return (
       <div className="media-player-box">
@@ -113,19 +126,20 @@ class MediaPlayer extends React.Component {
             width="0px"
             height="0px"
             onEnded={this.onEnded}
+            muted={this.state.muted}
           />
           <div className="media-player-buttons">
             {/* <i className="fas fa-step-backward backward"></i> */}
-            <button
+            {/* <button
               className="backward">
-            </button>
+            </button> */}
             <button 
               className={this.state.playButtonClass}
               onClick={this.pausePlay}>
             </button>
-            <button 
+            {/* <button 
               className="forward">
-            </button>
+            </button> */}
             {/* <i className="fas fa-step-forward forward"></i> */}
           </div>
           <div className="track-slider-box">
@@ -154,7 +168,7 @@ class MediaPlayer extends React.Component {
           </div>
           <div className="volume-wrapper">
             <div className="volume-modal">
-              <div className="volume-icon"></div>
+              <div className={this.state.volumeClass} onClick={this.toggleMute}></div>
               <p className="pointer"></p>
               <div className="volume-content">
                 <div className="volume-line-box">

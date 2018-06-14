@@ -26,6 +26,12 @@ class WaveForm extends React.Component {
       this.wavesurfer.seekTo(Math.round(seekTime*100000)/100000);
     }
     this.setState({duration: this.props.track.duration});
+
+    // this.wavesurfer.on('finish', () => {
+    //   debugger;
+    //   this.wavesurfer.stop();
+    //   this.wavesurfer.pause();
+    // });
   }
 
   componentDidMount () {
@@ -39,8 +45,11 @@ class WaveForm extends React.Component {
       waveColor: this.props.color
     });
     
+
+    this.wavesurfer.load(this.props.track.audio_url);
+
     // if (this.props.track.peaks.length < 1) {
-      this.wavesurfer.load(this.props.track.audio_url);
+    //   this.wavesurfer.load(this.props.track.audio_url);
     // } else {
     //   this.wavesurfer.load(this.props.track.audio_url, this.props.track.peaks);
     // }
