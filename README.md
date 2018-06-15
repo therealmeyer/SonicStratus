@@ -70,7 +70,7 @@ This continous playback and waveform sync was acheived using a 'dummy waveform' 
 
 ```javascript
   // visible waveform
-  this.wavesurfer = WaveSurfer.create({
+    this.wavesurfer = WaveSurfer.create({
       container: `#waveform-${this.props.track.id}`,
       progressColor: '#f50',
       height: this.props.height,
