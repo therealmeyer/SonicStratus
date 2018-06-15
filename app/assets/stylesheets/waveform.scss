@@ -21,9 +21,9 @@
   height: 40px;
   z-index: 5;
   position: absolute;
-  top: 32px;
   // opacity: 0.5;
   background-color: rgba(255, 255, 255, 0.5);
+  top: 32px;
 }
 
 .waveform-time-index {
@@ -48,4 +48,21 @@
   z-index: 9;
   padding: 1px 2px;
   border-radius: 2px;
+}
+
+.waveform-dummy-show wave {
+  opacity: 0 !important;
+  top: 110px;
+  z-index: 1000;
+}
+
+.waveform-dummy-index wave {
+  opacity: 0 !important;
+  // top: 60px;
+  z-index: 1000;
+}
+
+.waveform-dummy-index {
+  position: absolute;
+  width: 600px;
 }

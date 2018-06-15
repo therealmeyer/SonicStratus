@@ -7,6 +7,7 @@ class WaveForm extends React.Component {
     super(props);
     this.state = { duration: null };
     // this.convertedTime = this.convertedTime.bind(this);
+    this.handleInputChange = this.handleInputChange.bind(this);
   }
   
   componentWillReceiveProps(newProps) {
@@ -44,12 +45,24 @@ class WaveForm extends React.Component {
       cursorWidth: 0,
       barHeight: 1,
       barWidth: 2,
-      waveColor: this.props.color
+      waveColor: this.props.color,
+      interact: false
     });
     
+    this.wavesurfer_dummy = WaveSurfer.create({
+      container: `#waveform-dummy-${this.props.track.id}`,
+      // progressColor: ,
+      height: this.props.height,
+      cursorWidth: 0,
+      barHeight: 1,
+      barWidth: 2,
+      waveColor: this.props.color,
+      // display: 'hidden'
+    });
+
     //Loading waveform
     this.wavesurfer.load(this.props.track.audio_url);
-
+    this.wavesurfer_dummy.load(this.props.track.audio_url);
     // if (this.props.track.peaks.length < 1) {
     //   this.wavesurfer.load(this.props.track.audio_url);
     // } else {
@@ -58,6 +71,7 @@ class WaveForm extends React.Component {
 
 
     this.wavesurfer.setMute(true);
+    this.wavesurfer_dummy.setMute(true);
     // seek to correct time on mount
     if (this.props.currentTrack.id === this.props.track.id) {
       // console.log(this.props.currentTime.played * this.wavesurfer.getDuration());
@@ -66,19 +80,24 @@ class WaveForm extends React.Component {
       // this.wavesurfer.skip(Math.round((this.props.currentTime.played + 0.001) * 1000000) / 1000000);
       // console.log(Math.round((this.props.currentTime.played + 0.001) * 1000000) / 1000000);
     }
-    this.wavesurfer.on('seek', e => {
+    //need this 
+    this.wavesurfer_dummy.on('seek', e => {
       if (this.props.track.id === this.props.currentTrack.id) {
         this.props.setPlayerTo(e);
+        this.wavesurfer.seekTo(e);
       }
     });
     this.wavesurfer.on('ready', () => {
-      this.setState({ duration: this.convertedTime(this.wavesurfer.getDuration()) });
-      // let currentTime = this.props.currentTime.played;
-      // if (this.props.currentTrack.id === this.props.track.id) {
-      //   console.log("duration", this.state.duration);
-      //   console.log("current*duration", currentTime * this.state.duration);
-      //   this.wavesurfer.setCurrentTime(this.props.currentTime.played * this.state.duration);
-      // }
+      let durationTrack = this.wavesurfer.getDuration();
+      this.setState({ duration: this.convertedTime(durationTrack) });
+      let currentTime = this.props.currentTime.played;
+      let duration = this.state.duration;
+      // debugger;
+      if (this.props.currentTrack.id === this.props.track.id) {
+        console.log("duration", durationTrack);
+        console.log("current*duration", currentTime * durationTrack);
+        this.wavesurfer.setCurrentTime((this.props.currentTime.played * durationTrack)+(0.0025*durationTrack));
+      }
       // let state = this.state.duration;
       // debugger;
       // if (!this.track.duration) {
@@ -111,6 +130,11 @@ class WaveForm extends React.Component {
   //   this.props.setWaveform(time/duration);
   // }
 
+  handleInputChange (e) {
+    debugger;
+    this.props.setPlayerTo(e.currentTarget.value);
+    
+  }
 
   convertedTime(seconds) {
     let date = new Date(null);
@@ -129,11 +153,17 @@ class WaveForm extends React.Component {
       'waveform-show-line';
     let timeClass = this.props.height === 60 ? 'waveform-time-index' : 'waveform-time-show';
     let duration = this.state.duration ? this.state.duration : "";
+    let dummyClass = this.props.height === 60 ? 'waveform-dummy-index' : 'waveform-dummy-show';
     return (
       <div className="waveform-container" style={{width}}>
+        <div className={dummyClass} id={`waveform-dummy-${this.props.track.id}`} ></div>
         <div id={`waveform-${this.props.track.id}`} ></div>
         <div className={timeClass}>{duration}</div>
         <div className={lineClass}></div>
+        {/* <input type='range' min={0} max={1}
+          step='any' onChange={this.handleInputChange}
+          style={{height: '50px', position: 'absolute', bottom: '50px'}}
+        /> */}
       </div>
     );
   }

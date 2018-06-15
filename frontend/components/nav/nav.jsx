@@ -9,6 +9,10 @@ class Nav extends React.Component {
     };
   }
 
+  // componentWillReceiveProps(newProps) {
+    
+  // }
+
   render () {
     // console.log(this.props);
     if (!this.props.currentUser) {

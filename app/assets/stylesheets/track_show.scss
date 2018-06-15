@@ -59,6 +59,9 @@
 .show-play-button:hover {
   background-color: #ff3400;
 }
+.show-pause-button:hover {
+  background-color: #ff3400;
+}
 
 .track-show-title-user {
   display: flex;
@@ -177,7 +180,7 @@
   height: 40px;
   z-index: 5;
   position: absolute;
-  top: 60px;
+  bottom: 10px;
   // background-color: rgba(255, 255, 255, 0.5);
 }
 

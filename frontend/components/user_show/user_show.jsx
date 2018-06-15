@@ -32,7 +32,7 @@ class UserShow extends React.Component {
     
     // debugger;
     // if (nextProps.user) {
-    debugger;
+    // debugger;
     if (this.props.match.params.userId !== nextProps.match.params.userId) {
       this.props.fetchUser(nextProps.match.params.userId);
         // let backgroundProfile = nextProps.user.profile_img_url === "/profile_images/original/missing.png" ?
