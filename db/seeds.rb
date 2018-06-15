@@ -25,7 +25,7 @@ drake = User.create(username: 'Drake', password: 'ovocrew',
 
 foster = User.create(username: 'Foster the People', password: 'pumpedkicks',
   profile_image: File.open(Rails.root.join("app", "assets", "images/media_seeds/foster-user.jpg")), 
-  header_image: File.open(Rails.root.join("app", "assets", "images/media_seeds/foster-cover.png")))
+  header_image: File.open(Rails.root.join("app", "assets", "images/media_seeds/foster-cover.jpg")))
 
 flume = User.create(username: 'Flume', password: 'lockjaw', 
   profile_image: File.open(Rails.root.join("app", "assets", "images/media_seeds/flume-user.jpeg")), 
