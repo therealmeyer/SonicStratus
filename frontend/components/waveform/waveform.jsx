@@ -24,8 +24,8 @@ class WaveForm extends React.Component {
       // if (newProps.setWaveformTo > 1.0) {
       //   seekTime = seekTime/this.wavesurfer.getDuration();
       // }
-      console.log(seekTime);
-      console.log(Math.round(seekTime * 10000) / 10000);
+      //console.log(seekTime);
+      //console.log(Math.round(seekTime * 10000) / 10000);
       this.wavesurfer.seekTo(Math.round(seekTime*100000)/100000);
     }
     if (this.props.currentTime.played === 0) {
@@ -67,8 +67,8 @@ class WaveForm extends React.Component {
     });
 
     //Loading waveform
-    this.wavesurfer.load(this.props.track.audio_url);
-    this.wavesurfer_dummy.load(this.props.track.audio_url);
+    // this.wavesurfer.load(this.props.track.audio_url);
+    // this.wavesurfer_dummy.load(this.props.track.audio_url);
 
 
     //loading waveform with peaks
@@ -87,9 +87,9 @@ class WaveForm extends React.Component {
     // seek to correct time on mount
     if (this.props.currentTrack.id === this.props.track.id) {
       // console.log(this.props.currentTime.played * this.wavesurfer.getDuration());
-      
+      // this.wavesurfer.setCurrentTime((currentTime * durationTrack) + (0.0025 * durationTrack));
       // this.wavesurfer.skip(25);
-      // this.wavesurfer.skip(Math.round((this.props.currentTime.played + 0.001) * 1000000) / 1000000);
+      this.wavesurfer.skip(Math.round((this.props.currentTime.played + 0.001) * 1000000) / 1000000);
       // console.log(Math.round((this.props.currentTime.played + 0.001) * 1000000) / 1000000);
     }
     //need this 
@@ -113,10 +113,10 @@ class WaveForm extends React.Component {
       let traId = this.props.track.id;
       // debugger;
       if (this.props.currentTrack.id === this.props.track.id) {
-        console.log("currentTime", currentTime);
-        console.log("duration", durationTrack);
-        console.log("current*duration", currentTime * durationTrack);
-        this.wavesurfer.setCurrentTime((currentTime * durationTrack)+(0.0025*durationTrack));
+        //console.log("currentTime", currentTime);
+        //console.log("duration", durationTrack);
+        //console.log("current*duration", currentTime * durationTrack);
+        // this.wavesurfer.setCurrentTime((currentTime * durationTrack)+(0.0025*durationTrack));
       }
       // let state = this.state.duration;
       // debugger;

@@ -234,12 +234,13 @@
 .description-box {
   margin: 30px;
   width: 600px;
-  height: 100px;
+  // height: 100px;
   margin-left: 46px;
 }
 
 .track-description {
   font-size: 14px;
+  white-space: pre-wrap;
 }
 
 .sidebar-flex {
