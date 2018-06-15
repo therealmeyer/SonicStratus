@@ -3,6 +3,7 @@
 # SonicStratus
 SonicStratus (SoundCloud Clone) is an Audio Discovery app that allows users to dynamically share and interact with music. Users can create, stream, update, delete, and comment on tracks. 
 [SonicStratus Live](https://sonic-stratus.herokuapp.com/#/)
+
 ![Site](https://s3-us-west-1.amazonaws.com/sonicstratus/README/site-page.png)
 
 ## Technologies
