@@ -60,13 +60,48 @@ Waveform visualizations are drawn using Wavesurfer.js. The audio is loaded and d
 ```
 
 ### Continuous Playback and Waveform Synchronization
-![Good performance](https://s3-us-west-1.amazonaws.com/sonicstratus/README/waveform-sync.gif)
+![Sync](https://s3-us-west-1.amazonaws.com/sonicstratus/README/waveform-sync.gif)
 
 The user can navigate to multiple pages while listening to music. Changing pages does not cause an interupt in the playback. `Media Player` Component listens for the current track, which is stored in the state, and passes in the AWS audio file link to `React Player` in order to play the track. This Component allows users to pause, play, change volume, and seek through the track. This `Media Player` Component is always rendered at the bottom of the page. 
 
 The waveforms for the current track are kept in sync on page changes. When a user plays a song from the '/stream' page or the track show page. They can navigate to other pages and the waveform of the track they are currently listening to stays in sync with the player. Users can also seek through the waveform or the player and both will show the correct current time. The waveform and the player are directly reliant on each other, which creates a dynamic that is difficult to manage during page changes. The original solution to this problem was to keep track of the current time of the track in my global state, and user this current time to set the waveform on the page change. However, the current time is not always exactly up to date when loading and changing pages. This caused a slight break/delay in playback on the page changes because setting waveform would directly effect the player. 
 
 This continous playback and waveform sync was acheived using a 'dummy waveform' in which the dummy waveform was overlayed on top of the actual waveform visualiztion. The dummy waveform controls the seeking of the track, while the visualization waveform only shows the visualization. This way, when the current time is set on the waveform during page switches the player isn't directly affected and there is no lag in the audio due to load time of the page. 
+
+```javascript
+  // visible waveform
+  this.wavesurfer = WaveSurfer.create({
+      container: `#waveform-${this.props.track.id}`,
+      progressColor: '#f50',
+      height: this.props.height,
+      cursorWidth: 0,
+      barHeight: 1,
+      barWidth: 2,
+      waveColor: this.props.color,
+      interact: false
+    });
+    //invisble waveform
+    this.wavesurfer_dummy = WaveSurfer.create({
+      container: `#waveform-dummy-${this.props.track.id}`,
+      height: this.props.height,
+      cursorWidth: 0,
+      barHeight: 1,
+      barWidth: 2,
+      waveColor: this.props.color,
+    });
+    
+    // set time wavesurfer time 
+    if (this.props.currentTrack.id === this.props.track.id) {
+      this.wavesurfer.skip(Math.round((this.props.currentTime.played) * 1000000) / 1000000);
+    }
+    // on dummy seek set the player and the waveform
+    this.wavesurfer_dummy.on('seek', e => {
+      if (this.props.track.id === this.props.currentTrack.id) {
+        this.props.setPlayerTo(e);
+        this.wavesurfer.seekTo(e);
+      }
+    });
+```
 
 ## Future Plans and Improvements
 #### Search
