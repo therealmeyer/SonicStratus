@@ -58,7 +58,7 @@ Waveform visualizations are drawn using Wavesurfer.js. The audio is loaded and d
   
 ```
 
-###Continuous Playback and Waveform Synchronization
+### Continuous Playback and Waveform Synchronization
 ![Good performance](https://s3-us-west-1.amazonaws.com/sonicstratus/README/waveform-sync.gif)
 
 The user can navigate to multiple pages while listening to music. Changing pages does not cause an interupt in the playback. `Media Player` Component listens for the current track, which is stored in the state, and passes in the AWS audio file link to `React Player` in order to play the track. This Component allows users to pause, play, change volume, and seek through the track. This `Media Player` Component is always rendered at the bottom of the page. 
