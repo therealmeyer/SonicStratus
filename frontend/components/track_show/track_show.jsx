@@ -50,8 +50,8 @@ class TrackShow extends React.Component {
   }
 
   handleSubmitComment(e) {
-    // e.preventDefault();
     if (e.key === 'Enter') {
+      e.preventDefault();
       this.props.createComment(
         { body: this.state.body,
           track_id: this.props.track.id,
@@ -60,6 +60,9 @@ class TrackShow extends React.Component {
       );
       this.setState({body: ""});
     }
+    // } else {
+    //   this.setState({ body: e.currentTarget.value });
+    // }
   }
 
   updateComment(e) {
@@ -130,14 +133,14 @@ class TrackShow extends React.Component {
                 <div className="comment-form">
                   <img className="form-img" src={this.props.currentUser.profile_img_url} />
                   <div className="comment-input-box">
-                    <form onSubmit={this.handleSubmit}>
+                    <form >
                       <input 
                         className="comment-input" 
                         type="text" 
                         value={this.state.body}
+                        onKeyDown={this.handleSubmitComment}
                         onChange={this.updateComment}
                         placeholder="Write a comment" 
-                        onKeyPress={this.handleSubmitComment}
                       />
                     </form>
                   </div>

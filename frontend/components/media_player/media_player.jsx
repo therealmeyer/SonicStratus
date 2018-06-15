@@ -10,6 +10,7 @@ class MediaPlayer extends React.Component {
       playButtonClass: 'media-play-button',
       volumeClass: 'volume-icon',
       volume: 0.75,
+      previousVolume: 0.75,
       lengthTrack: 0,
       inSeek: false,
       muted: false
@@ -105,8 +106,9 @@ class MediaPlayer extends React.Component {
   toggleMute() {
     if (this.state.muted) {
       this.setState({volumeClass: 'volume-icon'});
-      this.setState({volume: 0.75});
+      this.setState({volume: this.state.previousVolume});
     } else {
+      this.setState({previousVolume: this.state.volume});
       this.setState({ volumeClass: 'muted-icon' });
       this.setState({volume: 0});
     }
@@ -154,7 +156,7 @@ class MediaPlayer extends React.Component {
                 onMouseDown={this.seekClick}
                 onMouseUp={this.seekUnClick}
                 onChange={this.seekChange}
-                // onMouseOver={this.showSlider}
+      
               />
               <div className="playback-slider-track"></div>
               <div 

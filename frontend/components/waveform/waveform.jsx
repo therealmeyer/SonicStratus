@@ -28,7 +28,7 @@ class WaveForm extends React.Component {
       console.log(Math.round(seekTime * 10000) / 10000);
       this.wavesurfer.seekTo(Math.round(seekTime*100000)/100000);
     }
-    this.setState({duration: this.props.track.duration});
+    // this.setState({duration: this.props.track.duration});
 
     // this.wavesurfer.on('finish', () => {
     //   debugger;

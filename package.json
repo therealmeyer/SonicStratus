@@ -9,6 +9,7 @@
     "jsmediatags": "^3.8.1",
     "lodash": "^4.17.10",
     "mp3-duration": "^1.1.0",
+    "mp3-length": "^1.0.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-modal": "^3.4.5",
