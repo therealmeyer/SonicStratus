@@ -67,3 +67,16 @@ The waveforms for the current track are kept in sync on page changes. When a use
 
 This continous playback and waveform sync was acheived using a 'dummy waveform' in which the dummy waveform was overlayed on top of the actual waveform visualiztion. The dummy waveform controls the seeking of the track, while the visualization waveform only shows the visualization. This way, when the current time is set on the waveform during page switches the player isn't directly affected and there is no lag in the audio due to load time of the page. 
 
+## Future Plans and Improvements
+#### Search
+- [ ] Implement search for tracks and users. 
+#### Queue for songs
+- [ ] Implement a queue for tracks so that tracks can play continuously one after another
+- [ ] User can queue up next song to play
+#### Likes
+- [ ] Allow users to like songs 
+#### Plays 
+- [ ] Keep track of how many times a trak is played
+#### Playlists
+- [ ] Allow users to make playlists 
+
