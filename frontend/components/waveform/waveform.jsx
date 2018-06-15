@@ -5,7 +5,7 @@ class WaveForm extends React.Component {
 
   constructor (props) {
     super(props);
-    this.state = { duration: null };
+    this.state = { duration: this.props.track.duration };
     // this.convertedTime = this.convertedTime.bind(this);
     // this.handleInputChange = this.handleInputChange.bind(this);
   }
@@ -27,6 +27,12 @@ class WaveForm extends React.Component {
       console.log(seekTime);
       console.log(Math.round(seekTime * 10000) / 10000);
       this.wavesurfer.seekTo(Math.round(seekTime*100000)/100000);
+    }
+    if (this.props.currentTime.played === 0) {
+      this.wavesurfer.seekTo(0.00001);
+    }
+    if (this.props.track.duration) {
+      this.setState({duration: this.props.track.duration});
     }
     // this.setState({duration: this.props.track.duration});
 
@@ -66,6 +72,7 @@ class WaveForm extends React.Component {
 
 
     //loading waveform with peaks
+    // debugger;
     if (this.props.track.peaks.length < 1) {
       this.wavesurfer.load(this.props.track.audio_url);
       this.wavesurfer_dummy.load(this.props.track.audio_url);
@@ -113,17 +120,22 @@ class WaveForm extends React.Component {
       }
       // let state = this.state.duration;
       // debugger;
-      // if (!this.props.track.duration) {
-      //   this.setState({duration: this.convertedTime(this.wavesurfer.getDuration())});
-      //   const formData = new FormData();
-      //   formData.append("track[id]", this.props.track.id);
-      //   formData.append("track[duration]", this.state.duration);
-      //   this.props.updateTrack(formData).then(payload => {
-      //     // debugger;
-      //     this.setState({ duration: payload.track.duration });
-      //   });
-      // }
+      if (!this.props.track.duration) {
+        // this.setState({duration: this.convertedTime(this.wavesurfer.getDuration())});
+        const formData = new FormData();
+        formData.append("track[id]", this.props.track.id);
+        formData.append("track[duration]", this.convertedTime(durationTrack));
+        this.props.updateTrack(formData).then(payload => {
+          // debugger;
+          this.setState({ duration: this.convertedTime(payload.track.duration) });
+        });
+      } else {
+        this.setState({ duration: this.props.track.duration})
+      }
       // debugger;
+      // if (!this.props.track) {
+
+      // }
       if (this.props.track.peaks.length < 1) {
         const peaks = this.wavesurfer.exportPCM(1024,1000000,false,0);
         const formData = new FormData();
@@ -135,6 +147,7 @@ class WaveForm extends React.Component {
       
       // this.duration = this.convertedTime();
     });
+    
   }
 
   // componentWillUnmount () {

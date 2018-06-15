@@ -107,9 +107,9 @@ class TrackShow extends React.Component {
                   <div onClick={this.togglePlay} className={this.state.playButtonClass} />
                   <div className="track-show-title-user">
                     <div className="wrapper">
-                      <div className="show-track-user">
+                      <Link to={`/users/${user.id}`} className="show-track-user">
                         {this.props.track.user}
-                      </div>
+                      </Link>
                     </div>
                     <div className="show-track-title">
                       {this.props.track.title}

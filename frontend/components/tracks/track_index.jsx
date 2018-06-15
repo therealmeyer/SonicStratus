@@ -9,7 +9,9 @@ class TrackIndex extends React.Component {
   }
 
   render() {
-
+    if (!this.props.tracks) {
+      return (<div></div>);
+    }
     return (
       <div>
         <header className="stream-header">
