@@ -12,10 +12,10 @@ SonicStratus (SoundCloud Clone) is an Audio Discovery app that allows users to d
 * Ruby on Rails
 * POSTGRESQL
 * AWS-S3 Storage
-* Wavesurfer.js
+* Wavesurfer.js (waveform visualizer)
 * BCrypt (user authentication)
-* Paperclip 
-* Figaro 
+* Paperclip (save files to AWS)
+* Figaro (protect secret key info)
 
 ## Features 
 ### Audio Waveforms
