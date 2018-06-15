@@ -7,11 +7,15 @@ class Nav extends React.Component {
     this.state = {
       homeClass: 'stream',
     };
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   // componentWillReceiveProps(newProps) {
     
   // }
+  handleSubmit(e) {
+    e.preventDefault();
+  }
 
   render () {
     // console.log(this.props);
@@ -40,7 +44,7 @@ class Nav extends React.Component {
                 <form className="nav-search-form">
                   <input className="nav-search-input" 
                   placeholder="Search for artists, bands, tracks, podcasts"
-                  type="search"/>
+                  type="search" onSubmit={this.handleSubmit}/>
                   <button className="nav-search-submit"></button>
                 </form>
               </div>

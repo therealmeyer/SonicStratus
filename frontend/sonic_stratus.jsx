@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { login, signup, logout } from './util/session_api_util';
+// import { login, signup, logout } from './util/session_api_util';
 import configureStore from './store/store';
 import Root from './components/root';
 import { createTrack, fetchTrack, fetchAllTracks, 
@@ -22,17 +22,17 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configureStore();
   }
 
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
+  // window.getState = store.getState;
+  // window.dispatch = store.dispatch;
   // window.login = login;
   // window.signup = signup;
-  window.logout = logout;
+  // window.logout = logout;
 
-  window.createTrack = createTrack;
-  window.fetchUserTracks = fetchUserTracks;
-  window.fetchAllTracks = fetchAllTracks;
-  window.updateTrack = updateTrack;
-  window.deleteTrack = deleteTrack;
+  // window.createTrack = createTrack;
+  // window.fetchUserTracks = fetchUserTracks;
+  // window.fetchAllTracks = fetchAllTracks;
+  // window.updateTrack = updateTrack;
+  // window.deleteTrack = deleteTrack;
 
   ReactDOM.render(<Root store={store} />, root);
 });
