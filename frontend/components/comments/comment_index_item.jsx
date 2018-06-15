@@ -4,6 +4,7 @@ const CommentIndexItem = (props) => {
   // debugger;
   let profileImg = props.comment.user_img === "/profile_images/original/missing.png" ?
     'linear-gradient(135deg, #846170, #70929c)' : `url(${props.comment.user_img})`;
+  let deleteClass = props.track.user_id === props.currentUser.id ? "delete-comment" : "hide-delete";
   return (
     <div className="comment-container">
       <div className="comment-user-image" style={{backgroundImage: profileImg}} />
@@ -21,7 +22,13 @@ const CommentIndexItem = (props) => {
         <div className="comment-time">
           {props.comment.timestamp}
         </div>
+        <div className={deleteClass} >
+          <button className="delete-button" onClick={() => props.deleteComment(props.comment.id)}>
+          <i className="fas fa-trash"></i>
+          </button>
+        </div>
       </div>
+
     </div>
   );
 }

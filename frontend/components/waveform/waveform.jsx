@@ -7,7 +7,7 @@ class WaveForm extends React.Component {
     super(props);
     this.state = { duration: null };
     // this.convertedTime = this.convertedTime.bind(this);
-    this.handleInputChange = this.handleInputChange.bind(this);
+    // this.handleInputChange = this.handleInputChange.bind(this);
   }
   
   componentWillReceiveProps(newProps) {
@@ -63,11 +63,16 @@ class WaveForm extends React.Component {
     //Loading waveform
     this.wavesurfer.load(this.props.track.audio_url);
     this.wavesurfer_dummy.load(this.props.track.audio_url);
-    // if (this.props.track.peaks.length < 1) {
-    //   this.wavesurfer.load(this.props.track.audio_url);
-    // } else {
-    //   this.wavesurfer.load(this.props.track.audio_url, this.props.track.peaks);
-    // }
+
+
+    //loading waveform with peaks
+    if (this.props.track.peaks.length < 1) {
+      this.wavesurfer.load(this.props.track.audio_url);
+      this.wavesurfer_dummy.load(this.props.track.audio_url);
+    } else {
+      this.wavesurfer.load(this.props.track.audio_url, this.props.track.peaks);
+      this.wavesurfer_dummy.load(this.props.track.audio_url, this.props.track.peaks);
+    }
 
 
     this.wavesurfer.setMute(true);
@@ -88,19 +93,27 @@ class WaveForm extends React.Component {
       }
     });
     this.wavesurfer.on('ready', () => {
+      // debugger;
       let durationTrack = this.wavesurfer.getDuration();
-      this.setState({ duration: this.convertedTime(durationTrack) });
-      let currentTime = this.props.currentTime.played;
-      let duration = this.state.duration;
+      // if (!this.props.track.duration) {
+        // this.setState({ duration: this.convertedTime(durationTrack) });
+      // } else {
+      //   this.setState({duration: this.props.track.duration});
+      // }
+      let currentTime = this.props.currentTime.played || 0;
+      // let duration = this.state.duration;
+      let currId = this.props.currentTrack.id;
+      let traId = this.props.track.id;
       // debugger;
       if (this.props.currentTrack.id === this.props.track.id) {
+        console.log("currentTime", currentTime);
         console.log("duration", durationTrack);
         console.log("current*duration", currentTime * durationTrack);
-        this.wavesurfer.setCurrentTime((this.props.currentTime.played * durationTrack)+(0.0025*durationTrack));
+        this.wavesurfer.setCurrentTime((currentTime * durationTrack)+(0.0025*durationTrack));
       }
       // let state = this.state.duration;
       // debugger;
-      // if (!this.track.duration) {
+      // if (!this.props.track.duration) {
       //   this.setState({duration: this.convertedTime(this.wavesurfer.getDuration())});
       //   const formData = new FormData();
       //   formData.append("track[id]", this.props.track.id);
@@ -111,14 +124,14 @@ class WaveForm extends React.Component {
       //   });
       // }
       // debugger;
-      // if (this.props.track.peaks.length < 1) {
-      //   const peaks = this.wavesurfer.exportPCM(1024,1000000,false,0);
-      //   const formData = new FormData();
-      //   formData.append("track[id]", this.props.track.id);
-      //   formData.append("track[peaks]", peaks);
+      if (this.props.track.peaks.length < 1) {
+        const peaks = this.wavesurfer.exportPCM(1024,1000000,false,0);
+        const formData = new FormData();
+        formData.append("track[id]", this.props.track.id);
+        formData.append("track[peaks]", peaks);
         
-      //   this.props.updateTrack(formData);
-      // }
+        this.props.updateTrack(formData);
+      }
       
       // this.duration = this.convertedTime();
     });
@@ -129,12 +142,6 @@ class WaveForm extends React.Component {
   //   const duration = this.wavesurfer.getDuration();
   //   this.props.setWaveform(time/duration);
   // }
-
-  handleInputChange (e) {
-    debugger;
-    this.props.setPlayerTo(e.currentTarget.value);
-    
-  }
 
   convertedTime(seconds) {
     let date = new Date(null);
@@ -160,10 +167,6 @@ class WaveForm extends React.Component {
         <div id={`waveform-${this.props.track.id}`} ></div>
         <div className={timeClass}>{duration}</div>
         <div className={lineClass}></div>
-        {/* <input type='range' min={0} max={1}
-          step='any' onChange={this.handleInputChange}
-          style={{height: '50px', position: 'absolute', bottom: '50px'}}
-        /> */}
       </div>
     );
   }

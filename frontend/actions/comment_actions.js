@@ -10,9 +10,10 @@ export const receiveComment = ({track, comments}) => ({
   comments
 });
 
-export const removeComment = id => ({
+export const removeComment = ({track, comments}) => ({
   type: DELETE_COMMENT,
-  commentId: id
+  track, 
+  comments
 });
 
 export const createComment = comment => dispatch => (

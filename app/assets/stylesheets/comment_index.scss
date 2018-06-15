@@ -56,9 +56,25 @@
 .timestamp-wrapper {
   width: 100%;
   justify-content: right;
+  position: relative;
 }
 
 .comment-time {
   color: #999;
   float: right;
+}
+
+.delete-comment {
+  position: absolute;
+  right: 0px;
+  top: 14px;
+  display: none;
+}
+
+.hide-delete {
+  display: none;
+}
+
+.comment-container:hover .delete-comment{
+  display: block;
 }

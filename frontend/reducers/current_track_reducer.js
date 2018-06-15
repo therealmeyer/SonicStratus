@@ -26,13 +26,13 @@ const currentTrackReducer = (state = defaultState, action) => {
   let newState = merge({}, state);
   switch(action.type) {
     case RECEIVE_CURRENT_TRACK: 
-      newState = merge(newState, {track: action.track});
+      newState = merge(newState, {track: action.track, currentTime: {played: 0.00}});
       return newState;
     case PAUSE_PLAY_TRACK:
-      newState = merge(newState, {playing: !state.playing})
+      newState = merge(newState, {playing: !state.playing});
       return newState;
     case SET_TIME:
-      newState = merge(newState, {currentTime: action.time})
+      newState = merge(newState, {currentTime: action.time});
       return newState;
     case SET_PLAYER_TO:
       newState = merge(newState, {setPlayerTo: action.time});

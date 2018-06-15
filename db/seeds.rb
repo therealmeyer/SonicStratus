@@ -34,61 +34,61 @@ emmit = User.create(username: 'Emmit Fenn', password: 'password',
   header_image: File.open(Rails.root.join("app", "assets", "images/media_seeds/emitt-fenn-cover.jpg")))
 
 
-whitelies = Track.create(user_id: odesza.id, title: "White Lies", genre: 'Electronic',
+whitelies = Track.create(user_id: odesza.id, title: "White Lies", genre: 'Electronic', duration: "4:37",
   description: "From the album 'In Return', out now on Counter-Records.\n
   Download 'In Return' on iTunes. \nOrder 'In Return' in 2xLP Vinyl, 24-bit WAV, 16-bit WAV, and MP3.", 
   year: 2015,
   image: File.open(Rails.root.join("app", "assets", "images/media_seeds/in-return.jpg")), 
   audio: File.open(Rails.root.join("app", "assets", "images/media_seeds/white-lies.mp3")))
 
-how = Track.create(user_id: odesza.id, title: "How Did I Get Here", year: 2013, genre: 'Chill',
+how = Track.create(user_id: odesza.id, title: "How Did I Get Here", year: 2013, genre: 'Chill', duration: "2:08",
   description: "Stream and Download Summer's Gone \n \nDownload our official app",
   image: File.open(Rails.root.join("app", "assets", "images/media_seeds/summers-gone.jpg")), 
   audio: File.open(Rails.root.join("app", "assets", "images/media_seeds/how-did-i.mp3")))
 
-meridian = Track.create(user_id: odesza.id, title: "Meridian", year: 2017, genre: 'Electronic',
+meridian = Track.create(user_id: odesza.id, title: "Meridian", year: 2017, genre: 'Electronic', duration: "3:56",
   description: " Imaginary circle in a plane perpendicular to the planes of the celestial equator and horizon\n\n
   An imaginary arc on the Earth's surface from the North Pole to the South Pole",
   image: File.open(Rails.root.join("app", "assets", "images/media_seeds/moment-apart.jpg")), 
   audio: File.open(Rails.root.join("app", "assets", "images/media_seeds/meridian.mp3")))
 
-boy = Track.create(user_id: odesza.id, title: "Boy", year: 2017, genre: 'Chill',
+boy = Track.create(user_id: odesza.id, title: "Boy", year: 2017, genre: 'Chill', duration: "3:04",
   description: "A boy is a young male human, usually a child or adolescent. \n When he becomes an adult, he is described as a man.",
   image: File.open(Rails.root.join("app", "assets", "images/media_seeds/moment-apart.jpg")), 
   audio: File.open(Rails.root.join("app", "assets", "images/media_seeds/boy.mp3")))
 
-gp = Track.create(user_id: drake.id, title: "God's Plan", year: 2018, genre: 'Hip Hop',
+gp = Track.create(user_id: drake.id, title: "God's Plan", year: 2018, genre: 'Hip Hop', duration: "3:19",
   description: "God's plan, or the Will of God. \n The saving of a soul from sin and its consequences",
   image: File.open(Rails.root.join("app", "assets", "images/media_seeds/scary_hours.jpg")), 
   audio: File.open(Rails.root.join("app", "assets", "images/media_seeds/gods-plan.mp3")))
 
-sit = Track.create(user_id: foster.id, title: "Sit Next to Me", year: 2018, genre: 'Alternative',
+sit = Track.create(user_id: foster.id, title: "Sit Next to Me", year: 2018, genre: 'Alternative', duration: "4:06",
   description: "Released by:\nColumbia\n\nRelease date:\n21 July 2017\n\nP-line:\n
 ℗ 2017 (P) 2017 Columbia Records, a Division of Sony Music Entertainment",
   image: File.open(Rails.root.join("app", "assets", "images/media_seeds/sacred-hearts.jpg")), 
   audio: File.open(Rails.root.join("app", "assets", "images/media_seeds/sit-next-to-me.mp3")))
 
-pumpedkicks = Track.create(user_id: foster.id, title: "Pumped Up Kicks", year: 2010, genre: 'Alternative',
+pumpedkicks = Track.create(user_id: foster.id, title: "Pumped Up Kicks", year: 2010, genre: 'Alternative', duration: "3:31",
   image: File.open(Rails.root.join("app", "assets", "images/media_seeds/torches.jpg")), 
   audio: File.open(Rails.root.join("app", "assets", "images/media_seeds/pumpedup-kicks.mp3")))
   
-never = Track.create(user_id: flume.id, title: "Never Be Like You", genre: 'Flume step',
+never = Track.create(user_id: flume.id, title: "Never Be Like You", genre: 'Flume step', duration: "3:55",
   image: File.open(Rails.root.join("app", "assets", "images/media_seeds/skin.jpg")), 
   audio: File.open(Rails.root.join("app", "assets", "images/media_seeds/never-be-like.mp3")))
 
-thisong =  Track.create(user_id: flume.id, title: "This Song is Not About a Girl", 
+thisong =  Track.create(user_id: flume.id, title: "This Song is Not About a Girl", duration: "4:14",
   image: File.open(Rails.root.join("app", "assets", "images/media_seeds/lockjaw.jpg")), 
   audio: File.open(Rails.root.join("app", "assets", "images/media_seeds/this_song_is.mp3")))
 
-insane = Track.create(user_id: flume.id, title: "Insane", genre: 'Flume step',
+insane = Track.create(user_id: flume.id, title: "Insane", genre: 'Flume step', duration: "3:34",
   image: File.open(Rails.root.join("app", "assets", "images/media_seeds/flume.jpg")), 
   audio: File.open(Rails.root.join("app", "assets", "images/media_seeds/insane.mp3")))
 
-modern_flame =  Track.create(user_id: emmit.id, title: "Modern Flame", genre: 'Electronic',
+modern_flame =  Track.create(user_id: emmit.id, title: "Modern Flame", genre: 'Electronic', duration: "3:05",
   image: File.open(Rails.root.join("app", "assets", "images/media_seeds/prologue2.jpg")), 
   audio: File.open(Rails.root.join("app", "assets", "images/media_seeds/modern-flame.mp3")))
 
-sunset_lover = Track.create(user_id: demo.id, title: "Sunset Lover", genre: 'Chill',
+sunset_lover = Track.create(user_id: demo.id, title: "Sunset Lover", genre: 'Chill', duration: "3:58",
   image: File.open(Rails.root.join("app", "assets", "images/media_seeds/sunset-lover.jpg")), 
   audio: File.open(Rails.root.join("app", "assets", "images/media_seeds/sunset-lover.mp3")))
 
@@ -97,7 +97,6 @@ Comment.create(user_id: demo.id, track_id: whitelies.id, body: 'Sweet!')
 Comment.create(user_id: flume.id, track_id: whitelies.id, body: 'Dope beats')
 Comment.create(user_id: flume.id, track_id: whitelies.id, body: 'Nice :)')
 Comment.create(user_id: drake.id, track_id: whitelies.id, body: 'OVO Sound')
-
 
 Comment.create(user_id: demo.id, track_id: how.id, body: 'Sweet!')
 Comment.create(user_id: flume.id, track_id: how.id, body: 'Vibes')
@@ -113,5 +112,12 @@ Comment.create(user_id: drake.id, track_id: pumpedkicks.id, body: 'hohooohoo')
 Comment.create(user_id: odesza.id, track_id: pumpedkicks.id, body: 'Yesyesyes')
 Comment.create(user_id: demo.id, track_id: pumpedkicks.id, body: 'Totally! ')
 Comment.create(user_id: demo.id, track_id: pumpedkicks.id, body: 'My Jam!')
+
+Comment.create(user_id: drake.id, track_id: boy.id, body: 'Sweet Awesome')
+Comment.create(user_id: ryan.id, track_id: boy.id, body: 'Yesyesyes')
+Comment.create(user_id: emmit.id, track_id: boy.id, body: 'Totally! ')
+Comment.create(user_id: demo.id, track_id: boy.id, body: 'So under-rated')
+Comment.create(user_id: demo.id, track_id: boy.id, body: "Let's Gooo!")
+
 
 

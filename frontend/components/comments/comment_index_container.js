@@ -11,6 +11,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     comments: selectTrackComments(trackComments, trackId),
     count: state.entities.tracks[trackId].comment_count,
+    track: state.entities.tracks[trackId],
     currentUser: state.session.currentUser
   };
 };
@@ -20,6 +21,6 @@ const mapDispatchToProps = dispatch => ({
   deleteComment: commentId => dispatch(deleteComment(commentId))
 });
 
-export default withRouter(connect(mapStateToProps)(CommentIndex));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(CommentIndex));
 
 

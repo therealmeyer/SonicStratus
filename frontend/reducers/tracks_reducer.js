@@ -3,7 +3,7 @@ import {
   RECEIVE_TRACK, 
   DELETE_TRACK 
 } from '../actions/track_actions';
-import { RECEIVE_COMMENT } from '../actions/comment_actions';
+import { RECEIVE_COMMENT, DELETE_COMMENT } from '../actions/comment_actions';
 import merge from 'lodash/merge';
 
 const tracksReducer = (oldState = {}, action) => {
@@ -17,6 +17,9 @@ const tracksReducer = (oldState = {}, action) => {
       return newState;
     case DELETE_TRACK:
       delete newState[action.trackId];
+      return newState;
+    case DELETE_COMMENT:
+      newState[action.track.id] = action.track;
       return newState;
     case RECEIVE_COMMENT:
       newState[action.track.id] = action.track;
