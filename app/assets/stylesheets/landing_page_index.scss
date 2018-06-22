@@ -16,6 +16,7 @@
   width: 168px;
   height: 168px;
   cursor: pointer;
+  position: relative;
 }
 
 .lp-title {
@@ -49,6 +50,60 @@
   box-sizing: border-box;
   margin: 0 auto;
   text-align: center;
+}
+
+.landing-paused-button {
+  position: absolute;
+  display: none;
+  width: 55px;
+  height: 55px;
+  left: 55px;
+  bottom: 50px;
+  background: #f50;
+  background-image: image-url("pause.svg");
+  border-radius: 100%;
+  background-size: 35%;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  // margin-left: 15px;
+  // margin-top: 5px;
+}
+
+
+
+.landing-paused-button:hover {
+  background-color: #ff3400;
+}
+
+.landing-play-button {
+  position: absolute;
+  display: none;
+  width: 55px;
+  height: 55px;
+  left: 55px;
+  bottom: 50px;
+  background: #f50;
+  background-image: image-url("play.svg");
+  border-radius: 100%;
+  background-size: 32%;
+  background-position: 55% 50%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  // margin-left: 15px;
+  // margin-top: 5px;
+}
+
+.landing-play-button:hover {
+  background-color: #ff3400;
+}
+
+.lp-album-cover:hover .landing-play-button {
+  display: block
+}
+
+.lp-album-cover:hover .landing-paused-button {
+  display: block
 }
 
 // .front-mobile-teaser {

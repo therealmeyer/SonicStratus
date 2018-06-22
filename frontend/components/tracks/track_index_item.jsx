@@ -124,8 +124,10 @@ class TrackIndexItem extends React.Component {
         </div>
         {this.genre()}
         <div className="num-comments">
+        <Link to={`/tracks/${track.id}`}>
           <i className="fas fa-comment-alt comment-icon" />
           {this.props.track.comment_count}
+        </Link>
         </div>
       </li>;
   }

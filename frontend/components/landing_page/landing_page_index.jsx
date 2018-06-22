@@ -15,7 +15,11 @@ class LandingPageIndex extends React.Component {
         <ul className="landing-page-index-list">
 
           {this.props.tracks.map(track => (
-            <LandingPageIndexItem key={track.id}
+            <LandingPageIndexItem 
+              key={track.id}
+              currentTrack={this.props.currentTrack}
+              receiveCurrentTrack={this.props.receiveCurrentTrack}
+              pausePlayTrack={this.props.pausePlayTrack}
               track={track}
              />
           ))}
