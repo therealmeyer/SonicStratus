@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactPlayer from 'react-player';
+import { Link } from 'react-router-dom';
 
 class MediaPlayer extends React.Component {
   constructor(props) {
@@ -203,12 +204,16 @@ class MediaPlayer extends React.Component {
               {this.albumImage()}
             </div>
             <div className="player-title-user">
-              <h4 className="player-user">
-                {this.props.track.user}
-              </h4>
-              <h3 className="player-title">
-                {this.props.track.title}
-              </h3>
+              {/* <Link to={`/users/${this.props.track.user.id}`}> */}
+                <h4 className="player-user">
+                  {this.props.track.user}
+                </h4>
+              {/* </Link> */}
+              <Link to={`/tracks/${this.props.track.id}`}>
+                <h3 className="player-title">
+                  {this.props.track.title}
+                </h3>
+              </Link>
             </div>
           </div>
         </div>

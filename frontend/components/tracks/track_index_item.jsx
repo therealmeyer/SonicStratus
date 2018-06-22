@@ -98,16 +98,14 @@ class TrackIndexItem extends React.Component {
     const { track } = this.props;
     const genre = track.genre ? `#${track.genre}` : ""
     // debugger;
-    return (
-      <li className="track-index-item">
+    return <li className="track-index-item">
         <div className="album-cover-link">
-          <Link to="#" >
+          <Link to={`/tracks/${track.id}`}>
             <img className="album-img" src={track.album_url} alt="album-cover" />
           </Link>
         </div>
         <div className="track-item">
-          <div className={this.state.playButtonClass} onClick={this.togglePlay}>
-          </div>
+          <div className={this.state.playButtonClass} onClick={this.togglePlay} />
           <div className="track-item-links">
             <Link className="track-item-artist" to={`/users/${track.user_id}`}>
               {track.user}
@@ -117,25 +115,19 @@ class TrackIndexItem extends React.Component {
             </Link>
           </div>
           <div className="item-waveform">
-            <WaveformContainer 
-              track={this.props.track}
-              height={60}
-              color={"#666"}
-            />
+            <WaveformContainer track={this.props.track} height={60} color={"#666"} />
           </div>
         </div>
-          <div className="track-item-buttons">
-            {this.editLink()}
-            {this.deleteButton()}
-          </div>
-          {this.genre()}
+        <div className="track-item-buttons">
+          {this.editLink()}
+          {this.deleteButton()}
+        </div>
+        {this.genre()}
         <div className="num-comments">
-          <i className="fas fa-comment-alt comment-icon"></i>
+          <i className="fas fa-comment-alt comment-icon" />
           {this.props.track.comment_count}
         </div>
-          
-      </li>
-    );
+      </li>;
   }
 }
 
