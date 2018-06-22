@@ -120,31 +120,50 @@ class WaveForm extends React.Component {
       }
       // let state = this.state.duration;
       // debugger;
-      if (!this.props.track.duration) {
+      if (!this.props.track.duration || this.props.track.peaks.length < 1) {
         // this.setState({duration: this.convertedTime(this.wavesurfer.getDuration())});
+
+        // const data = {track: {id: this.props.track.id, 
+        //   duration: this.convertedTime(durationTrack),
+        //   peaks: this.wavesurfer.exportPCM(1024, 1000000, false, 0)
+        //   }
+        // };
+
+        // this.props.updateTrack(data).then(payload => {
+        //   // debugger;
+        //   this.setState({ duration: this.convertedTime(payload.track.duration) });
+        // });
+      
+
         const formData = new FormData();
         formData.append("track[id]", this.props.track.id);
         formData.append("track[duration]", this.convertedTime(durationTrack));
+
+        //newly added code
+        const peaks = this.wavesurfer.exportPCM(1024, 1000000, false, 0);
+        formData.append("track[peaks]", peaks);
+        //
         this.props.updateTrack(formData).then(payload => {
           // debugger;
           this.setState({ duration: this.convertedTime(payload.track.duration) });
         });
       } else {
-        this.setState({ duration: this.props.track.duration})
+        this.setState({ duration: this.props.track.duration});
       }
       // debugger;
       // if (!this.props.track) {
 
       // }
-      if (this.props.track.peaks.length < 1) {
-        const peaks = this.wavesurfer.exportPCM(1024,1000000,false,0);
-        const formData = new FormData();
-        formData.append("track[id]", this.props.track.id);
-        formData.append("track[peaks]", peaks);
+      //old code
+      // if (this.props.track.peaks.length < 1) {
+      //   const peaks = this.wavesurfer.exportPCM(1024,1000000,false,0);
+      //   const formData = new FormData();
+      //   formData.append("track[id]", this.props.track.id);
+      //   formData.append("track[peaks]", peaks);
         
-        this.props.updateTrack(formData);
-      }
-      
+      //   this.props.updateTrack(formData);
+      // }
+      //old code
       // this.duration = this.convertedTime();
     });
     

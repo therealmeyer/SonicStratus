@@ -21,9 +21,9 @@ SonicStratus (SoundCloud Clone) is an Audio Discovery app that allows users to d
 ### Audio Waveforms
 ![Waveform](https://s3-us-west-1.amazonaws.com/sonicstratus/README/show-waveform.png)
 Waveform visualizations are drawn using Wavesurfer.js. The audio is loaded and decoded dynamically for each track, and drawn with Canvas. Audio peaks are drawn to visualize the spectrum of the frequencies that exist in the track. Originally, these waveforms were being decoded and drawn every time the page was loaded. This caused extremely poor performance. On first load of the stream page, almost 100 MB of data was being transferred and it took close to 30 seconds for the entire page to be fully loaded. My solution to this problem was to store the peaks data of the waveform in a JSON array and send this to the database. On subsequent loads, the peaks data can be provided to the waveform visualizer and the waveform can be drawn immediately. This resulted in much faster performance, as data transfer reduced to 190 KB and the full load of the page took 2-3 seconds rather than 30 seconds. 
-#### Bad Performance (~100 MB transferred)
+#### Sub-Optimal Performance (~100 MB transferred)
 ![Bad performance](https://s3-us-west-1.amazonaws.com/sonicstratus/README/bad-performance.png)
-#### Good Performance (~190 KB transferred)
+#### Optimized Performance (~190 KB transferred)
 ![Good performance](https://s3-us-west-1.amazonaws.com/sonicstratus/README/good-performane.png)
 
 ```javascript
