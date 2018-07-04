@@ -204,11 +204,11 @@ class MediaPlayer extends React.Component {
               {this.albumImage()}
             </div>
             <div className="player-title-user">
-              {/* <Link to={`/users/${this.props.track.user.id}`}> */}
+              <Link to={`/users/${this.props.track.user_id}`}>
                 <h4 className="player-user">
                   {this.props.track.user}
                 </h4>
-              {/* </Link> */}
+              </Link>
               <Link to={`/tracks/${this.props.track.id}`}>
                 <h3 className="player-title">
                   {this.props.track.title}

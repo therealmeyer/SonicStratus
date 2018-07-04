@@ -140,11 +140,12 @@ class WaveForm extends React.Component {
         formData.append("track[duration]", this.convertedTime(durationTrack));
 
         //newly added code
-        const peaks = this.wavesurfer.exportPCM(1024, 1000000, false, 0);
+        const peaks = this.wavesurfer.exportPCM(1024, 10, false, 0);
+        console.log(peaks);
         formData.append("track[peaks]", peaks);
         //
+        console.log("formdata", formData);
         this.props.updateTrack(formData).then(payload => {
-          // debugger;
           this.setState({ duration: this.convertedTime(payload.track.duration) });
         });
       } else {

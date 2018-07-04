@@ -1,5 +1,8 @@
 class User < ApplicationRecord 
 
+  include PgSearch 
+    multisearchable :against => :username
+
   attr_reader :password
 
   validates :username, :password_digest, :session_token, presence: true

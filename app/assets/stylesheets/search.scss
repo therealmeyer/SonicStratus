@@ -1,0 +1,42 @@
+.hidden-search {
+  background: black;
+  display: hidden;
+  position: absolute;
+}
+
+.block-search {
+  background: black;
+  width: 535px;
+  display: block;
+  position: absolute;
+  top: 46px;
+  left: 0px;
+}
+
+.search-item-header {
+  color: #ccc;
+  font-size: 14px;
+  display: flex;
+  background: #333;
+  border-bottom: 0.5px solid black;
+  padding: 5px;
+  padding-left: 15px;
+  font-weight: 500;
+}
+
+.search-item {
+  color: #bbb;
+  font-size: 14px;
+  display: flex;
+  padding: 5px;
+  padding-left: 15px;
+}
+
+.search-item:hover {
+  background: #333;
+}
+
+.search-item-icon {
+  color: #bbb;
+  margin-right: 15px;
+}

@@ -1,5 +1,7 @@
 class Track < ApplicationRecord
   validates :user_id, :title, presence: true
+  include PgSearch 
+    multisearchable :against => :title #[:title], :using => [:tsearch, :trigram :dmetaphone]
   # https://devcenter.heroku.com/articles/paperclip-s3
   # https://www.rubydoc.info/github/thoughtbot/paperclip/Paperclip/Validators/HelperMethods
   # https://rubyplus.com/articles/3821-File-Uploads-using-Paperclip-in-Rails-5

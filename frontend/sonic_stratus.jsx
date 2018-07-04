@@ -5,7 +5,7 @@ import configureStore from './store/store';
 import Root from './components/root';
 import { createTrack, fetchTrack, fetchAllTracks, 
   updateTrack, deleteTrack, fetchUserTracks } from './util/track_api_util';
-
+import { fetchSearch } from './util/search_api_util';
 
 document.addEventListener('DOMContentLoaded', () => {
   let store;
@@ -21,6 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     store = configureStore();
   }
+
+  window.fetchSearch = fetchSearch;
 
   // window.getState = store.getState;
   // window.dispatch = store.dispatch;
