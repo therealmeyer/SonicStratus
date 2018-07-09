@@ -18,11 +18,15 @@
 
 .nothing-image {
   width: 250px;
+  height: 200px;
   margin-top: 35px;
+  background-image: image-url("nothing-to-hear.png");
+  background-size: 100%;
+  background-position: 50% 50%;
 }
 
 .nothing-text {
-  margin-top: 20px;
+  margin-top: 25px;
   font-size: 14px;
 }
 

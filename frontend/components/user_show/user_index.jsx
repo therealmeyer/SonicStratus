@@ -11,8 +11,8 @@ class UserIndex extends React.Component {
     if (this.props.tracks.length === 0) {
       return (
         <div className="user-nothing-list">
-          <img class="nothing-image" src="./assets/images/nothing-to-hear.png" />
-          <p class="nothing-text">Nothing to hear here</p>
+          <div className="nothing-image"></div>
+          <p className="nothing-text">Nothing to hear here</p>
 
         </div>
       );
