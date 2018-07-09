@@ -7,29 +7,45 @@ class UserIndex extends React.Component {
     this.props.fetchUserTracks(this.props.match.params.userId);
   }
 
+  tracks () {
+    if (this.props.tracks.length === 0) {
+      return (
+        <div className="user-nothing-list">
+          <img class="nothing-image" src="./assets/images/nothing-to-hear.png" />
+          <p class="nothing-text">Nothing to hear here</p>
+
+        </div>
+      );
+    }
+    else {
+      return (
+      <ul className="user-index-list">
+
+        {this.props.tracks.map(track => (
+          <TrackIndexItem
+            key={track.id} track={track}
+            currentUser={this.props.currentUser}
+            currentTrack={this.props.currentTrack}
+            deleteTrack={this.props.deleteTrack}
+            receiveCurrentTrack={this.props.receiveCurrentTrack}
+            pausePlayTrack={this.props.pausePlayTrack}
+          />
+        ))}
+      </ul>
+      );
+    }
+  }
+
   render() {
     if (!this.props.tracks) {
       return <div>Loading</div>
     }
-    // debugger;
     return (
       <div>
         <header className="user-tracks-header">
           <h1 className="user-tracks-title">Tracks</h1>
         </header>
-        <ul className="user-index-list">
-
-          {this.props.tracks.map(track => (
-            <TrackIndexItem
-              key={track.id} track={track}
-              currentUser={this.props.currentUser}
-              currentTrack={this.props.currentTrack}
-              deleteTrack={this.props.deleteTrack}
-              receiveCurrentTrack={this.props.receiveCurrentTrack}
-              pausePlayTrack={this.props.pausePlayTrack}
-            />
-          ))}
-        </ul>
+        {this.tracks()}
       </div>
     );
   }

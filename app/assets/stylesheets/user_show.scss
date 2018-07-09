@@ -4,6 +4,27 @@
   width: 800px;
   margin: 30px;
 }
+.user-nothing-list {
+  padding: 25px,
+  15px;
+  box-sizing: border-box;
+  width: 800px;
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #333;
+}
+
+.nothing-image {
+  width: 250px;
+  margin-top: 35px;
+}
+
+.nothing-text {
+  margin-top: 20px;
+  font-size: 14px;
+}
 
 .user-tracks-header {
   border-bottom: 1px solid #f2f2f2;
