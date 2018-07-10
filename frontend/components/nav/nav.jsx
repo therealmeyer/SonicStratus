@@ -19,9 +19,11 @@ class Nav extends React.Component {
     
   }
 
-  // componentWillReceiveProps(newProps) {
-    
-  // }
+  componentDidUpdate(prevProps) {
+    if (this.props.location !== prevProps.location) {
+      this.setState({query: ""});
+    }
+  }
   handleSubmit(e) {
     e.preventDefault();
   }
