@@ -42,7 +42,8 @@ class LandingPageIndexItem extends React.Component {
           <img className="lp-album-image" src={track.album_url} alt="album-cover"/>
           <div className={this.state.playButtonClass} onClick={this.togglePlay} />
         </div>
-        <h3 className="lp-title">{track.title}</h3>
+        <h3 className="lp-title">
+          {track.title.length > 17 ? track.title.slice(0,16) + "..." : track.title}</h3>
         <h4 className="lp-artist">{track.user}</h4>
       </li>
     );
