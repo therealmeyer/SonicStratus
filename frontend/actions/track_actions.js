@@ -49,7 +49,7 @@ export const fetchTrack = trackId => dispatch => (
     .then(payload => dispatch(receiveTrack(payload)))
 );
 
-export const fetchAllTracks = tracks => dispatch => (
+export const fetchAllTracks = () => dispatch => (
   TrackAPIUtil.fetchAllTracks()
     .then(resTracks => dispatch(receiveTracks(resTracks)))
 );

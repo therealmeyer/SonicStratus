@@ -83,7 +83,7 @@ class Nav extends React.Component {
             </ul>
             <div className="nav-middle">
               <div className="nav-search">
-                <form className="nav-search-form">
+                <form onSubmit={this.handleSubmit} className="nav-search-form">
                   <input 
                   onFocus={() => (this.state.query.length > 0) ? this.setState({display: true}) : null}
                   onBlur={this.hideResults}
