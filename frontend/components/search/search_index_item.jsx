@@ -37,7 +37,11 @@ class SearchIndexItem extends React.Component {
     } else if (result.searchable_type === "Track") {
       return (
         <Link to={`/tracks/${result.searchable_id}`}>
-          <li className="search-item" style={{ paddingLeft: "15px", background: background }} key={result.searchable_id}>
+          <li className="search-item" 
+            onMouseEnter={() => this.setState({ background: "#333" })}
+            onMouseLeave={() => this.setState({ background: "black" })} 
+            style={{ paddingLeft: "15px", background: this.state.background }} 
+            key={result.searchable_id}>
             <i className="fa fa-search search-item-icon" aria-hidden="true"></i>
             <p>{result.content}</p>
           </li>
