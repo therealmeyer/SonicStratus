@@ -9,14 +9,16 @@ class Nav extends React.Component {
       homeClass: 'stream',
       query: "",
       display: false,
-      loading: false
+      loading: false,
+      cursor: null
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInput = this.handleInput.bind(this);
     this.fetchResults = this.fetchResults.bind(this);
     this.renderResults = this.renderResults.bind(this);
     this.hideResults = this.hideResults.bind(this);
-    
+    this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.clearCursor = this.clearCursor.bind(this);
   }
 
   componentDidUpdate(prevProps) {
@@ -29,15 +31,57 @@ class Nav extends React.Component {
   }
 
   handleInput(e) {
+    if (e.keyCode === 13 || e.keyCode === 40 || e.keyCode === 38) {
+      e.preventDefault();
+      return;
+    }
     if (!this.props.currentUser.username) {
       this.signInSearch();
     }
     if (e.target.value === "") {
       this.props.clearSearch();
-      this.setState({ query: e.target.value, display: false, loading: false});
+      this.setState({ query: e.target.value, display: false, loading: false, cursor: null});
     } else {
       this.setState({ query: e.target.value, display: true, loading: true});
     }
+  }
+
+  handleKeyDown(e) {
+    
+    const { cursor } = this.state;
+    const { searchResults } = this.props;
+    // arrow up/down button should select next/previous list element
+    if (e.keyCode === 38 && cursor && cursor > 0 ) {
+      e.preventDefault();
+      this.setState(prevState => ({
+        cursor: prevState.cursor - 1
+      }))
+    } 
+    else if (e.keyCode === 40 && cursor === null) {
+      e.preventDefault();
+      this.setState({ cursor: 0 });
+    }
+    else if (e.keyCode === 40 && cursor < searchResults.length - 1) {
+      e.preventDefault();
+      this.setState(prevState => ({
+        cursor: prevState.cursor + 1
+      }))
+    }
+    else if (e.keyCode === 13 && cursor !== null) {
+      e.preventDefault();
+      const item = searchResults[cursor] 
+      if (item.searchable_type === "User") {
+        window.location.href = `/#/users/${item.searchable_id}`;
+        this.setState({ query: e.target.value, display: false, loading: false, cursor: null });
+      } else if (item.searchable_type === "Track") {
+        window.location.href = `/#/tracks/${item.searchable_id}`;
+        this.setState({ query: e.target.value, display: false, loading: false, cursor: null });
+      }
+    }
+  }
+
+  clearCursor() {
+    this.setState({ cursor: null });
   }
 
   fetchResults() {
@@ -46,13 +90,13 @@ class Nav extends React.Component {
   }
 
   hideResults() {
-    setTimeout( () => this.setState({display: false}), 50);
+    setTimeout( () => this.setState({display: false, cursor: null}), 50);
   }
 
   renderResults() {
     const { searchResults } = this.props;
     if (searchResults && this.state.display) {
-      return <SearchIndex display={this.state.display} query={this.state.query} results={searchResults} />
+      return <SearchIndex display={this.state.display} query={this.state.query} results={searchResults} clearCursor={this.clearCursor} index={this.state.cursor}/>
     } else {
       return null;
     }
@@ -85,6 +129,7 @@ class Nav extends React.Component {
               <div className="nav-search">
                 <form onSubmit={this.handleSubmit} className="nav-search-form">
                   <input 
+                  onKeyDown={this.handleKeyDown}
                   onFocus={() => (this.state.query.length > 0) ? this.setState({display: true}) : null}
                   onBlur={this.hideResults}
                   className="nav-search-input" 
